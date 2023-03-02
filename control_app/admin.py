@@ -11,8 +11,8 @@ class TenantAdmin(admin.ModelAdmin):
     list_display = ('name', 'user_id', 'description', 'address','id' )
 
 
-class Entity_user_admin(admin.ModelAdmin):
-    
+#class Entity_user_admin(admin.ModelAdmin):
+   
 
 
 

@@ -16,6 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+#The name of the site / site header.
+admin.site.site_header = "Curaduría Unica de Sogamoso"
+
+# The site title, which it's visualized in the tab of the browser.
+admin.site.site_title = "Curaduría"
+
+# The site index, which it's visualized in the main menu.
+admin.site.index_title = "Control de flujo de procesos"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     #path('control_app/', include('control_app.urls'))
