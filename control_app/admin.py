@@ -9,10 +9,12 @@ class TenantAdmin(admin.ModelAdmin):
         ('Details', {'fields':['description','address']})
         ]
     list_display = ('name', 'user_id', 'description', 'address','id' )
+    #list_filter = ('id')
+    ordering = ('name', '-id')
+    #search_fields = ('name')
 
-
-#class Entity_user_admin(admin.ModelAdmin):
-   
+#class Entity_user_Admin(admin.ModelAdmin):
+#   list_per_page = 20
 
 
 
