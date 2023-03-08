@@ -8,3 +8,4 @@ Steps:
    3.1 - Superuser: control_admin, password: Cur4dur14//
    
 4. Flowchart. 
+5. Create all DB models
