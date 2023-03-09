@@ -1,5 +1,9 @@
 from django.contrib import admin
-from .models import Tenant, Entity_User
+from .models import (
+    Tenant, Entity_User, Document, Procedure, Action, TimeStamp,
+    Role, RolePermissions,
+)
+
 
 # Register your models here.
 
@@ -17,5 +21,13 @@ class TenantAdmin(admin.ModelAdmin):
 #   list_per_page = 20
 
 
-
 admin.site.register(Tenant, TenantAdmin)
+admin.site.register(Entity_User)
+admin.site.register(Document)
+admin.site.register(Procedure)
+admin.site.register(Action)
+admin.site.register(TimeStamp)
+admin.site.register(Role)
+admin.site.register(RolePermissions)
+
+
