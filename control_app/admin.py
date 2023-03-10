@@ -13,12 +13,22 @@ class TenantAdmin(admin.ModelAdmin):
         ('Details', {'fields':['description','address']})
         ]
     list_display = ('name', 'user_id', 'description', 'address','id' )
+    #list_filter = ('name')
+    ordering = ('name', '-id')
+    #search_fields = ('name')
+
+class Entity_UserAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None,{'fields':['full_name', 
+                         'tenant_id', 'id',
+                         ]}),
+        
+        ]
+    list_display = ('full_name', 'tenant_id', 'id' )
     #list_filter = ('id')
     ordering = ('name', '-id')
     #search_fields = ('name')
 
-#class Entity_user_Admin(admin.ModelAdmin):
-#   list_per_page = 20
 
 
 admin.site.register(Tenant, TenantAdmin)
