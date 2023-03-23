@@ -18,13 +18,13 @@ class Entity_User(models.Model):
     id = models.AutoField(primary_key=True)
     #role_id = models.ForeignKey(Role, on_delete=models.RESTRICT)
     tenant_id = models.ForeignKey(Tenant, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=20)
-    last_name = models.CharField(max_length=20)
-    full_name = first_name, last_name
+    first_name = models.TextField(max_length=20)
+    last_name = models.TextField(max_length=20)
+    #full_name = (first_name, last_name)
     related_name = ("Entity User")
 
     def __str__(self):
-        return self.related_name
+        return (self.first_name) 
 
 
 class Document(models.Model):
@@ -67,11 +67,12 @@ class TimeStamp(models.Model):
     # Create a timestamp for changes.
     id = models.AutoField(primary_key=True)
     action_id = models.ForeignKey(Action, on_delete=models.PROTECT)
-    date = dateformat.format(timezone.now(), "Y-m-d H:i:s")
+    date = models.DateTimeField(default=timezone.now)
     user_id = models.ForeignKey(Entity_User, on_delete=models.PROTECT)
 
     def __str__(self):
-        return f"El {self.user_id} realizó la acción {self.action_id} el {self.date}."
+        return f"{self.action_id} - {self.date} - {self.user_id}"
+
 
 class BridgeUserProcedure(models.ManyToManyField):
     # Create relationship betwen User and Procedure.
