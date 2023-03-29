@@ -18,8 +18,8 @@ class Entity_User(models.Model):
     id = models.AutoField(primary_key=True)
     #role_id = models.ForeignKey(Role, on_delete=models.RESTRICT)
     tenant_id = models.ForeignKey(Tenant, on_delete=models.CASCADE)
-    first_name = models.TextField(max_length=20)
-    last_name = models.TextField(max_length=20)
+    first_name = models.CharField(max_length=20)
+    last_name = models.CharField(max_length=20)
     #full_name = (first_name, last_name)
     related_name = ("Entity User")
 
