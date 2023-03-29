@@ -91,5 +91,3 @@ admin.site.register(Role, RoleAdmin)
 admin.site.register(RolePermissions, RolePermissionsAdmin)
 admin.site.register(Tenant, TenantAdmin)
 admin.site.register(TimeStamp, TimeStampAdmin)
-
-
