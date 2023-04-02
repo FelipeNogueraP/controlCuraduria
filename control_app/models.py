@@ -123,6 +123,7 @@ class UniqueNationalForm(models.Model):
         ProfessionalResponsible, on_delete=models.CASCADE)
     document_id = models.ForeignKey(Document, on_delete=models.CASCADE)
 
+
 class GeneralData(models.Model):
     """Create the seccion 0 Datos Generales of form"""
     responsible_office = models.CharField(max_length=50)
@@ -131,7 +132,113 @@ class GeneralData(models.Model):
     filing_number_year = models.IntegerField()
     filing_number_consecutive = models.IntegerField()
     date = models.DateField()
-    geographic_location = models.ForeignKey(GeographicLocation, on_delete=models.DO_NOTHING)
+    geographic_location = models.ForeignKey(
+        GeographicLocation, on_delete=models.DO_NOTHING)
 
 
+class GeographicLocation(models.Model):
+    """ Create Graphic Location its used in table General data """
+    department = models.CharField(max_length=50)
+    municipality = models.CharField(max_length=50)
+    vereda = models.CharField(max_length=50)
+
+
+class Request(models.Model):
+    """ Create seccion 1 Identificacion de la solicitud """
+    """ 1.9 CULTURAL BUILDING """
+    cultural_building = models.BooleanField()
+
+
+class BrRequestTypeProcedure(models.ManyToManyField):
+    """ BRIDGE - REQUEST & 1.1 TIPO DE TRAMITE """
+    request_id = models.ForeignKey(Request, on_delete=models.DO_NOTHING)
+    type_procedure = models.ForeignKey(Request, on_delete=models.DO_NOTHING)
+
+
+class TypeProcedure(models.Model):
+    """ 1.1 TIPO DE TRAMITE """
+    name = models.CharField(max_length=50)
+
+
+class BrRequestProcedureObjective(models.ManyToManyField):
+    """ BRIDGE - REQUEST & 1.2 OBJETO DEL TRAMITE """
+    request_id = models.ForeignKey(Request, on_delete=models.DO_NOTHING)
+    procedure_objective_id = models.ForeignKey(
+        Request, on_delete=models.DO_NOTHING)
+    other_detail_id = models.ForeignKey(
+        OtherDetail, on_delete=models.DO_NOTHING)
+
+
+class ProcedureObjective(models.Model):
+    """ 1.2 OBJETO DEL TRAMITE """
+    name = models.CharField(max_length=50)
+
+
+class BrTypeProcedureModality(models.ManyToManyField):
+    """BRIDGE - TYPEPROCEDURE & 1.3 MODALIDAD LICENCIA URBANIZACION, 1.4 MODALIDAD SUBDVISION, 1.5 MODALIDAD LICENCIA DE CONSTRUCCION"""
+    type_procedure_id = models.ForeignKey(
+        TypeProcedure, on_delete=models.DO_NOTHING)
+    modality_id = models.ForeignKey(Modality, on_delete=models.DO_NOTHING)
+
+
+class Modality(models.Model):
+    """ 1.3 MODALIDAD LICENCIA URBANIZACION, 1.4 MODALIDAD SUBDVISION, 1.5 MODALIDAD LICENCIA DE CONSTRUCCION """
+    name = models.CharField(max_length=50)
+
+
+class BrRequestTypeUse(models.ManyToManyField):
+    """ BRIDGE - REQUEST & 1.6 USOS """
+    request_id = models.ForeignKey(Request, on_delete=models.DO_NOTHING)
+    type_uses_id = models.ForeignKey(Request, on_delete=models.DO_NOTHING)
+
+
+class Uses(models.Model):
+    """ 1.6 USOS """
+    name = models.CharField(max_length = 50)
+    other_detail_id = models.ForeignKey(
+        OtherDetail, on_delete=models.DO_NOTHING)
+
+class BrRequestBuildArea(models.ManyToManyField):
+    """ BRIDGE - Request & 1.7 AREAS O UNIDADES CONSTRUIDAS """
+    request_id = models.ForeignKey(Request, on_delete = models.DO_NOTHING)
+    build_area_id = models.ForeignKey(BuildArea, on_delete = models.DO_NOTHING)
+
+
+class BuildArea(models.Model):
+    """ 1.8 AREAS O UNIDADES CONSTRUIDAS """
+    name = models.CharField(max_length = 50)
+
+
+class BrRequestHousingType(models.ManyToManyField):
+    """ BRIDGE - Request & 1.8 TIPO DE VIVIENDA """
+    request_id = models.ForeignKey(Request, on_delete = models.DO_NOTHING)
+    housing_type = models.ForeignKey(Request, on_delete = models.DO_NOTHING)
+
+
+class HousingType(models.Model):
+    """ 1.8 TIPO DE VIVIENDA """
+    name = models.CharField(max_length = 50)
+
+
+class BrRequestInstitutionalType(models.ManyToManyField):
+    """ BRIDGE - Request & 1.10 TIPO INSTITUCIONAL """
+    request_id = models.ForeignKey(Request, on_delete = models.DO_NOTHING)
+    institutional_type = models.ForeignKey(InstitutionalType, on_delete = models.DO_NOTHING)
+    
+
+
+class InstitutionalType(models.Model):
+    """ 1.10 Tipo Institucional """
+    name = models.CharField(max_length = 50)
+    other_detail_id = models.ForeignKey(
+        OtherDetail, on_delete=models.DO_NOTHING)
+    
+
+class ComerceType(models.Model)
+
+
+
+class OtherDetail(models.Model):
+    """ Other option detail to save details when selected option other """
+    description = models.CharField(max_length=50)
 
