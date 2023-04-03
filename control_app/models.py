@@ -353,3 +353,5 @@ class Cadastral(models.Model):
     corregimiento = models.CharField(max_length=50)
     manzana_number = models.CharField(max_length=30)
     lote_number = models.CharField(max_length=30)
+
+Holaaaaa Felipe
