@@ -144,7 +144,7 @@ class GeographicLocation(models.Model):
 
 
 class Request(models.Model):
-    """ Create seccion 1 Identificacion de la solicitud """
+    """ 1.0 IDENTIFICACION DE LA SOLICITUD """
     """ 1.9 CULTURAL BUILDING """
     cultural_building = models.BooleanField()
 
@@ -234,7 +234,7 @@ class InstitutionalType(models.Model):
         OtherDetail, on_delete=models.DO_NOTHING)
     
 
-class ComerceType(models.Model)
+class ComerceType(models.Model):
 
 
 
