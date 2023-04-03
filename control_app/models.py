@@ -124,6 +124,13 @@ class UniqueNationalForm(models.Model):
     document_id = models.ForeignKey(Document, on_delete=models.CASCADE)
 
 
+class GeographicLocation(models.Model):
+    """ Create Graphic Location its used in table General data """
+    department = models.CharField(max_length=50)
+    municipality = models.CharField(max_length=50)
+    vereda = models.CharField(max_length=50)
+
+
 class GeneralData(models.Model):
     """Create the seccion 0 Datos Generales of form"""
     responsible_office = models.CharField(max_length=50)
@@ -134,13 +141,6 @@ class GeneralData(models.Model):
     date = models.DateField()
     geographic_location = models.ForeignKey(
         GeographicLocation, on_delete=models.DO_NOTHING)
-
-
-class GeographicLocation(models.Model):
-    """ Create Graphic Location its used in table General data """
-    department = models.CharField(max_length=50)
-    municipality = models.CharField(max_length=50)
-    vereda = models.CharField(max_length=50)
 
 
 class Request(models.Model):
@@ -251,8 +251,87 @@ class BrRequestCommercialType(models.ManyToManyField):
         OtherDetail, on_delete=models.DO_NOTHING)
 
 
+class RatioWallCeiling(models.Model):
+    """ 1.12.5 RELACIÓN MURO VENTANA Y ALTURA PISO A TECHO """
+    North = models.CharField(max_length = 3)
+    South = models.CharField(max_length = 3)
+    East = models.CharField(max_length = 3)
+    West = models.CharField(max_length = 3)
+    Ceiling_height = models.CharField(max_length = 5)
+
+
+class SustainableDeclaration(models.Model):
+    """ 1.12 REGLAMENTACIÓN DE CONSTRUCCIÓN SOSTENIBLE """
+    """ 1.12.1 DECLARACIÓN SOBRE MEDIDAS DE AHORRO EN ENERGÍA """
+    RatioWallCeiling_id = models.ForeignKey(RatioWallCeiling, on_delete=models.DO_NOTHING)
+    Water_saving_exp = models.CharField(max_length = 20)
+    Energy_saving_exp = models.CharField(max_length = 20)
+
+
+class MeasureType(models.Model):
+    """ Complement of the Measure class """
+    Name = models.CharField(max_length = 100)
+
+
+class Measure(models.Model):
+    """ 1.12.1.1 MEDIDAS PASIVAS, 1.12.1.2 MEDIDAS ACTIVAS """
+    Name = models.CharField(max_length = 100)
+    Measure_type_id = models.ForeignKey(MeasureType, on_delete=models.DO_NOTHING)
+    other_detail_id = models.ForeignKey(
+        OtherDetail, on_delete=models.DO_NOTHING)
+
+
+class BrSustainableDeclarationActiveMeasure(models.ManyToManyField):
+    """ BRIDGE - SustainableDeclaration & 1.12.1.1  MEDIDAS PASIVAS - 1.12.1.2 MEDIDAS ACTIVAS """
+    Sustainable_declaration_id = models.ForeignKey(SustainableDeclaration, on_delete=models.DO_NOTHING)
+    Measure_id = models.ForeignKey(Measure, on_delete=models.DO_NOTHING)
+
+
+class MaterialityType(models.Model):
+    """ Complement of the Materiality class """
+    Name = models.CharField(max_length = 100)
+
+
+class Materiality(models.Model):
+    """ 1.12.2 MATERIALIDAD MURO EXTERNO 1.12.3 MATERIALIDAD MURO INTERNO """
+    Name = models.CharField(max_length = 100)
+    Materiality_type_id = models.ForeignKey(MaterialityType, on_delete=models.DO_NOTHING)
+    other_detail_id = models.ForeignKey(
+        OtherDetail, on_delete=models.DO_NOTHING)
+
+
+class BrSustainableDeclarationMateriality(models.ManyToManyField):
+    """ BRIDGE - SustainableDeclaration & 1.12.2 MATERIALIDAD MURO EXTERNO 1.12.3 MATERIALIDAD MURO INTERNO """
+    Sustainable_declaration_id = models.ForeignKey(SustainableDeclaration, on_delete=models.DO_NOTHING)
+    Materiality_id = models.ForeignKey(Materiality, on_delete=models.DO_NOTHING)
+
+
+class WaterSaving(models.Model):
+    """ 1.12.8 AHORRO ESPERADO EN AGUA """
+    Name = models.CharField(max_length=100)
+
+
+class BrSustainableDeclarationWaterSaving(models.ManyToManyField):
+    """ BRIDGE - SustainableDeclaration & 1.12.8 AHORRO ESPERADO EN AGUA """
+    Sustainable_declaration_id = models.ForeignKey(SustainableDeclaration, on_delete=models.DO_NOTHING)
+    Water_saving_id = models.ForeignKey(WaterSaving, on_delete=models.DO_NOTHING)
+
+
+class EnergySaving(models.Model):
+    """ 1.12.9 AHORRO ESPERADO EN ENERGÍA """
+    Name = models.CharField(max_length=100)
+
+
+class BrSustainableDeclarationEnergySaving(models.ManyToManyField):
+    """ BRIDGE - SustainableDeclaration & 1.12.9 AHORRO ESPERADO EN ENERGÍA """
+    Sustainable_declaration_id = models.ForeignKey(SustainableDeclaration, on_delete=models.DO_NOTHING)
+    Energy_saving_id = models.ForeignKey(EnergySaving, on_delete=models.DO_NOTHING)
+
+
+""" 2.0 INFORMACIÓN SOBRE EL PREDIO """
+
+
 class Property(models.Model):
-    """ 2.0 INFORMACIÓN SOBRE EL PREDIO """
     """ 2.1, 2.1, 2.3 DIRECCIÓN O NOMENCLATURA, MATRICULA INMOBILIARIA, No DE IDENTIFICACIÓN CATASTRAL """
     Property_id = models.ForeignKey(UniqueNationalForm, on_delete=models.DO_NOTHING)
     CurrentAddress = models.CharField(max_length=100)
