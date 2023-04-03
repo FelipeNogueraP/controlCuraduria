@@ -354,4 +354,86 @@ class Cadastral(models.Model):
     manzana_number = models.CharField(max_length=30)
     lote_number = models.CharField(max_length=30)
 
-Holaaaaa Felipe
+
+############# 3. INFORMACIÓN DE VECINOS COLINDANTES #############
+
+
+class Neighbor(models.Model):
+    """ 3 INFORMACIÓN DE VECINOS COLINDANTES. """
+    Housing_address = models.CharField(max_length=80)
+    Mailing_address = models.CharField(max_length=80)
+
+
+class BrUniqueNationalFormNeighbor(models.ManyToManyField):
+    """ BRIDGE - Unique National Form & 3. INFORMACIÓN DE VECINOS COLINDANTES """
+    UniqueNationalForm_id = models.ForeignKey(UniqueNationalForm, on_delete=models.DO_NOTHING)
+    Neighbor_id = models.ForeignKey(Neighbor, on_delete=models.DO_NOTHING)
+
+
+
+
+
+
+
+############# 4. LINDEROS, DIMENSIONES Y ÁREAS #############
+
+
+class BordersDimensionAreas(models.Model):
+    """ 4. LINDEROS, DIMENSIONES Y ÁREAS """
+    BordersDimensionAreas_id = models.ForeignKey(UniqueNationalForm, on_delete=models.DO_NOTHING)
+    Borders_n = models.CharField(max_length=80)
+    Borders_s = models.CharField(max_length=80)
+    Borders_e = models.CharField(max_length=80)
+    Borders_w = models.CharField(max_length=80)
+    Area_urbanized = models.CharField(max_length=80)
+    Area_common = models.CharField(max_length=80)
+    Area_parking = models.CharField(max_length=80)
+    TotalArea = models.CharField(max_length=80)
+
+
+class Neighboring(models.Model):
+    """ NEIGHBORING, COMPLEMENT OF THE BorderDimensionAreas CLASS """
+    Neighbor_id = models.ForeignKey(Neighbor, on_delete=models.DO_NOTHING)    
+    Length = models.CharField(max_length=50)
+    Borders = models.CharField(max_length=50)
+
+
+############# 5. TITULARES Y PROFESIONALES RESPONSABLES #############
+
+
+class LicenceHolderResponsible(models.Model):
+    """ 5.1 TITULAR (ES) DE LA LICENCIA. """
+    Name = models.CharField(max_length=70)
+    Identification_num = models.IntegerField(max_length=20)
+    Sign = models.CharField(max_length=70)
+    Phone_number = models.IntegerField(max_length=10)
+    Email = models.EmailField(max_length=40)
+    Electronic_notification = models.BooleanField
+
+
+class ProfessionalResponsible(models.Model):
+    """ 5.2 PROFESIONALES RESPONSABLES. """
+Profession_name_id = models.CharField(max_length=70)
+name = models.CharField(max_length=100)
+Identification_num = models.IntegerField(max_length=20)
+Professional_licence_num = models.IntegerField(max_length=20)
+Licence_expedition = models.DateField
+Sign = models.CharField(max_length=70)
+Email = models.EmailField(max_length=40)
+Required_review = models.BooleanField
+
+
+class ProfessionName(models.Model):
+    """ COMPLEMENT OF THE ProfessionalResponsible CLASS """
+    Name = models.CharField(max_length=50)
+    Review_option = models.CharField(max_length=60)
+
+
+class PetitionResponsible(models.Model):
+    """ 5.3 RESPONSABLE DE LA SOLICITUD. """
+name = models.CharField(max_length=100)
+Identification_num = models.IntegerField(max_length=20)
+Phone_num = models.IntegerField(max_length=11)
+mailing_address = models.CharField(max_length=100)
+Sign = models.CharField(max_length=70)
+Email = models.EmailField(max_length=40)
