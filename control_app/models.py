@@ -109,7 +109,7 @@ class Role(models.Model):
         return self.name
 
 
-############# New structure#####################
+############# FORMULARIO ÚNICO NACIONAL #############
 class UniqueNationalForm(models.Model):
     """Create national form"""
     general_data_id = models.ForeignKey(GeneralData, on_delete=models.CASCADE)
@@ -124,13 +124,7 @@ class UniqueNationalForm(models.Model):
     document_id = models.ForeignKey(Document, on_delete=models.CASCADE)
 
 
-class GeographicLocation(models.Model):
-    """ Create Graphic Location its used in table General data """
-    department = models.CharField(max_length=50)
-    municipality = models.CharField(max_length=50)
-    vereda = models.CharField(max_length=50)
-
-
+############# 0. DATOS GENERALES #############
 class GeneralData(models.Model):
     """Create the seccion 0 Datos Generales of form"""
     responsible_office = models.CharField(max_length=50)
@@ -139,20 +133,27 @@ class GeneralData(models.Model):
     filing_number_year = models.IntegerField()
     filing_number_consecutive = models.IntegerField()
     date = models.DateField()
-    geographic_location = models.ForeignKey(
+    geographic_location_id = models.ForeignKey(
         GeographicLocation, on_delete=models.DO_NOTHING)
 
+class GeographicLocation(models.Model):
+    """ Create Graphic Location its used in table General data """
+    department = models.CharField(max_length=50)
+    municipality = models.CharField(max_length=50)
+    vereda = models.CharField(max_length=50)
 
+############# 1. IDENTIFICACIÓN DE LA SOLICITUD #############
 class Request(models.Model):
     """ 1.0 IDENTIFICACION DE LA SOLICITUD """
     """ 1.9 CULTURAL BUILDING """
     cultural_building = models.BooleanField()
+    sustainable_declaration_id = models.ForeignKey(SustainableDeclaration, on_delete = models.CASCADE)
 
 
 class BrRequestTypeProcedure(models.ManyToManyField):
     """ BRIDGE - REQUEST & 1.1 TIPO DE TRAMITE """
     request_id = models.ForeignKey(Request, on_delete=models.DO_NOTHING)
-    type_procedure = models.ForeignKey(Request, on_delete=models.DO_NOTHING)
+    type_procedure_id = models.ForeignKey(Request, on_delete=models.DO_NOTHING)
 
 
 class TypeProcedure(models.Model):
@@ -212,7 +213,7 @@ class BuildArea(models.Model):
 class BrRequestHousingType(models.ManyToManyField):
     """ BRIDGE - Request & 1.8 TIPO DE VIVIENDA """
     request_id = models.ForeignKey(Request, on_delete = models.DO_NOTHING)
-    housing_type = models.ForeignKey(Request, on_delete = models.DO_NOTHING)
+    housing_type_id = models.ForeignKey(Request, on_delete = models.DO_NOTHING)
 
 
 class HousingType(models.Model):
@@ -225,15 +226,22 @@ class OtherDetail(models.Model):
     description = models.CharField(max_length=50)
 
 
+class BrRequestInstitutionalType(models.ManyToManyField):
+    """ BRIDGE - Request & 1.10 TIPO INSTITUCIONAL """
+    request_id = models.ForeignKey(Request, on_delete = models.DO_NOTHING)
+    institutional_type_id = models.ForeignKey(InstitutionalType, on_delete = models.DO_NOTHING)
+    other_detail_id = models.ForeignKey(
+        OtherDetail, on_delete=models.DO_NOTHING)
+
 class InstitutionalType(models.Model):
     """ 1.10 Tipo Institucional """
     name = models.CharField(max_length = 50)
 
 
-class BrRequestInstitutionalType(models.ManyToManyField):
-    """ BRIDGE - Request & 1.10 TIPO INSTITUCIONAL """
+class BrRequestCommercialType(models.ManyToManyField):
+    """ BRIDGE - Request & 1.11 TIPO DE COMERCIO """
     request_id = models.ForeignKey(Request, on_delete = models.DO_NOTHING)
-    institutional_type = models.ForeignKey(InstitutionalType, on_delete = models.DO_NOTHING)
+    commercial_type_id = models.ForeignKey(CommercialType, on_delete = models.DO_NOTHING)
     other_detail_id = models.ForeignKey(
         OtherDetail, on_delete=models.DO_NOTHING)
 
@@ -243,101 +251,79 @@ class CommercialType(models.Model):
     name = models.CharField(max_length = 50)
 
 
-class BrRequestCommercialType(models.ManyToManyField):
-    """ BRIDGE - Request & 1.11 TIPO DE COMERCIO """
-    request_id = models.ForeignKey(Request, on_delete = models.DO_NOTHING)
-    Commercial_Tipe_id = models.ForeignKey(CommercialType, on_delete = models.DO_NOTHING)
-    other_detail_id = models.ForeignKey(
-        OtherDetail, on_delete=models.DO_NOTHING)
-
-
-class RatioWallCeiling(models.Model):
-    """ 1.12.5 RELACIÓN MURO VENTANA Y ALTURA PISO A TECHO """
-    North = models.CharField(max_length = 3)
-    South = models.CharField(max_length = 3)
-    East = models.CharField(max_length = 3)
-    West = models.CharField(max_length = 3)
-    Ceiling_height = models.CharField(max_length = 5)
+############# 1.12 REGLAMENTACIÓN DE CONSTRUCCIÓN SOSTENIBLE #############
 
 
 class SustainableDeclaration(models.Model):
     """ 1.12 REGLAMENTACIÓN DE CONSTRUCCIÓN SOSTENIBLE """
     """ 1.12.1 DECLARACIÓN SOBRE MEDIDAS DE AHORRO EN ENERGÍA """
-    RatioWallCeiling_id = models.ForeignKey(RatioWallCeiling, on_delete=models.DO_NOTHING)
-    Water_saving_exp = models.CharField(max_length = 20)
-    Energy_saving_exp = models.CharField(max_length = 20)
+    ratio_wall_ceiling_id = models.ForeignKey(RatioWallCeiling, on_delete=models.DO_NOTHING)
+    water_saving_exp = models.CharField(max_length = 20)
+    energy_saving_exp = models.CharField(max_length = 20)
+
+
+class RatioWallCeiling(models.Model):
+    """ 1.12.5 RELACIÓN MURO VENTANA Y ALTURA PISO A TECHO """
+    north = models.CharField(max_length = 3)
+    south = models.CharField(max_length = 3)
+    east = models.CharField(max_length = 3)
+    west = models.CharField(max_length = 3)
+    ceiling_height = models.CharField(max_length = 5)
+
+
+class BrSustainableDeclarationMeasure(models.ManyToManyField):
+    """ BRIDGE - SustainableDeclaration & 1.12.1.1  MEDIDAS PASIVAS - 1.12.1.2 MEDIDAS ACTIVAS """
+    sustainable_declaration_id = models.ForeignKey(SustainableDeclaration, on_delete=models.DO_NOTHING)
+    measure_id = models.ForeignKey(Measure, on_delete=models.DO_NOTHING)
+
+  
+class Measure(models.Model):
+    """ 1.12.1.1 MEDIDAS PASIVAS, 1.12.1.2 MEDIDAS ACTIVAS """
+    name = models.CharField(max_length = 100)
+    measure_type_id = models.ForeignKey(MeasureType, on_delete=models.DO_NOTHING)
+    other_detail_id = models.ForeignKey(
+        OtherDetail, on_delete=models.DO_NOTHING)
 
 
 class MeasureType(models.Model):
     """ Complement of the Measure class """
-    Name = models.CharField(max_length = 100)
-
-
-class Measure(models.Model):
-    """ 1.12.1.1 MEDIDAS PASIVAS, 1.12.1.2 MEDIDAS ACTIVAS """
-    Name = models.CharField(max_length = 100)
-    Measure_type_id = models.ForeignKey(MeasureType, on_delete=models.DO_NOTHING)
-    other_detail_id = models.ForeignKey(
-        OtherDetail, on_delete=models.DO_NOTHING)
-
-
-class BrSustainableDeclarationActiveMeasure(models.ManyToManyField):
-    """ BRIDGE - SustainableDeclaration & 1.12.1.1  MEDIDAS PASIVAS - 1.12.1.2 MEDIDAS ACTIVAS """
-    Sustainable_declaration_id = models.ForeignKey(SustainableDeclaration, on_delete=models.DO_NOTHING)
-    Measure_id = models.ForeignKey(Measure, on_delete=models.DO_NOTHING)
-
-
-class MaterialityType(models.Model):
-    """ Complement of the Materiality class """
-    Name = models.CharField(max_length = 100)
-
-
-class Materiality(models.Model):
-    """ 1.12.2 MATERIALIDAD MURO EXTERNO 1.12.3 MATERIALIDAD MURO INTERNO """
-    Name = models.CharField(max_length = 100)
-    Materiality_type_id = models.ForeignKey(MaterialityType, on_delete=models.DO_NOTHING)
-    other_detail_id = models.ForeignKey(
-        OtherDetail, on_delete=models.DO_NOTHING)
+    name = models.CharField(max_length = 100)
 
 
 class BrSustainableDeclarationMateriality(models.ManyToManyField):
     """ BRIDGE - SustainableDeclaration & 1.12.2 MATERIALIDAD MURO EXTERNO 1.12.3 MATERIALIDAD MURO INTERNO """
-    Sustainable_declaration_id = models.ForeignKey(SustainableDeclaration, on_delete=models.DO_NOTHING)
-    Materiality_id = models.ForeignKey(Materiality, on_delete=models.DO_NOTHING)
+    sustainable_declaration_id = models.ForeignKey(SustainableDeclaration, on_delete=models.DO_NOTHING)
+    materiality_id = models.ForeignKey(Materiality, on_delete=models.DO_NOTHING)
 
 
-class WaterSaving(models.Model):
-    """ 1.12.8 AHORRO ESPERADO EN AGUA """
-    Name = models.CharField(max_length=100)
+class Materiality(models.Model):
+    """ 1.12.2 MATERIALIDAD MURO EXTERNO 1.12.3 MATERIALIDAD MURO INTERNO """
+    name = models.CharField(max_length = 100)
+    materiality_type_id = models.ForeignKey(MaterialityType, on_delete=models.DO_NOTHING)
+    other_detail_id = models.ForeignKey(
+        OtherDetail, on_delete=models.DO_NOTHING)
+    
+
+class MaterialityType(models.Model):
+    """ Complement of the Materiality class """
+    name = models.CharField(max_length = 100)
 
 
-class BrSustainableDeclarationWaterSaving(models.ManyToManyField):
-    """ BRIDGE - SustainableDeclaration & 1.12.8 AHORRO ESPERADO EN AGUA """
-    Sustainable_declaration_id = models.ForeignKey(SustainableDeclaration, on_delete=models.DO_NOTHING)
-    Water_saving_id = models.ForeignKey(WaterSaving, on_delete=models.DO_NOTHING)
-
-
-class EnergySaving(models.Model):
-    """ 1.12.9 AHORRO ESPERADO EN ENERGÍA """
-    Name = models.CharField(max_length=100)
-
-
-class BrSustainableDeclarationEnergySaving(models.ManyToManyField):
-    """ BRIDGE - SustainableDeclaration & 1.12.9 AHORRO ESPERADO EN ENERGÍA """
-    Sustainable_declaration_id = models.ForeignKey(SustainableDeclaration, on_delete=models.DO_NOTHING)
-    Energy_saving_id = models.ForeignKey(EnergySaving, on_delete=models.DO_NOTHING)
-
-
-""" 2.0 INFORMACIÓN SOBRE EL PREDIO """
+############# 2.0 INFORMACIÓN SOBRE EL PREDIO #############
 
 
 class Property(models.Model):
     """ 2.1, 2.1, 2.3 DIRECCIÓN O NOMENCLATURA, MATRICULA INMOBILIARIA, No DE IDENTIFICACIÓN CATASTRAL """
-    Property_id = models.ForeignKey(UniqueNationalForm, on_delete=models.DO_NOTHING)
-    CurrentAddress = models.CharField(max_length=100)
-    PreviousAddress = models.CharField(max_length=100)
-    RealStateRegNum = models.CharField(max_length=50)
-    Cadastral_id = models.CharField(max_length=50)
+    current_address = models.CharField(max_length=100)
+    previous_address = models.CharField(max_length=100)
+    real_state_reg_num = models.CharField(max_length=50)
+    cadastral_id = models.ForeignKey(Cadastral, on_delete = models.DO_NOTHING)
+
+
+class BrPropertySoilClasification(models.ManyToManyField):
+    """ BRIDGE - PROPERTY & 2.4 CLASIFICACIÓN DEL SUELO """
+    property_id = models.ForeignKey(Property, on_delete=models.DO_NOTHING)
+    soil_clasification_id = models.ForeignKey(SoilClasification, on_delete=models.DO_NOTHING)
 
 
 class SoilClasification(models.Model):
@@ -345,10 +331,10 @@ class SoilClasification(models.Model):
     name = models.CharField(max_length=50)
 
 
-class BrPropertySoilClasification(models.ManyToManyField):
-    """ BRIDGE - PROPERTY & 2.4 CLASIFICACIÓN DEL SUELO """
-    Property_id = models.ForeignKey(Property, on_delete=models.DO_NOTHING)
-    SoilClasification_id = models.ForeignKey(SoilClasification, on_delete=models.DO_NOTHING)
+class BrPropertyPlanimetry(models.ManyToManyField):
+    """ BRIDGE - PROPERTY & 2.5 PLANIMETRÍA DEL LOTE """
+    property_id = models.ForeignKey(Property, on_delete=models.DO_NOTHING)
+    planimetry_id = models.ForeignKey(Planimetry, on_delete=models.DO_NOTHING)
 
 
 class Planimetry(models.Model):
@@ -356,22 +342,14 @@ class Planimetry(models.Model):
     name = models.CharField(max_length=50)
 
 
-class BrPropertyPlanimetry(models.ManyToManyField):
-    """ BRIDGE - PROPERTY & 2.5 PLANIMETRÍA DEL LOTE """
-    Property_id = models.ForeignKey(Property, on_delete=models.DO_NOTHING)
-    Planimetry_id = models.ForeignKey(Planimetry, on_delete=models.DO_NOTHING)
-
-
 class Cadastral(models.Model):
     """ 2.6 INFORMACIÓN GENERAL """
-    Number = models.CharField(max_length=50)
-    Neighborhood = models.CharField(max_length=50)
-    Vereda = models.CharField(max_length=50)
-    Comuna = models.CharField(max_length=30)
-    Sector = models.CharField(max_length=30)
-    Estrato = models.CharField(max_length=20)
-    Corregimiento = models.CharField(max_length=50)
-    Manzana_Number = models.CharField(max_length=30)
-    Lote_Number = models.CharField(max_length=30)
-   
-
+    number = models.CharField(max_length=50)
+    neighborhood = models.CharField(max_length=50)
+    vereda = models.CharField(max_length=50)
+    comuna = models.CharField(max_length=30)
+    sector = models.CharField(max_length=30)
+    estrato = models.CharField(max_length=20)
+    corregimiento = models.CharField(max_length=50)
+    manzana_number = models.CharField(max_length=30)
+    lote_number = models.CharField(max_length=30)
