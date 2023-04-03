@@ -220,25 +220,79 @@ class HousingType(models.Model):
     name = models.CharField(max_length = 50)
 
 
-class BrRequestInstitutionalType(models.ManyToManyField):
-    """ BRIDGE - Request & 1.10 TIPO INSTITUCIONAL """
-    request_id = models.ForeignKey(Request, on_delete = models.DO_NOTHING)
-    institutional_type = models.ForeignKey(InstitutionalType, on_delete = models.DO_NOTHING)
-    
+class OtherDetail(models.Model):
+    """ Other option detail to save details when selected option other """
+    description = models.CharField(max_length=50)
 
 
 class InstitutionalType(models.Model):
     """ 1.10 Tipo Institucional """
     name = models.CharField(max_length = 50)
+
+
+class BrRequestInstitutionalType(models.ManyToManyField):
+    """ BRIDGE - Request & 1.10 TIPO INSTITUCIONAL """
+    request_id = models.ForeignKey(Request, on_delete = models.DO_NOTHING)
+    institutional_type = models.ForeignKey(InstitutionalType, on_delete = models.DO_NOTHING)
     other_detail_id = models.ForeignKey(
         OtherDetail, on_delete=models.DO_NOTHING)
-    
-
-class ComerceType(models.Model):
 
 
+class CommercialType(models.Model):
+    """ 1.11 TIPO DE COMERCIO Y/O SERVICIOS """
+    name = models.CharField(max_length = 50)
 
-class OtherDetail(models.Model):
-    """ Other option detail to save details when selected option other """
-    description = models.CharField(max_length=50)
+
+class BrRequestCommercialType(models.ManyToManyField):
+    """ BRIDGE - Request & 1.11 TIPO DE COMERCIO """
+    request_id = models.ForeignKey(Request, on_delete = models.DO_NOTHING)
+    Commercial_Tipe_id = models.ForeignKey(CommercialType, on_delete = models.DO_NOTHING)
+    other_detail_id = models.ForeignKey(
+        OtherDetail, on_delete=models.DO_NOTHING)
+
+
+class Property(models.Model):
+    """ 2.0 INFORMACIÓN SOBRE EL PREDIO """
+    """ 2.1, 2.1, 2.3 DIRECCIÓN O NOMENCLATURA, MATRICULA INMOBILIARIA, No DE IDENTIFICACIÓN CATASTRAL """
+    Property_id = models.ForeignKey(UniqueNationalForm, on_delete=models.DO_NOTHING)
+    CurrentAddress = models.CharField(max_length=100)
+    PreviousAddress = models.CharField(max_length=100)
+    RealStateRegNum = models.CharField(max_length=50)
+    Cadastral_id = models.CharField(max_length=50)
+
+
+class SoilClasification(models.Model):
+    """ 2.4 CLASIFICACIÓN DEL SUELO """
+    name = models.CharField(max_length=50)
+
+
+class BrPropertySoilClasification(models.ManyToManyField):
+    """ BRIDGE - PROPERTY & 2.4 CLASIFICACIÓN DEL SUELO """
+    Property_id = models.ForeignKey(Property, on_delete=models.DO_NOTHING)
+    SoilClasification_id = models.ForeignKey(SoilClasification, on_delete=models.DO_NOTHING)
+
+
+class Planimetry(models.Model):
+    """ 2.5 PLANIMETRÍA DEL LOTE """
+    name = models.CharField(max_length=50)
+
+
+class BrPropertyPlanimetry(models.ManyToManyField):
+    """ BRIDGE - PROPERTY & 2.5 PLANIMETRÍA DEL LOTE """
+    Property_id = models.ForeignKey(Property, on_delete=models.DO_NOTHING)
+    Planimetry_id = models.ForeignKey(Planimetry, on_delete=models.DO_NOTHING)
+
+
+class Cadastral(models.Model):
+    """ 2.6 INFORMACIÓN GENERAL """
+    Number = models.CharField(max_length=50)
+    Neighborhood = models.CharField(max_length=50)
+    Vereda = models.CharField(max_length=50)
+    Comuna = models.CharField(max_length=30)
+    Sector = models.CharField(max_length=30)
+    Estrato = models.CharField(max_length=20)
+    Corregimiento = models.CharField(max_length=50)
+    Manzana_Number = models.CharField(max_length=30)
+    Lote_Number = models.CharField(max_length=30)
+   
 
