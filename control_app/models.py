@@ -27,16 +27,6 @@ class Entity_User(models.Model):
         return (self.first_name)
 
 
-class Document(models.Model):
-    # Create a required document.
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=100)
-    description = models.CharField(max_length=200)
-
-    def __str__(self):
-        return self.name
-
-
 class Procedure(models.Model):
     # Create a procedure, like "new license".
     id = models.AutoField(primary_key=True)
@@ -136,11 +126,13 @@ class GeneralData(models.Model):
     geographic_location_id = models.ForeignKey(
         GeographicLocation, on_delete=models.DO_NOTHING)
 
+
 class GeographicLocation(models.Model):
     """ Create Graphic Location its used in table General data """
     department = models.CharField(max_length=50)
     municipality = models.CharField(max_length=50)
     vereda = models.CharField(max_length=50)
+
 
 ############# 1. IDENTIFICACIÓN DE LA SOLICITUD #############
 class Request(models.Model):
@@ -370,14 +362,7 @@ class BrUniqueNationalFormNeighbor(models.ManyToManyField):
     Neighbor_id = models.ForeignKey(Neighbor, on_delete=models.DO_NOTHING)
 
 
-
-
-
-
-
 ############# 4. LINDEROS, DIMENSIONES Y ÁREAS #############
-
-
 class BordersDimensionAreas(models.Model):
     """ 4. LINDEROS, DIMENSIONES Y ÁREAS """
     BordersDimensionAreas_id = models.ForeignKey(UniqueNationalForm, on_delete=models.DO_NOTHING)
@@ -431,7 +416,7 @@ class ProfessionName(models.Model):
 
 class PetitionResponsible(models.Model):
     """ 5.3 RESPONSABLE DE LA SOLICITUD. """
-name = models.CharField(max_length=100)
+Name = models.CharField(max_length=100)
 Identification_num = models.IntegerField(max_length=20)
 Phone_num = models.IntegerField(max_length=11)
 mailing_address = models.CharField(max_length=100)
