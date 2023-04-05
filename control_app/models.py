@@ -437,3 +437,20 @@ Phone_num = models.IntegerField(max_length=11)
 mailing_address = models.CharField(max_length=100)
 Sign = models.CharField(max_length=70)
 Email = models.EmailField(max_length=40)
+
+
+############# 6. DOCUMENTOS QUE ACOMPAÑAN LA SOLICITUD. #############
+
+
+class Document(models.Model):
+    """ 6. DOCUMENTOS QUE ACOMPAÑAN LA SOLICITUD. """
+    Name = models.CharField(max_length=100)
+    Mandatory = models.BooleanField
+    Description = models.CharField(max_length=100)
+
+
+class BrDocumentTypeProcedureModality(models.ManyToManyField):
+    """ BRIDGE - Document & 1.1 TIPO DE TRAMITE, MODALITY """
+    Document_id = models.ForeignKey(Document, on_delete=models.DO_NOTHING) 
+    TypeProcedure_id = models.ForeignKey(TypeProcedure, on_delete=models.DO_NOTHING) 
+    Modality_id =models.ForeignKey(Modality, on_delete=models.DO_NOTHING) 
