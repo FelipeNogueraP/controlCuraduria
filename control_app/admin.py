@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import (
-    Tenant, Entity_User, Procedure, Action, TimeStamp, Role, RolePermissions,
     UniqueNationalForm, GeneralData, GeographicLocation, Request, 
     TypeProcedure, ProcedureObjective, Modality, Uses, BuildArea, HousingType, OtherDetail,
     InstitutionalType, CommercialType, SustainableDeclaration, RatioWallCeiling, Measure,
