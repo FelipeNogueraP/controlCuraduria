@@ -9,6 +9,9 @@ from django.contrib.auth.models import User
 class OtherDetail(models.Model):
     """ Other option detail to save details when selected option other """
     description = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.description
 
 
 ############# 0. DATOS GENERALES #############
@@ -31,6 +34,7 @@ class GeneralData(models.Model):
     date = models.DateField()
     geographic_location_id = models.ForeignKey(
         GeographicLocation, on_delete=models.DO_NOTHING)
+    verbose_name = "General Data"
 
 
 ############# 1.12 REGLAMENTACIÓN DE CONSTRUCCIÓN SOSTENIBLE #############
@@ -43,7 +47,7 @@ class RatioWallCeiling(models.Model):
     east = models.CharField(max_length = 3)
     west = models.CharField(max_length = 3)
     ceiling_height = models.CharField(max_length = 5)
-
+    verbose_name = "RELACIÓN MURO VENTANA Y ALTURA PISO A TECHO"
 
 class SustainableDeclaration(models.Model):
     """ 1.12 REGLAMENTACIÓN DE CONSTRUCCIÓN SOSTENIBLE """
@@ -89,7 +93,7 @@ class BrSustainableDeclarationMateriality(models.ManyToManyField):
     """ BRIDGE - SustainableDeclaration & 1.12.2 MATERIALIDAD MURO EXTERNO 1.12.3 MATERIALIDAD MURO INTERNO """
     sustainable_declaration_id = models.ForeignKey(SustainableDeclaration, on_delete=models.DO_NOTHING)
     materiality_id = models.ForeignKey(Materiality, on_delete=models.DO_NOTHING)
-    
+
 
 ############# 1. IDENTIFICACIÓN DE LA SOLICITUD #############
 
@@ -138,22 +142,23 @@ class BrTypeProcedureModality(models.ManyToManyField):
     modality_id = models.ForeignKey(Modality, on_delete=models.DO_NOTHING)
 
 
-class BrRequestTypeUse(models.ManyToManyField):
+class BrRequestUses(models.ManyToManyField):
     """ BRIDGE - REQUEST & 1.6 USOS """
     request_id = models.ForeignKey(Request, on_delete=models.DO_NOTHING)
     type_uses_id = models.ForeignKey(Request, on_delete=models.DO_NOTHING)
+    other_detail_id = models.ForeignKey(
+        OtherDetail, on_delete=models.DO_NOTHING)
 
 
 class Uses(models.Model):
     """ 1.6 USOS """
     name = models.CharField(max_length = 50)
-    other_detail_id = models.ForeignKey(
-        OtherDetail, on_delete=models.DO_NOTHING)
+    verbose_name = "Uses"
 
 
 class BuildArea(models.Model):
     """ 1.8 AREAS O UNIDADES CONSTRUIDAS """
-    name = models.CharField(max_length = 50)
+    name = models.CharField(max_length = 100)
 
 
 class BrRequestBuildArea(models.ManyToManyField):

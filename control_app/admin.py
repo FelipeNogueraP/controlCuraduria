@@ -115,6 +115,7 @@ class GeneralDataAdmin(admin.ModelAdmin):
     list_filter = ('filing_number_consecutive',)
     #ordering = ('date', '-id')
     search_fields = ('filing_number_consecutive',)
+    verbose_name = "General Data"
 
 
 class GeographicLocationAdmin(admin.ModelAdmin):
@@ -130,7 +131,7 @@ class GeographicLocationAdmin(admin.ModelAdmin):
 
 
 class RequestAdmin(admin.ModelAdmin):
-    #fieldsets = [(None,{'fields':[,]}),
+    fieldsets = [(None,{'fields':['sustainable_declaration_id', 'cultural_building', ]})]
     #('Details', {'fields':[ , ]})]
     list_display = ('cultural_building', 'sustainable_declaration_id',
                      )
@@ -138,6 +139,15 @@ class RequestAdmin(admin.ModelAdmin):
     #ordering = ('date', '-id')
     search_fields = ('department',)
 
+
+class CulturalTypeAdmin(admin.ModelAdmin):
+    #fieldsets = [(None,{'fields':[,]}),
+    #('Details', {'fields':[ , ]})]
+    list_display = ('cultural_building',
+                     )
+    list_filter = ('cultural_building',)
+    #ordering = ('date', '-id')
+    search_fields = ()
 
 class TypeProcedureAdmin(admin.ModelAdmin):
     list_display = ('name',
@@ -165,14 +175,15 @@ class ModalityAdmin(admin.ModelAdmin):
 
 class UsesAdmin(admin.ModelAdmin):
     fieldsets = [
-            (None,{'fields':['name','other_detail_id',]}),]
-    list_display = ('name', 'other_detail_id'
+            (None,{'fields':['name',]}),]
+    list_display = ('name', 
                      )
     list_filter = ('name',)
     ordering = ('name',)
     search_fields = ('name',)
-
-
+    verbose_name = "Uses"
+    
+        
 class BuildAreaAdmin(admin.ModelAdmin):
     list_display = ('name',
                      )
@@ -230,7 +241,7 @@ class SustainableDeclarationAdmin(admin.ModelAdmin):
 class RatioWallCeilingAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,{'fields':['ceiling_height',]}),
-        ('Details', {'fields':['north', 'south', 'east', 'west',
+        ('Porcentaje del 0-100', {'fields':['north', 'south', 'east', 'west',
                                ]})
         ]
     list_display = ('ceiling_height','north', 'south', 'east', 'west',)
