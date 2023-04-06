@@ -26,9 +26,9 @@ class EntityUserAdmin(admin.ModelAdmin):
                          ]}),
         ]
     list_display = ('first_name', 'last_name', 'tenant_id', 'id',)
-    #list_filter = ('id')
-    #ordering = ('full_name', '-id')
-    #search_fields = ('name')
+    list_filter = ('id',)
+    ordering = ('last_name', '-id',)
+    search_fields = ('name',)
 
 
 class ProcedureAdmin(admin.ModelAdmin):
@@ -37,8 +37,8 @@ class ProcedureAdmin(admin.ModelAdmin):
         ('Details', {'fields':['user_id', 'document',]})
         ]
     list_display = ('procedure_type', 'document', 'user_id', 'id',)
-    #list_filter = ('name')
-    #search_fields = ('name')
+    list_filter = ('name',)
+    search_fields = ('name',)
       
 
 class RoleAdmin(admin.ModelAdmin):
@@ -55,8 +55,8 @@ class RolePermissionsAdmin(admin.ModelAdmin):
         ('Details', {'fields':['procedure_id','action_id',]})
         ]
     list_display = ('description', 'procedure_id','action_id',)
-    #list_filter = ('name')
-    #search_fields = ('name')
+    list_filter = ('name',)
+    search_fields = ('name',)
 
 
 class TenantAdmin(admin.ModelAdmin):
@@ -65,9 +65,9 @@ class TenantAdmin(admin.ModelAdmin):
         ('Details', {'fields':['description','address']})
         ]
     list_display = ('name', 'user_id', 'description', 'address','id' )
-    #list_filter = ('name')
-    ordering = ('name', '-id')
-    #search_fields = ('name')
+    list_filter = ('name',)
+    ordering = ('name', '-id',)
+    search_fields = ('name',)
 
 
 class TimeStampAdmin(admin.ModelAdmin):
@@ -76,9 +76,9 @@ class TimeStampAdmin(admin.ModelAdmin):
         ('Details', {'fields':['user_id',]})
         ]
     list_display = ('action_id', 'date', 'user_id', 'id', )
-    #list_filter = ('name')
+    list_filter = ('name',)
     #ordering = ('date', '-id')
-    #search_fields = ('name')
+    search_fields = ('name',)
 
 
 
@@ -95,26 +95,26 @@ class UniqueNationalFormAdmin(admin.ModelAdmin):
     list_display = ('request_id','property_id','general_data_id', 'borders_dimension_areas',
                      'licence_holder_responsible',
                                 'professional_responsible', 'document_id' )
-    #list_filter = ('name')
+    list_filter = ('property_id', 'property_id',)
     #ordering = ('date', '-id')
-    search_fields = ('property_id')
+    search_fields = ('property_id',)
 
  
 class GeneralDataAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,{'fields':['responsible_office','filing_number_consecutive']}),
+        (None,{'fields':['responsible_office',]}),
         ('Details', {'fields':['filing_number_location', 'filing_number_curator', 
-                               'filing_number_year',
+                               'filing_number_year','filing_number_consecutive',
                                 'date', 'geographic_location_id', ]})
         ]
-    list_display = ('responsible_office','filing_number_consecutive',
+    list_display = ('responsible_office',
                     'filing_number_location', 'filing_number_curator', 
-                               'filing_number_year',
+                               'filing_number_year','filing_number_consecutive',
                                 'date', 'geographic_location_id',
                      )
-    #list_filter = ('name')
+    list_filter = ('filing_number_consecutive',)
     #ordering = ('date', '-id')
-    search_fields = ('filing_number_consecutive')
+    search_fields = ('filing_number_consecutive',)
 
 
 class GeographicLocationAdmin(admin.ModelAdmin):
@@ -124,43 +124,43 @@ class GeographicLocationAdmin(admin.ModelAdmin):
             ]
     list_display = ('department','municipality', 'vereda',
                      )
-    #list_filter = ('name')
+    #list_filter = (,)
     #ordering = ('date', '-id')
-    #search_fields = ('department')
+    search_fields = ('department',)
 
 
 class RequestAdmin(admin.ModelAdmin):
     #fieldsets = [(None,{'fields':[,]}),
     #('Details', {'fields':[ , ]})]
-    list_display = ('cultural_building, sustainable_declaration_id',
+    list_display = ('cultural_building', 'sustainable_declaration_id',
                      )
-    #list_filter = ('name')
+    list_filter = ('cultural_building',)
     #ordering = ('date', '-id')
-    #search_fields = ('department')
+    search_fields = ('department',)
 
 
 class TypeProcedureAdmin(admin.ModelAdmin):
     list_display = ('name',
                      )
-    list_filter = ('name')
+    list_filter = ('name',)
     ordering = ('name',)
-    search_fields = ('name')
+    search_fields = ('name',)
 
 
 class ProcedureObjectiveAdmin(admin.ModelAdmin):
     list_display = ('name',
                      )
-    list_filter = ('name')
+    list_filter = ('name',)
     ordering = ('name',)
-    search_fields = ('name')
+    search_fields = ('name',)
 
 
 class ModalityAdmin(admin.ModelAdmin):
     list_display = ('name',
                      )
-    list_filter = ('name')
+    list_filter = ('name',)
     ordering = ('name',)
-    search_fields = ('name')
+    search_fields = ('name',)
 
 
 class UsesAdmin(admin.ModelAdmin):
@@ -168,48 +168,48 @@ class UsesAdmin(admin.ModelAdmin):
             (None,{'fields':['name','other_detail_id',]}),]
     list_display = ('name', 'other_detail_id'
                      )
-    list_filter = ('name')
+    list_filter = ('name',)
     ordering = ('name',)
-    search_fields = ('name')
+    search_fields = ('name',)
 
 
 class BuildAreaAdmin(admin.ModelAdmin):
     list_display = ('name',
                      )
-    list_filter = ('name')
+    list_filter = ('name',)
     ordering = ('name',)
-    search_fields = ('name')
+    search_fields = ('name',)
 
 
 class HousingTypeAdmin(admin.ModelAdmin):
     list_display = ('name',
                      )
-    list_filter = ('name')
+    list_filter = ('name',)
     ordering = ('name',)
-    search_fields = ('name')
+    search_fields = ('name',)
 
 
 class OtherDetailAdmin(admin.ModelAdmin):
     list_display = ('description',
                      )
-    list_filter = ('description')
+    list_filter = ('description',)
     ordering = ('description',)
-    search_fields = ('description')    
+    search_fields = ('description',)    
 
 class InstitutionalTypeAdmin(admin.ModelAdmin):
     list_display = ('name',
                      )
-    list_filter = ('name')
+    list_filter = ('name',)
     ordering = ('name',)
-    search_fields = ('name')
+    search_fields = ('name',)
 
 
 class CommercialTypeAdmin(admin.ModelAdmin):
     list_display = ('name',
                      )
-    list_filter = ('name')
+    list_filter = ('name',)
     ordering = ('name',)
-    search_fields = ('name') 
+    search_fields = ('name',) 
 
 
 class SustainableDeclarationAdmin(admin.ModelAdmin):
@@ -221,9 +221,10 @@ class SustainableDeclarationAdmin(admin.ModelAdmin):
     list_display = ('ratio_wall_ceiling_id','water_saving_exp',
                     'energy_saving_exp', 
                      )
-    #list_filter = ('')
+    list_filter = ('ratio_wall_ceiling_id','water_saving_exp',
+                    'energy_saving_exp',)
     #ordering = ('', '')
-    search_fields = ('ratio_wall_ceiling_id')
+    search_fields = ('ratio_wall_ceiling_id',)
   
 
 class RatioWallCeilingAdmin(admin.ModelAdmin):
@@ -247,9 +248,9 @@ class MeasureAdmin(admin.ModelAdmin):
 class MeasureTypeAdmin(admin.ModelAdmin):
     list_display = ('name',
                      )
-    list_filter = ('name')
+    list_filter = ('name',)
     ordering = ('name',)
-    search_fields = ('name')
+    search_fields = ('name',)
 
 
 class MaterialityAdmin(admin.ModelAdmin):
@@ -264,9 +265,9 @@ class MaterialityAdmin(admin.ModelAdmin):
 class MaterialityTypeAdmin(admin.ModelAdmin):
     list_display = ('name',
                      )
-    list_filter = ('name')
+    list_filter = ('name',)
     ordering = ('name',)
-    search_fields = ('name')
+    search_fields = ('name',)
 
 
 class PropertyAdmin(admin.ModelAdmin):
@@ -277,25 +278,25 @@ class PropertyAdmin(admin.ModelAdmin):
         ]
     list_display = ('cadastral_id','real_state_reg_num','current_address', 'previous_address',
                      )
-    list_filter = ('cadastral_id')
+    list_filter = ('cadastral_id',)
     ordering = ('cadastral_id', 'real_state_reg_num',)
-    search_fields = ('cadastral_id')
+    search_fields = ('cadastral_id',)
 
 
 class SoilClasificationAdmin(admin.ModelAdmin):
     list_display = ('name',
                      )
-    list_filter = ('name')
+    list_filter = ('name',)
     ordering = ('name',)
-    search_fields = ('name')    
+    search_fields = ('name',)    
 
 
 class PlanimetryAdmin(admin.ModelAdmin):
     list_display = ('name',
                      )
-    list_filter = ('name')
+    list_filter = ('name',)
     ordering = ('name',)
-    search_fields = ('name')    
+    search_fields = ('name',)    
 
 
 class CadastralAdmin(admin.ModelAdmin):
@@ -308,93 +309,93 @@ class CadastralAdmin(admin.ModelAdmin):
     list_display = ('number','neighborhood', 'vereda', 'comuna','sector','estrato',
                                'corregimiento', 'manzana_number', 'lote_number',
                      )
-    list_filter = ('number')
-    ordering = ('neighborhood')
-    search_fields = ('number')
+    list_filter = ('number',)
+    ordering = ('neighborhood',)
+    search_fields = ('number',)
 
 
 class NeighborAdmin(admin.ModelAdmin):
-    list_display = ('Housing_address', 'Mailing_address',
+    list_display = ('housing_address', 'mailing_address',
                      )
-    ordering = ('Housing_address',)
-    search_fields = ('Housing_address') 
-   
+    ordering = ('housing_address',)
+    search_fields = ('housing_address',)
+
 
 class BordersDimensionAreasAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,{'fields':['TotalArea',]}),
-        ('Details', {'fields':['Borders_n', 'Borders_s', 'Borders_e','Borders_w','Area_urbanized',
-                               'Area_common', 'Area_parking',
+        (None,{'fields':['total_area',]}),
+        ('Details', {'fields':['borders_n', 'borders_s', 'borders_e','borders_w','area_urbanized',
+                               'area_common', 'area_parking',
                                 ]})
         ]
-    list_display = ('TotalArea', 'Borders_n', 'Borders_s', 'Borders_e','Borders_w','Area_urbanized',
-                               'Area_common', 'Area_parking',
+    list_display = ('total_area', 'borders_n', 'borders_s', 'borders_e','borders_w','area_urbanized',
+                               'area_common', 'area_parking',
                      )
-    list_filter = ('TotalArea')
-    ordering = ('TotalArea')
-    search_fields = ('TotalArea')
+    list_filter = ('total_area',)
+    ordering = ('total_area',)
+    search_fields = ('total_area',)
 
 
 class NeighboringAdmin(admin.ModelAdmin):
-    list_display = ('Neighbor_id', 'Length', 'Borders',
+    list_display = ('neighbor_id', 'length', 'borders',
                      )
-    list_filter = ('Neighbor_id')
-    ordering = ('Length')
-    search_fields = ('Borders')
+    list_filter = ('neighbor_id',)
+    ordering = ('length',)
+    search_fields = ('borders',)
 
    
 class LicenceHolderResponsibleAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,{'fields':['Name',]}),
-        ('Details', {'fields':['Identification_num', 'Sign', 'Phone_number','Email',
-                               'Electronic_notification',
+        (None,{'fields':['name',]}),
+        ('Details', {'fields':['identification_num', 'sign', 'phone_number','email',
+                               'electronic_notification',
                             ]})
         ]
-    list_display = ('Name', 'Identification_num', 'Sign', 'Phone_number','Email',
-                               'Electronic_notification',
+    list_display = ('name', 'identification_num', 'sign', 'phone_number','email',
+                               'electronic_notification',
                      )
-    list_filter = ('Name')
-    ordering = ('Identification_num')
-    search_fields = ('Identification_num')
+    list_filter = ('name',)
+    ordering = ('identification_num',)
+    search_fields = ('identification_num',)
 
 
 class ProfessionalResponsibleAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,{'fields':['Profession_name_id',]}),
-        ('Details', {'fields':['name', 'Identification_num', 'Professional_licence_num',
-                               'Licence_expedition', 'Sign', 'Email', 'Required_review', 
+        (None,{'fields':['profession_name_id',]}),
+        ('Details', {'fields':['name', 'identification_num', 'professional_licence_num',
+                               'licence_expedition', 'sign', 'email', 'required_review', 
                             ]})
         ]
-    list_display = ('Profession_name_id', 'name', 'Identification_num', 'Professional_licence_num',
-                               'Licence_expedition', 'Sign', 'Email', 'Required_review',
+    list_display = ('profession_name_id', 'name', 'identification_num', 'professional_licence_num',
+                               'licence_expedition', 'sign', 'email', 'required_review',
                      )
-    list_filter = ('Profession_name_id')
-    ordering = ('name')
-    search_fields = ('Identification_num')
+    list_filter = ('profession_name_id',)
+    ordering = ('name',)
+    search_fields = ('identification_num',)
 
 
 class ProfessionNameAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,{'fields':['Name',]}),
-        ('Details', {'fields':['Review_option', 
+        (None,{'fields':['name',]}),
+        ('Details', {'fields':['review_option', 
                                ]})
         ]
-    list_display = ('name','Review_option',)
+    list_display = ('name','review_option',)
       
 
 class PetitionResponsibleAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,{'fields':['Name',]}),
-        ('Details', {'fields':['Identification_num', 'Phone_num',
-                               'mailing_address', 'Sign', 'Email', 
+        (None,{'fields':['name',]}),
+        ('Details', {'fields':['identification_num', 'phone_num',
+                               'mailing_address', 'sign', 'email', 
                             ]})
         ]
-    list_display = ('Name', 'Profession_name_id', 'Identification_num', 'Phone_num',
-                               'mailing_address', 'Sign', 'Email', 
+    list_display = ('name', 'identification_num', 'phone_num',
+                               'mailing_address', 'sign', 'email', 
                      )
-    list_filter = ('Name')
-    ordering = ('Identification_num')
-    search_fields = ('Identification_num')
+    list_filter = ('name',)
+    ordering = ('identification_num',)
+    search_fields = ('identification_num',)
 
 
 class DocumentAdmin(admin.ModelAdmin):
@@ -404,17 +405,7 @@ class DocumentAdmin(admin.ModelAdmin):
     list_display = ('name', 'description', 'mandatory',)
 
 
-
-
-
-
-admin.site.register(Action, ActionAdmin)
 admin.site.register(Document, DocumentAdmin)
-admin.site.register(Entity_User, EntityUserAdmin)
-admin.site.register(Procedure, ProcedureAdmin)
-admin.site.register(Role, RoleAdmin)
-admin.site.register(RolePermissions, RolePermissionsAdmin)
-admin.site.register(Tenant, TenantAdmin)
 admin.site.register(UniqueNationalForm, UniqueNationalFormAdmin)
 admin.site.register(GeneralData, GeneralDataAdmin)
 admin.site.register(GeographicLocation, GeographicLocationAdmin)
@@ -444,5 +435,3 @@ admin.site.register(LicenceHolderResponsible, LicenceHolderResponsibleAdmin)
 admin.site.register(ProfessionalResponsible, ProfessionalResponsibleAdmin)
 admin.site.register(ProfessionName, ProfessionNameAdmin)
 admin.site.register(PetitionResponsible, PetitionResponsibleAdmin)
-
-

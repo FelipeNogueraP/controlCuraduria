@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils import timezone, dateformat
 from django.contrib.auth.models import User
-# Create your models here.
 
 
 ############# AUXILIARY ENTITIES #############
@@ -251,9 +250,9 @@ class BrPropertyPlanimetry(models.ManyToManyField):
 class LicenceHolderResponsible(models.Model):
     """ 5.1 TITULAR (ES) DE LA LICENCIA. """
     name = models.CharField(max_length=70)
-    identification_num = models.IntegerField(max_length=20)
+    identification_num = models.IntegerField()
     sign = models.CharField(max_length=70)
-    phone_number = models.IntegerField(max_length=10)
+    phone_number = models.IntegerField()
     email = models.EmailField(max_length=40)
     electronic_notification = models.BooleanField
 
@@ -262,8 +261,8 @@ class ProfessionalResponsible(models.Model):
     """ 5.2 PROFESIONALES RESPONSABLES. """
     profession_name_id = models.CharField(max_length=70)
     name = models.CharField(max_length=100)
-    identification_num = models.IntegerField(max_length=20)
-    professional_licence_num = models.IntegerField(max_length=20)
+    identification_num = models.IntegerField()
+    professional_licence_num = models.IntegerField()
     licence_expedition = models.DateField
     sign = models.CharField(max_length=70)
     email = models.EmailField(max_length=40)
@@ -279,8 +278,8 @@ class ProfessionName(models.Model):
 class PetitionResponsible(models.Model):
     """ 5.3 RESPONSABLE DE LA SOLICITUD. """
     name = models.CharField(max_length=100)
-    identification_num = models.IntegerField(max_length=20)
-    phone_num = models.IntegerField(max_length=11)
+    identification_num = models.IntegerField()
+    phone_num = models.IntegerField()
     mailing_address = models.CharField(max_length=100)
     sign = models.CharField(max_length=70)
     email = models.EmailField(max_length=40)
