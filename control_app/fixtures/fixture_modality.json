@@ -1,0 +1,115 @@
+[
+    {
+        "model": "control_app.modality",
+        "pk": 1,
+        "fields": {
+            "name": "Desarrollo"
+        }
+    },
+    {
+        "model": "control_app.modality",
+        "pk": 2,
+        "fields": {
+            "name": "Saneamiento"
+        }
+    },
+    {
+        "model": "control_app.modality",
+        "pk": 3,
+        "fields": {
+            "name": "Reurbanización"
+        }
+    },
+    {
+        "model": "control_app.modality",
+        "pk": 4,
+        "fields": {
+            "name": "Subdivisión rural"
+        }
+    },
+    {
+        "model": "control_app.modality",
+        "pk": 4,
+        "fields": {
+            "name": "Subdivisión urbana"
+        }
+    },
+    {
+        "model": "control_app.modality",
+        "pk": 4,
+        "fields": {
+            "name": "Reloteo"
+        }
+    },
+    {
+        "model": "control_app.modality",
+        "pk": 5,
+        "fields": {
+            "name": "Obra Nueva"
+        }
+    },
+    {
+        "model": "control_app.modality",
+        "pk": 6,
+        "fields": {
+            "name": "Ampliación"
+        }
+    },
+    {
+        "model": "control_app.modality",
+        "pk": 7,
+        "fields": {
+            "name": "Adecuación"
+        }
+    },
+    {
+        "model": "control_app.modality",
+        "pk": 8,
+        "fields": {
+            "name": "Modificación"
+        }
+    },
+    {
+        "model": "control_app.modality",
+        "pk": 9,
+        "fields": {
+            "name": "Restauración"
+        }
+    },
+    {
+        "model": "control_app.modality",
+        "pk": 10,
+        "fields": {
+            "name": "Reforzamiento estructural"
+        }
+    },
+    {
+        "model": "control_app.modality",
+        "pk": 11,
+        "fields": {
+            "name": "Demolicion total"
+        }
+    },
+    {
+        "model": "control_app.modality",
+        "pk": 12,
+        "fields": {
+            "name": "Demolicion parcial"
+        }
+    },
+    {
+        "model": "control_app.modality",
+        "pk": 13,
+        "fields": {
+            "name": "Recontrucción"
+        }
+    },
+    {
+        "model": "control_app.modality",
+        "pk": 14,
+        "fields": {
+            "name": "Cerramiento"
+        }
+    }
+
+]
