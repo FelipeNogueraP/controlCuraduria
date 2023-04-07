@@ -1,0 +1,34 @@
+[
+    {
+        "model": "control_app.BuildArea",
+        "pk": 1,
+        "fields": {
+            "name": "Menor a 2.000 m2"
+        }
+    },
+    {
+        "model": "control_app.BuildArea",
+        "pk": 2,
+        "fields": {
+            "name": "Alcanza o supera mediante ampliación los 2.000 m2"
+        }
+    },
+    {
+        "model": "control_app.BuildArea",
+        "pk": 3,
+        "fields": {
+            "name": "Igual o mayor a 2.000 m2"
+        }
+    },
+    {
+        "model": "control_app.BuildArea",
+        "pk": 4,
+        "fields": {
+            "name": "Genera 5 o más unidades habitacionales para transferir a terceros."
+        }
+    }
+    
+
+   
+
+]
