@@ -1,0 +1,54 @@
+[
+    {
+        "model": "control_app.Cadastral",
+        "pk": 1,
+        "fields": {
+            "number": "123abc548",
+            "neighborhood": "Terminal", 
+            "vereda": "Vado Castro",
+            "comuna": "N/A" ,
+            "sector": "Sector Norte", 
+            "estrato": 3 ,
+            "corregimiento": "Vado Castro",
+            "manzana_number": 2 ,
+            "lote_number": 1
+
+        }
+    },
+    {
+        "model": "control_app.Cadastral",
+        "pk": 2,
+        "fields": {
+            "number": "bc54865464",
+            "neighborhood": "Registraduria", 
+            "vereda": "Sogamoso",
+            "comuna": "13" ,
+            "sector": "Sector Centro", 
+            "estrato": 4 ,
+            "corregimiento": "Sogamoso",
+            "manzana_number": 1 ,
+            "lote_number": 4
+        }
+    },
+    {
+        "model": "control_app.Cadastral",
+        "pk": 3,
+        "fields": {
+            "number": "6464dsafas654",
+            "neighborhood": "Los alicios", 
+            "vereda": "Firavitoba",
+            "comuna": "14" ,
+            "sector": "Sector Sur", 
+            "estrato": 2 ,
+            "corregimiento": "Firavitoba",
+            "manzana_number": 3 ,
+            "lote_number": 2
+        }
+    }
+       
+    
+  
+]
+
+
+

@@ -10,7 +10,7 @@
         "model": "control_app.Uses",
         "pk": 2,
         "fields": {
-            "name": " Comercio y/o Uses"
+            "name": " Comercio y/o Servicios"
         }
     },
     {
@@ -28,11 +28,11 @@
         }
     },
     {
-    "model": "control_app.Uses",
-    "pk": 4,
-    "fields": {
-        "name": "Otro"
-    }
+        "model": "control_app.Uses",
+        "pk": 5,
+        "fields": {
+            "name": "Otro, ¿Cual?_____"
+        }
     }
 
    
