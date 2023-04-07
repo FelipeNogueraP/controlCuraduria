@@ -1,0 +1,25 @@
+[
+    {
+        "model": "control_app.typeprocedure",
+        "pk": 1,
+        "fields": {
+            "name": "LICENCIA DE URBANIZACIÓN"
+        }
+    },
+    {
+        "model": "control_app.typeprocedure",
+        "pk": 2,
+        "fields": {
+            "name": "LICENCIA DE PARCELACIÓN"
+        }
+    }
+    {
+        "model": "control_app.typeprocedure",
+        "pk": 3,
+        "fields": {
+            "name": "LICENCIA DE CONSTRUCCIÓN"
+        }
+    }
+   
+
+]

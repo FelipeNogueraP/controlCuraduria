@@ -1,0 +1,27 @@
+[
+    {
+        "model": "control_app.HousingType",
+        "pk": 1,
+        "fields": {
+            "name": "VIP"
+        }
+    },
+    {
+        "model": "control_app.HousingType",
+        "pk": 2,
+        "fields": {
+            "name": "VIS"
+        }
+    },
+    {
+        "model": "control_app.HousingType",
+        "pk": 3,
+        "fields": {
+            "name": "No VIS"
+        }
+    }
+    
+
+   
+
+]

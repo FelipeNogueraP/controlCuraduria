@@ -1,0 +1,20 @@
+[
+    {
+        "model": "control_app.MeasureType",
+        "pk": 1,
+        "fields": {
+            "name": "Activa"
+        }
+    },
+    {
+        "model": "control_app.MeasureType",
+        "pk": 2,
+        "fields": {
+            "name": "Pasiva"
+        }
+    }
+    
+
+   
+
+]

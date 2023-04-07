@@ -1,0 +1,116 @@
+[
+    {
+        "model": "control_app.Measure",
+        "pk": 1,
+        "fields": {
+            "name": "Cubierta verde",
+            "measure_type_id": 2, 
+            "other_detail_id": 1
+
+        }
+    },
+    {
+        "model": "control_app.Measure",
+        "pk": 2,
+        "fields": {
+            "name": "Elementos de protección solar",
+            "measure_type_id": 2, 
+            "other_detail_id": 1
+        }
+    },
+    {
+        "model": "control_app.Measure",
+        "pk": 3,
+        "fields": {
+            "name": "Vidrios de protección solar",
+            "measure_type_id": 2, 
+            "other_detail_id": 1
+        }
+    },
+    {
+        "model": "control_app.Measure",
+        "pk": 4,
+        "fields": {
+            "name": "Cubierta de protección solar",
+            "measure_type_id": 2, 
+            "other_detail_id": 1
+        }
+    },
+    {
+        "model": "control_app.Measure",
+        "pk": 5,
+        "fields": {
+            "name": "Pared de protección solar",
+            "measure_type_id": 2, 
+            "other_detail_id": 1
+        }
+    },
+    {
+        "model": "control_app.Measure",
+        "pk": 6,
+        "fields": {
+            "name": "Otro, ¿Cual:____________?",
+            "measure_type_id": 2, 
+            "other_detail_id": 1
+        }
+    },
+    {
+        "model": "control_app.Measure",
+        "pk": 7,
+        "fields": {
+            "name": "Iluminación eficiente",
+            "measure_type_id": 1, 
+            "other_detail_id": 1
+        }
+    },
+    {
+        "model": "control_app.Measure",
+        "pk": 8,
+        "fields": {
+            "name": "Equipos de aire acondicionado eficientes",
+            "measure_type_id": 1, 
+            "other_detail_id": 1
+        }
+    },
+    {
+        "model": "control_app.Measure",
+        "pk": 9,
+        "fields": {
+            "name": "Agua caliente solar",
+            "measure_type_id": 1, 
+            "other_detail_id": 1
+        }
+    },
+    {
+        "model": "control_app.Measure",
+        "pk": 10,
+        "fields": {
+            "name": "Controles de iluminación",
+            "measure_type_id": 1, 
+            "other_detail_id": 1
+        }
+    },
+    {
+        "model": "control_app.Measure",
+        "pk": 11,
+        "fields": {
+            "name": "Variadores de velocidad para bombas",
+            "measure_type_id": 1, 
+            "other_detail_id": 1
+        }
+    },
+    {
+        "model": "control_app.Measure",
+        "pk": 12,
+        "fields": {
+            "name": "Otro, ¿Cual:____________?",
+            "measure_type_id": 1, 
+            "other_detail_id": 1
+        }
+    }
+    
+    
+
+    
+  
+]

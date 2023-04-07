@@ -1,0 +1,40 @@
+[
+    {
+        "model": "control_app.Uses",
+        "pk": 1,
+        "fields": {
+            "name": "Vivienda"
+        }
+    },
+    {
+        "model": "control_app.Uses",
+        "pk": 2,
+        "fields": {
+            "name": " Comercio y/o Servicios"
+        }
+    },
+    {
+        "model": "control_app.Uses",
+        "pk": 3,
+        "fields": {
+            "name": "Institucional"
+        }
+    },
+    {
+        "model": "control_app.Uses",
+        "pk": 4,
+        "fields": {
+            "name": "Industrial"
+        }
+    },
+    {
+        "model": "control_app.Uses",
+        "pk": 5,
+        "fields": {
+            "name": "Otro, ¿Cual?_____"
+        }
+    }
+
+   
+
+]

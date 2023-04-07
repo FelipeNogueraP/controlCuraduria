@@ -214,7 +214,7 @@ class Cadastral(models.Model):
     vereda = models.CharField(max_length=50)
     comuna = models.CharField(max_length=30)
     sector = models.CharField(max_length=30)
-    estrato = models.CharField(max_length=20)
+    estrato = models.IntegerField()
     corregimiento = models.CharField(max_length=50)
     manzana_number = models.CharField(max_length=30)
     lote_number = models.CharField(max_length=30)
