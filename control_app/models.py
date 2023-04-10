@@ -23,6 +23,9 @@ class GeographicLocation(models.Model):
     municipality = models.CharField(max_length=50)
     vereda = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.vereda
+
 
 class GeneralData(models.Model):
     """Create the seccion 0 Datos Generales of form"""
@@ -35,7 +38,9 @@ class GeneralData(models.Model):
     geographic_location_id = models.ForeignKey(
         GeographicLocation, on_delete=models.DO_NOTHING)
     verbose_name = "General Data"
-
+    
+    def __str__(self):
+        return self.verbose_name
 
 ############# 1.12 REGLAMENTACIÓN DE CONSTRUCCIÓN SOSTENIBLE #############
 

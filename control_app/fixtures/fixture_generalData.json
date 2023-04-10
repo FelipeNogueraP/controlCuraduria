@@ -1,0 +1,82 @@
+[
+    {
+        "model": "control_app.GeneralData",
+        "pk": 1,
+        "fields": {
+            "responsible_office": "Curaduría II de Sogamoso",
+            "filing_number_location": 15754, 
+            "filing_number_curator": 2,
+            "filing_number_year": 23, 
+            "filing_number_consecutive": 1, 
+            "date": 2023-04-05, 
+            "geographic_location_id": 1
+
+        }
+    },
+    {
+        "model": "control_app.GeneralData",
+        "pk": 2,
+        "fields": {
+            "responsible_office": "Curaduría II de Sogamoso",
+            "filing_number_location": 15754, 
+            "filing_number_curator": 2,
+            "filing_number_year": 23, 
+            "filing_number_consecutive": 2, 
+            "date": 2023-04-06, 
+            "geographic_location_id": 1
+        }
+    },
+    {
+        "model": "control_app.GeneralData",
+        "pk": 3,
+        "fields": {
+            "responsible_office": "Curaduría II de Sogamoso",
+            "filing_number_location": 15754, 
+            "filing_number_curator": 2,
+            "filing_number_year": 23, 
+            "filing_number_consecutive": 3, 
+            "date": 2023-04-07, 
+            "geographic_location_id": 1 
+        }
+    },
+    {
+        "model": "control_app.GeneralData",
+        "pk": 4,
+        "fields": {
+            "responsible_office": "Curaduría II de Sogamoso",
+            "filing_number_location": 15754, 
+            "filing_number_curator": 2,
+            "filing_number_year": 23, 
+            "filing_number_consecutive": 4, 
+            "date": 2023-04-08, 
+            "geographic_location_id": 1       
+        }
+    },
+    {
+        "model": "control_app.GeneralData",
+        "pk": 5,
+        "fields": {
+            "responsible_office": "Curaduría II de Sogamoso",
+            "filing_number_location": 15754, 
+            "filing_number_curator": 2,
+            "filing_number_year": 23, 
+            "filing_number_consecutive": 5, 
+            "date": 2023-04-10, 
+            "geographic_location_id": 1
+        }
+    },
+    {
+        "model": "control_app.GeneralData",
+        "pk": 6,
+        "fields": {
+            "responsible_office": "Curaduría II de Sogamoso",
+            "filing_number_location": 15754, 
+            "filing_number_curator": 2,
+            "filing_number_year": 23, 
+            "filing_number_consecutive": 6, 
+            "date": 2023-04-09, 
+            "geographic_location_id": 1
+        }
+    }    
+  
+]

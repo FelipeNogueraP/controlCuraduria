@@ -1,0 +1,115 @@
+[
+    {
+        "model": "control_app.Document",
+        "pk": 1,
+        "fields": {
+            "name": "Copia del Certificado de tradición y libertad.",
+            "mandatory": true, 
+            "description": "Del inmueble o inmuebles objeto de la solicitud, expedido antes de un mes de la fecha de la solicitud."
+        }
+    },
+    {
+        "model": "control_app.Document",
+        "pk": 2,
+        "fields": {
+            "name": "Poder especial debidamente otorgado ante notario.",
+            "mandatory": true, 
+            "description": "cuando se actúe mediante apoderado o mandatario, con la correspondiente presentación personal."
+        }
+    },
+    {
+        "model": "control_app.Document",
+        "pk": 3,
+        "fields": {
+            "name": "La relación de la dirección de los predios colindantes al proyecto objeto de la solicitud.",
+            "mandatory": true, 
+            "description": "La relación de la dirección de los predios colindantes al proyecto objeto de la solicitud."
+        }
+    },
+    {
+        "model": "control_app.Document",
+        "pk": 4,
+        "fields": {
+            "name": "Copia del documento de identidad o certificado de existencia y representación legal.",
+            "mandatory": true, 
+            "description": "(Documento de Identidad)Cuando se trate de personas naturales; (Personas jurídicas) certificado de existencia y representación legal, cuya fecha de expedición no sea superior a un mes."
+        }
+    },
+    {
+        "model": "control_app.Document",
+        "pk": 5,
+        "fields": {
+            "name": "Copia del documento o declaración privada del impuesto predial del último año.",
+            "mandatory": true, 
+            "description": "Respecto el inmueble o inmuebles objeto de la solicitud, donde figure la nomenclatura alfanumérica o identificación del predio. (No se exigirá cuando exista otro documento oficial con base en el cual se pueda establecer la dirección del predio o predios)."
+        }
+    },
+    {
+        "model": "control_app.Document",
+        "pk": 6,
+        "fields": {
+            "name": "Copia de matrícula profesional y certificaciones de experiencia de los profesionales intervinientes en el trámite.",
+            "mandatory": true, 
+            "description": "Copia de TP y copia de las certificaciones que acrediten su experiencia, para los trámites que así lo requieran."
+        }
+    },
+    {
+        "model": "control_app.Document",
+        "pk": 7,
+        "fields": {
+            "name": "Plano topográfico georreferenciado.",
+            "mandatory": false, 
+            "description": "Al marco de referencia MAGNA SIRGAS, del predio o predios objeto de la solicitud, firmado por profesional competente."
+        }
+    },
+    {
+        "model": "control_app.Document",
+        "pk": 8,
+        "fields": {
+            "name": "Plano de proyecto urbanístico.",
+            "mandatory": false, 
+            "description": "Firmado por el arquitecto responsable del diseño."
+        }
+    },
+    {
+        "model": "control_app.Document",
+        "pk": 9,
+        "fields": {
+            "name": "Certificación expedida por las empresas de servicio públicos domiciliarios.",
+            "mandatory": false, 
+            "description": "o autoridad municipal o distrital competente, indicando la disponibilidad inmediata de los servicios. Documento  o declaración privada del urbanizador donde se comprometa y responsabilice por la ejecución de las obras necesarias para la autoprestación del servicio público, y el concepto previo de la autoridad ambiental competente."
+        }
+    },
+    {
+        "model": "control_app.Document",
+        "pk": 10,
+        "fields": {
+            "name": "Estudios detallados de amenaza y riesgo.",
+            "mandatory": false, 
+            "description": "En predios ubicados en zonas de amenaza y/o riesgo alto y medio de origen geotécnico o hidrológico."
+        }
+    },
+    {
+        "model": "control_app.Document",
+        "pk": 11,
+        "fields": {
+            "name": "Copia de la licencia de urbanización.",
+            "mandatory": false, 
+            "description": "Sus modificaciones y revalidaciones junto con los planos urbanísticos aprobados con los que se ejecutó el 80% de la urbanización."
+        }
+    },
+    {
+        "model": "control_app.Document",
+        "pk": 12,
+        "fields": {
+            "name": "Certificación bajo la gravedad de juramento del 80% areas de cesión.",
+            "mandatory": false, 
+            "description": "Certificación suscrita por el solicitante de la licencia en la que manifieste bajo la gravedad de juramento que la urbanización para la cual solicita esta licencia está ejecutada como mínimo el 80% del total de las áreas de cesión pública aprobadas en la licencia de la urbanización vencida."
+        }
+    }
+    
+    
+
+    
+  
+]

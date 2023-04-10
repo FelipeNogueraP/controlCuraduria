@@ -1,0 +1,24 @@
+[
+    {
+        "model": "control_app.MaterialityType",
+        "pk": 1,
+        "fields": {
+            "name": "Materialidad Muro Externo"
+        }
+    },
+    {
+        "model": "control_app.MaterialityType",
+        "pk": 2,
+        "fields": {
+            "name": "Materialidad Muro Interno"
+        }
+    },
+    {
+        "model": "control_app.MaterialityType",
+        "pk": 3,
+        "fields": {
+            "name": "Materialidad Cubierta"
+        }
+    }
+
+]

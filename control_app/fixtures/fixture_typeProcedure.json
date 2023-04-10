@@ -1,0 +1,44 @@
+[
+    {
+        "model": "control_app.typeprocedure",
+        "pk": 1,
+        "fields": {
+            "name": "Licencia de urbanización"
+        }
+    },
+    {
+        "model": "control_app.typeprocedure",
+        "pk": 2,
+        "fields": {
+            "name": "Licencia de parcelación"
+        }
+    },
+    {
+        "model": "control_app.typeprocedure",
+        "pk": 3,
+        "fields": {
+            "name": "Licencia de construcción"
+        }
+    },
+    {
+        "model": "control_app.typeprocedure",
+        "pk": 4,
+        "fields": {
+            "name": "Intervención y ocupación del espacio público"
+        }
+    },
+    {
+        "model": "control_app.typeprocedure",
+        "pk": 5,
+        "fields": {
+            "name": "Reconocimiento de la excistencia de una edificación"
+        }
+    },
+    {
+        "model": "control_app.typeprocedure",
+        "pk": 6,
+        "fields": {
+            "name": "Otras actuaciones"
+        }
+    }
+]
