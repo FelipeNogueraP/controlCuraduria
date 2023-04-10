@@ -1,0 +1,57 @@
+[
+    {
+        "model": "control_app.GeographicLocation",
+        "pk": 1,
+        "fields": {
+            "department": "Boyacá",
+            "municipality": "Sogamoso", 
+            "vereda": "Sogamoso"
+        }
+    },
+    {
+        "model": "control_app.GeographicLocation",
+        "pk": 2,
+        "fields": {
+            "department": "Boyacá",
+            "municipality": "Sogamoso", 
+            "vereda": "Vado Castro"
+        }
+    },
+    {
+        "model": "control_app.GeographicLocation",
+        "pk": 3,
+        "fields": {
+            "department": "Boyacá",
+            "municipality": "Isa", 
+            "vereda": "Isa"
+        }
+    },
+    {
+        "model": "control_app.GeographicLocation",
+        "pk": 4,
+        "fields": {
+            "department": "Boyacá",
+            "municipality": "Firavitoba", 
+            "vereda": "Firavitoba"
+        }
+    },
+    {
+        "model": "control_app.GeographicLocation",
+        "pk": 5,
+        "fields": {
+            "department": "Boyacá",
+            "municipality": "Tibasosa", 
+            "vereda": "Tibasosa"
+        }
+    },
+    {
+        "model": "control_app.GeographicLocation",
+        "pk": 6,
+        "fields": {
+            "department": "Boyacá",
+            "municipality": "Paipa", 
+            "vereda": "Paipa"
+        }
+    }    
+  
+]

@@ -261,7 +261,7 @@ class LicenceHolderResponsible(models.Model):
     """ 5.1 TITULAR (ES) DE LA LICENCIA. """
     name = models.CharField(max_length=70)
     identification_num = models.IntegerField()
-    sign = models.CharField(max_length=70)
+    sign = models.BooleanField
     phone_number = models.IntegerField()
     email = models.EmailField(max_length=40)
     electronic_notification = models.BooleanField
@@ -274,7 +274,7 @@ class ProfessionalResponsible(models.Model):
     identification_num = models.IntegerField()
     professional_licence_num = models.IntegerField()
     licence_expedition = models.DateField
-    sign = models.CharField(max_length=70)
+    sign = models.BooleanField
     email = models.EmailField(max_length=40)
     required_review = models.BooleanField
 
@@ -291,7 +291,7 @@ class PetitionResponsible(models.Model):
     identification_num = models.IntegerField()
     phone_num = models.IntegerField()
     mailing_address = models.CharField(max_length=100)
-    sign = models.CharField(max_length=70)
+    sign = models.BooleanField
     email = models.EmailField(max_length=40)
 
 
