@@ -1,0 +1,39 @@
+[
+    {
+        "model": "control_app.Neighbor",
+        "pk": 1,
+        "fields": {
+            "housing_address": "Calle 123 # 97 - 01",
+            "mailing_address": "Calle 123 # 97 - 01"
+
+        }
+    },
+    {
+        "model": "control_app.Neighbor",
+        "pk": 2,
+        "fields": {
+            "housing_address": "Avenida 548 # 54 A - 07",
+            "mailing_address": "Avenida 548 # 54 A - 07"
+        }
+    },
+    {
+        "model": "control_app.Neighbor",
+        "pk": 3,
+        "fields": {
+            "housing_address": "Carrera 12 # 65 - 47",
+            "mailing_address": "Carrera 12 # 65 - 47"
+        }
+    },
+    {
+        "model": "control_app.Neighbor",
+        "pk": 4,
+        "fields": {
+            "housing_address": "Carrera 98 # 15 - 32",
+            "mailing_address": "Carrera 98 # 15 - 32"
+        }
+    }
+    
+
+   
+
+]
