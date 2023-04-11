@@ -1,0 +1,24 @@
+[
+    {
+        "model": "control_app.Planimetry",
+        "pk": 1,
+        "fields": {
+            "name": "Plano de Loteo"
+        }
+    },
+    {
+        "model": "control_app.Planimetry",
+        "pk": 2,
+        "fields": {
+            "name": "Plano Topografico"
+        }
+    },
+    {
+        "model": "control_app.Planimetry",
+        "pk": 3,
+        "fields": {
+            "name": "Otro, ¿Cual? ____"
+        }
+    }
+
+]

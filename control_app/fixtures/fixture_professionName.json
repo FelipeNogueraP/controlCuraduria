@@ -1,0 +1,67 @@
+[
+    {
+        "model": "control_app.ProfessionName",
+        "pk": 1,
+        "fields": {
+            "name": "Urbanizador o Constructor responsable",
+            "review_option": false
+        }
+    },
+    {
+        "model": "control_app.ProfessionName",
+        "pk": 2,
+        "fields": {
+            "name": "Arquitecto Proyectista",
+            "review_option": false
+        }
+    },
+    {
+        "model": "control_app.ProfessionName",
+        "pk": 3,
+        "fields": {
+            "name": "Ingeniero Civil Diseñador Estructural",
+            "review_option": true
+        }
+    },
+    {
+        "model": "control_app.ProfessionName",
+        "pk": 4,
+        "fields": {
+            "name": "Diseñador de elementos no estructurales",
+            "review_option": false
+        }
+    },
+    {
+        "model": "control_app.ProfessionName",
+        "pk": 5,
+        "fields": {
+            "name": "Ingeniero Civil Geotecnista",
+            "review_option": true
+        }
+    },
+    {
+        "model": "control_app.ProfessionName",
+        "pk": 6,
+        "fields": {
+            "name": "Ingeniero Topógrafico y/o Topógrafo",
+            "review_option": false
+        }
+    },
+    {
+        "model": "control_app.ProfessionName",
+        "pk": 7,
+        "fields": {
+            "name": "Revisor independiente de los diseños estructurales",
+            "review_option": false
+        }
+    },
+    {
+        "model": "control_app.ProfessionName",
+        "pk": 8,
+        "fields": {
+            "name": "Otros profesionales especialistas",
+            "review_option": false
+        }
+    } 
+
+]

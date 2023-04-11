@@ -1,0 +1,10 @@
+[
+    {
+        "model": "control_app.OtherDetail",
+        "pk": 1,
+        "fields": {
+            "description": "Licencia de urbanización"
+        }
+    }
+
+]

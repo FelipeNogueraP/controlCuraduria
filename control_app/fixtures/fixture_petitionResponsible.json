@@ -1,0 +1,47 @@
+[
+        {
+            "model": "control_app.PetitionResponsible",
+            "pk": 1,
+            "fields": {
+                "name": "Solicitante1",
+                "identification_num": 12346875, 
+                "phone_num": 3184065872,
+                "mailing_address": "Avenida siempre viva 123" ,
+                "sign": true, 
+                "email": "solicitante1@outlook.com"
+    
+            }
+        },
+        {
+            "model": "control_app.PetitionResponsible",
+            "pk": 2,
+            "fields": {
+                "name": "Solicitante2",
+                "identification_num": 357126487, 
+                "phone_num": 311546987,
+                "mailing_address": "Calle 65 # 95 - 52" ,
+                "sign": false, 
+                "email": "solicitante2@gmail.com"
+
+            }
+        },
+        {
+            "model": "control_app.PetitionResponsible",
+            "pk": 3,
+            "fields": {
+                "name": "Solicitante3",
+                "identification_num": 21597216, 
+                "phone_num": 3126542581,
+                "mailing_address": "Carrera 02 # 35 - 07 apto 101" ,
+                "sign": true, 
+                "email": "Solicitante3@hotmail.com"
+
+            }
+        }
+           
+        
+]
+    
+    
+    
+    

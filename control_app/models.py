@@ -246,7 +246,10 @@ class BrPropertySoilClasification(models.ManyToManyField):
 class Planimetry(models.Model):
     """ 2.5 PLANIMETRÍA DEL LOTE """
     name = models.CharField(max_length=50)
+    verbose_name = "Planimetries"
 
+    def __str__(self):
+        return self.verbose_name
 
 class BrPropertyPlanimetry(models.ManyToManyField):
     """ BRIDGE - PROPERTY & 2.5 PLANIMETRÍA DEL LOTE """
@@ -261,10 +264,10 @@ class LicenceHolderResponsible(models.Model):
     """ 5.1 TITULAR (ES) DE LA LICENCIA. """
     name = models.CharField(max_length=70)
     identification_num = models.IntegerField()
-    sign = models.BooleanField
     phone_number = models.IntegerField()
     email = models.EmailField(max_length=40)
     electronic_notification = models.BooleanField
+    sign = models.BooleanField
 
 
 class ProfessionalResponsible(models.Model):
@@ -274,9 +277,9 @@ class ProfessionalResponsible(models.Model):
     identification_num = models.IntegerField()
     professional_licence_num = models.IntegerField()
     licence_expedition = models.DateField
-    sign = models.BooleanField
     email = models.EmailField(max_length=40)
     required_review = models.BooleanField
+    sign = models.BooleanField
 
 
 class ProfessionName(models.Model):
@@ -291,8 +294,8 @@ class PetitionResponsible(models.Model):
     identification_num = models.IntegerField()
     phone_num = models.IntegerField()
     mailing_address = models.CharField(max_length=100)
-    sign = models.BooleanField
     email = models.EmailField(max_length=40)
+    sign = models.BooleanField
 
 
 ############# 6. DOCUMENTOS QUE ACOMPAÑAN LA SOLICITUD. #############
