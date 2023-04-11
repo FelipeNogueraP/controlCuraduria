@@ -1,0 +1,68 @@
+[
+    {
+        "model": "control_app.UniqueNationalForm",
+        "pk": 1,
+        "fields": {
+            "general_data_id": 1,
+            "request_id": 1,
+            "property_id": 1,
+            "borders_dimension_areas": 1,
+            "licence_holder_responsible": 1,
+            "professional_responsible": 1,
+            "document_id": 1
+        }
+    },
+    {
+        "model": "control_app.UniqueNationalForm",
+        "pk": 2,
+        "fields": {
+            "general_data_id": 2,
+            "request_id": 2,
+            "property_id": 2,
+            "borders_dimension_areas": 2,
+            "licence_holder_responsible": 2,
+            "professional_responsible": 2,
+            "document_id": 2
+        }
+    },
+    {
+        "model": "control_app.UniqueNationalForm",
+        "pk": 3,
+        "fields": {
+            "general_data_id": 3,
+            "request_id": 3,
+            "property_id": 3,
+            "borders_dimension_areas": 3,
+            "licence_holder_responsible": 3,
+            "professional_responsible": 3,
+            "document_id": 3
+        }
+    },
+    {
+        "model": "control_app.UniqueNationalForm",
+        "pk": 4,
+        "fields": {
+            "general_data_id": 4,
+            "request_id": 4,
+            "property_id": 4,
+            "borders_dimension_areas": 4,
+            "licence_holder_responsible": 4,
+            "professional_responsible": 4,
+            "document_id": 4
+        }
+    },
+    {
+        "model": "control_app.UniqueNationalForm",
+        "pk": 5,
+        "fields": {
+            "general_data_id": 5,
+            "request_id": 5,
+            "property_id": 5,
+            "borders_dimension_areas": 5,
+            "licence_holder_responsible": 5,
+            "professional_responsible": 5,
+            "document_id": 5
+        }
+    }
+
+]

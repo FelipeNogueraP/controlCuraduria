@@ -1,0 +1,39 @@
+[
+    {
+        "model": "control_app.Request",
+        "pk": 1,
+        "fields": {
+            "cultural_building": false,
+            "sustainable_declaration_id": 1
+
+        }
+    },
+    {
+        "model": "control_app.Request",
+        "pk": 2,
+        "fields": {
+            "cultural_building": false,
+            "sustainable_declaration_id": 2
+        }
+    },
+    {
+        "model": "control_app.Request",
+        "pk": 3,
+        "fields": {
+            "cultural_building": false,
+            "sustainable_declaration_id": 3
+        }
+    },
+    {
+        "model": "control_app.Request",
+        "pk": 4,
+        "fields": {
+            "cultural_building": true,
+            "sustainable_declaration_id": 4
+        }
+    }
+    
+
+   
+
+]

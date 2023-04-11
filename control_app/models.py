@@ -60,7 +60,10 @@ class SustainableDeclaration(models.Model):
     ratio_wall_ceiling_id = models.ForeignKey(RatioWallCeiling, on_delete=models.DO_NOTHING)
     water_saving_exp = models.CharField(max_length = 20)
     energy_saving_exp = models.CharField(max_length = 20)
+    verbose_name = "Declaración de sustentabilidad"
 
+    def __str__(self) -> str:
+        return self.verbose_name
 
 class MeasureType(models.Model):
     """ Complement of the Measure class """
@@ -159,6 +162,9 @@ class Uses(models.Model):
     """ 1.6 USOS """
     name = models.CharField(max_length = 50)
     verbose_name = "Uses"
+
+    def __str__(self) -> str:
+        return self.verbose_name
 
 
 class BuildArea(models.Model):

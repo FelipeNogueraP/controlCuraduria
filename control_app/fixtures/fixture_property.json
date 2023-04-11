@@ -1,0 +1,63 @@
+[
+    {
+        "model": "control_app.Property",
+        "pk": 1,
+        "fields": {
+            "current_address": "Calle 123",
+            "previous_address": "Calle 123",
+            "real_state_reg_num": 321546,
+            "cadastral_id": 1
+        }
+    },
+    {
+        "model": "control_app.Property",
+        "pk": 2,
+        "fields": {
+            "current_address": "Calle 456",
+            "previous_address": "Calle 456",
+            "real_state_reg_num": 6549877,
+            "cadastral_id": 2
+        }
+    },
+    {
+        "model": "control_app.Property",
+        "pk": 3,
+        "fields": {
+            "current_address": "Calle 987",
+            "previous_address": "Calle 987",
+            "real_state_reg_num": 329875,
+            "cadastral_id": 3
+        }
+    },
+    {
+        "model": "control_app.Property",
+        "pk": 4,
+        "fields": {
+            "current_address": "Calle 258",
+            "previous_address": "Calle 257",
+            "real_state_reg_num": 654321,
+            "cadastral_id": 4
+        }
+    },
+    {
+        "model": "control_app.Property",
+        "pk": 5,
+        "fields": {
+            "current_address": "Avenida 123",
+            "previous_address": "Avenida Calle 123",
+            "real_state_reg_num": 4446652,
+            "cadastral_id": 5
+        }
+    },
+    {
+        "model": "control_app.Property",
+        "pk": 6,
+        "fields": {
+            "current_address": "Carrera 357",
+            "previous_address": "Calle 357",
+            "real_state_reg_num": 3322885,
+            "cadastral_id": 6
+        }
+    }
+
+]

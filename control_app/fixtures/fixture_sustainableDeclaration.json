@@ -1,0 +1,58 @@
+[
+    {
+        "model": "control_app.SustainableDeclaration",
+        "pk": 1,
+        "fields": {
+            "ratio_wall_ceiling_id": 1,
+            "water_saving_exp": 20,
+            "energy_saving_exp": 30
+
+        }
+    },
+    {
+        "model": "control_app.SustainableDeclaration",
+        "pk": 2,
+        "fields": {
+            "ratio_wall_ceiling_id": 2,
+            "water_saving_exp": 30,
+            "energy_saving_exp": 50
+        }
+    },
+    {
+        "model": "control_app.SustainableDeclaration",
+        "pk": 3,
+        "fields": {
+            "ratio_wall_ceiling_id": 3,
+            "water_saving_exp": 60,
+            "energy_saving_exp": 70
+        }
+    },
+    {
+        "model": "control_app.SustainableDeclaration",
+        "pk": 4,
+        "fields": {
+            "ratio_wall_ceiling_id": 4,
+            "water_saving_exp": 80,
+            "energy_saving_exp": 90
+        }
+    },
+    {
+        "model": "control_app.SustainableDeclaration",
+        "pk": 5,
+        "fields": {
+            "ratio_wall_ceiling_id": 5,
+            "water_saving_exp": 100,
+            "energy_saving_exp": 200
+        }
+    },
+    {
+        "model": "control_app.SustainableDeclaration",
+        "pk": 6,
+        "fields": {
+            "ratio_wall_ceiling_id": 6,
+            "water_saving_exp": 50,
+            "energy_saving_exp": 50
+        }
+    }
+
+]

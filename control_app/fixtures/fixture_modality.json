@@ -29,84 +29,84 @@
     },
     {
         "model": "control_app.modality",
-        "pk": 4,
+        "pk": 5,
         "fields": {
             "name": "Subdivisión urbana"
         }
     },
     {
         "model": "control_app.modality",
-        "pk": 4,
+        "pk": 6,
         "fields": {
             "name": "Reloteo"
         }
     },
     {
         "model": "control_app.modality",
-        "pk": 5,
+        "pk": 7,
         "fields": {
             "name": "Obra Nueva"
         }
     },
     {
         "model": "control_app.modality",
-        "pk": 6,
+        "pk": 8,
         "fields": {
             "name": "Ampliación"
         }
     },
     {
         "model": "control_app.modality",
-        "pk": 7,
+        "pk": 9,
         "fields": {
             "name": "Adecuación"
         }
     },
     {
         "model": "control_app.modality",
-        "pk": 8,
+        "pk": 10,
         "fields": {
             "name": "Modificación"
         }
     },
     {
         "model": "control_app.modality",
-        "pk": 9,
+        "pk": 11,
         "fields": {
             "name": "Restauración"
         }
     },
     {
         "model": "control_app.modality",
-        "pk": 10,
+        "pk": 12,
         "fields": {
             "name": "Reforzamiento estructural"
         }
     },
     {
         "model": "control_app.modality",
-        "pk": 11,
+        "pk": 13,
         "fields": {
             "name": "Demolicion total"
         }
     },
     {
         "model": "control_app.modality",
-        "pk": 12,
+        "pk": 14,
         "fields": {
             "name": "Demolicion parcial"
         }
     },
     {
         "model": "control_app.modality",
-        "pk": 13,
+        "pk": 15,
         "fields": {
             "name": "Recontrucción"
         }
     },
     {
         "model": "control_app.modality",
-        "pk": 14,
+        "pk": 16,
         "fields": {
             "name": "Cerramiento"
         }

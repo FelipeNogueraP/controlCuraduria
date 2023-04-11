@@ -1,0 +1,70 @@
+[
+    {
+        "model": "control_app.RatioWallCeiling",
+        "pk": 1,
+        "fields": {
+            "north": 10,
+            "south": 20,
+            "east": 30,
+            "west": 40,
+            "ceiling_height": 100
+
+        }
+    },
+    {
+        "model": "control_app.RatioWallCeiling",
+        "pk": 2,
+        "fields": {
+            "north": 20,
+            "south": 40,
+            "east": 60,
+            "west": 80,
+            "ceiling_height": 200
+        }
+    },
+    {
+        "model": "control_app.RatioWallCeiling",
+        "pk": 3,
+        "fields": {
+            "north": 30,
+            "south": 30,
+            "east": 30,
+            "west": 30,
+            "ceiling_height": 120
+        }
+    },
+    {
+        "model": "control_app.RatioWallCeiling",
+        "pk": 4,
+        "fields": {
+            "north": 40,
+            "south": 30,
+            "east": 50,
+            "west": 40,
+            "ceiling_height": 140
+        }
+    },
+    {
+        "model": "control_app.RatioWallCeiling",
+        "pk": 5,
+        "fields": {
+            "north": 10,
+            "south": 10,
+            "east": 10,
+            "west": 10,
+            "ceiling_height": 40
+        }
+    },
+    {
+        "model": "control_app.RatioWallCeiling",
+        "pk": 6,
+        "fields": {
+            "north": 50,
+            "south": 50,
+            "east": 50,
+            "west": 50,
+            "ceiling_height": 200
+        }
+    }
+
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "model": "control_app.SoilClasification",
+        "pk": 1,
+        "fields": {
+            "name": "Urbano"
+        }
+    },
+    {
+        "model": "control_app.SoilClasification",
+        "pk": 2,
+        "fields": {
+            "name": "Rural"
+        }
+    },
+    {
+        "model": "control_app.SoilClasification",
+        "pk": 3,
+        "fields": {
+            "name": "De expansión"
+        }
+    }
+
+   
+
+]
