@@ -171,7 +171,7 @@ class Uses(models.Model):
         return self.name
     
     class meta: 
-        verbose_name_plural = "Uses"    
+        verbose_name_plural = "Uses"  
 
 class BuildArea(models.Model):
     """ 1.8 AREAS O UNIDADES CONSTRUIDAS """
@@ -245,6 +245,7 @@ class Property(models.Model):
     cadastral_id = models.ForeignKey(Cadastral, on_delete = models.DO_NOTHING)
    
     class meta: 
+        verbose_name = "Property"    
         verbose_name_plural = "Properties"    
 
 class SoilClasification(models.Model):
