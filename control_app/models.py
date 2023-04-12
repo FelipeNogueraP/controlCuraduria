@@ -37,10 +37,10 @@ class GeneralData(models.Model):
     date = models.DateField()
     geographic_location_id = models.ForeignKey(
         GeographicLocation, on_delete=models.DO_NOTHING)
-    verbose_name = "General Data"
     
-    def __str__(self):
-        return self.verbose_name
+    class meta: 
+        verbose_name_plural = "General Data"
+
 
 ############# 1.12 REGLAMENTACIÓN DE CONSTRUCCIÓN SOSTENIBLE #############
 
@@ -96,6 +96,8 @@ class Materiality(models.Model):
     other_detail_id = models.ForeignKey(
         OtherDetail, on_delete=models.DO_NOTHING)
 
+    class meta: 
+        verbose_name_plural = "Materialities"
 
 class BrSustainableDeclarationMateriality(models.ManyToManyField):
     """ BRIDGE - SustainableDeclaration & 1.12.2 MATERIALIDAD MURO EXTERNO 1.12.3 MATERIALIDAD MURO INTERNO """
@@ -141,6 +143,9 @@ class ProcedureObjective(models.Model):
 class Modality(models.Model):
     """ 1.3 MODALIDAD LICENCIA URBANIZACION, 1.4 MODALIDAD SUBDVISION, 1.5 MODALIDAD LICENCIA DE CONSTRUCCION """
     name = models.CharField(max_length=50)
+    
+    class meta: 
+        verbose_name_plural = "Modalities"
 
 
 class BrTypeProcedureModality(models.ManyToManyField):
@@ -161,11 +166,12 @@ class BrRequestUses(models.ManyToManyField):
 class Uses(models.Model):
     """ 1.6 USOS """
     name = models.CharField(max_length = 50)
-    verbose_name = "Uses"
 
     def __str__(self) -> str:
-        return self.verbose_name
-
+        return self.name
+    
+    class meta: 
+        verbose_name_plural = "Uses"    
 
 class BuildArea(models.Model):
     """ 1.8 AREAS O UNIDADES CONSTRUIDAS """
@@ -237,7 +243,9 @@ class Property(models.Model):
     previous_address = models.CharField(max_length=100)
     real_state_reg_num = models.CharField(max_length=50)
     cadastral_id = models.ForeignKey(Cadastral, on_delete = models.DO_NOTHING)
-
+   
+    class meta: 
+        verbose_name_plural = "Properties"    
 
 class SoilClasification(models.Model):
     """ 2.4 CLASIFICACIÓN DEL SUELO """
@@ -252,10 +260,13 @@ class BrPropertySoilClasification(models.ManyToManyField):
 class Planimetry(models.Model):
     """ 2.5 PLANIMETRÍA DEL LOTE """
     name = models.CharField(max_length=50)
-    verbose_name = "Planimetries"
 
     def __str__(self):
-        return self.verbose_name
+        return self.name
+    
+    class meta: 
+        verbose_name_plural = "Planimetries"    
+    
 
 class BrPropertyPlanimetry(models.ManyToManyField):
     """ BRIDGE - PROPERTY & 2.5 PLANIMETRÍA DEL LOTE """
@@ -334,7 +345,9 @@ class BordersDimensionAreas(models.Model):
     area_common = models.CharField(max_length=80)
     area_parking = models.CharField(max_length=80)
     total_area = models.CharField(max_length=80)
-
+    
+    class meta:
+        verbose_name_plural = "Borders Dimension Areas"
 
 ############# FORMULARIO ÚNICO NACIONAL #############
 
