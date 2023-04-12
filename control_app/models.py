@@ -60,7 +60,7 @@ class RatioWallCeiling(models.Model):
 
     def __str__(self) -> str:
         return self.verbose_name
-    
+
 
 class SustainableDeclaration(models.Model):
     """ 1.12 REGLAMENTACIÓN DE CONSTRUCCIÓN SOSTENIBLE """
