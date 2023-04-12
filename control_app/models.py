@@ -272,8 +272,8 @@ class LicenceHolderResponsible(models.Model):
     identification_num = models.IntegerField()
     phone_number = models.IntegerField()
     email = models.EmailField(max_length=40)
-    electronic_notification = models.BooleanField
-    sign = models.BooleanField
+    electronic_notification = models.BooleanField(verbose_name=("¿Acepta Notificación Electrónica?"))
+    sign = models.BooleanField(verbose_name=("Firma"))
 
 
 class ProfessionalResponsible(models.Model):
@@ -285,7 +285,7 @@ class ProfessionalResponsible(models.Model):
     licence_expedition = models.DateField
     email = models.EmailField(max_length=40)
     required_review = models.BooleanField
-    sign = models.BooleanField
+    sign = models.BooleanField(verbose_name=("Firma"))
 
 
 class ProfessionName(models.Model):
@@ -301,7 +301,7 @@ class PetitionResponsible(models.Model):
     phone_num = models.IntegerField()
     mailing_address = models.CharField(max_length=100)
     email = models.EmailField(max_length=40)
-    sign = models.BooleanField
+    sign = models.BooleanField(verbose_name=("Firma"))
 
 
 ############# 6. DOCUMENTOS QUE ACOMPAÑAN LA SOLICITUD. #############

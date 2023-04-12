@@ -358,7 +358,7 @@ class NeighboringAdmin(admin.ModelAdmin):
 class LicenceHolderResponsibleAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,{'fields':['name',]}),
-        ('Details', {'fields':['identification_num', 'phone_number','email',
+        ('Details', {'fields':['identification_num', 'sign', 'phone_number','email','electronic_notification'
                                
                             ]})
         ]
