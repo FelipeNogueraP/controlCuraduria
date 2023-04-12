@@ -3,21 +3,29 @@
         "model": "control_app.Materiality",
         "pk": 1,
         "fields": {
-            "name": "Materialidad Muro Externo"
+            "name": "Materialidad Muro Externo",
+            "materiality_type_id": 1,
+            "other_detail_id": 1
+
+            
         }
     },
     {
         "model": "control_app.Materiality",
         "pk": 2,
         "fields": {
-            "name": "Materialidad Muro Interno"
+            "name": "Materialidad Muro Interno",
+            "materiality_type_id": 2,
+            "other_detail_id": 1
         }
     },
     {
         "model": "control_app.Materiality",
         "pk": 3,
         "fields": {
-            "name": "Materialidad Cubierta"
+            "name": "Materialidad Cubierta",
+            "materiality_type_id": 3,
+            "other_detail_id": 1
         }
     }
 

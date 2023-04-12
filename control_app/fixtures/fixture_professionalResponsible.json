@@ -7,7 +7,7 @@
             "name": "Urbanizador o Constructor responsable", 
             "identification_num": 6465465465,
             "professional_licence_num": 123, 
-            "licence_expedition": 2020-04-05, 
+            "licence_expedition": "2020-04-05", 
             "sign": true, 
             "email": "profesionalresponsable1@gmail.com",
             "required_review": false
@@ -21,7 +21,7 @@
             "name": "Arquitecto Proyectista", 
             "identification_num": 111222554,
             "professional_licence_num": 3225, 
-            "licence_expedition": 2018-04-06, 
+            "licence_expedition": "2018-04-06", 
             "sign": true, 
             "email": "arquitectoProyectista2@gmail.com",
             "required_review": false
@@ -35,7 +35,7 @@
             "name": "Ingeniero Civil Diseñador Estructural", 
             "identification_num": 9998855220,
             "professional_licence_num": 65482, 
-            "licence_expedition": 2019-04-07, 
+            "licence_expedition": "2019-04-07", 
             "sign": false, 
             "email": "IngCivilDisEs1@gmail.com",
             "required_review": true
@@ -49,7 +49,7 @@
             "name": "Diseñador de elementos no estructurales", 
             "identification_num": 335577115,
             "professional_licence_num": 115588, 
-            "licence_expedition": 2020-04-08, 
+            "licence_expedition": "2020-04-08", 
             "sign": true, 
             "email": "diselnoestr@gmail.com",
             "required_review": false       
@@ -63,7 +63,7 @@
             "name": "Ingeniero Civil Geotecnista", 
             "identification_num": 777442233,
             "professional_licence_num": 951753, 
-            "licence_expedition": 2021-04-10, 
+            "licence_expedition": "2021-04-10", 
             "sign": true, 
             "email": "ingcivlgeot1@outlook.com",
             "required_review": true
@@ -77,7 +77,7 @@
             "name": "Ingeniero Topógrafico y/o Topógrafo", 
             "identification_num": 1020754338,
             "professional_licence_num": 335722, 
-            "licence_expedition": 2022-04-09, 
+            "licence_expedition": "2022-04-09", 
             "sign": true, 
             "email": "ingtop1@hotmail.com",
             "required_review": false
@@ -91,7 +91,7 @@
             "name": "Revisor independiente de los diseños estructurales", 
             "identification_num": 5433810207,
             "professional_licence_num": 722335, 
-            "licence_expedition": 2017-01-15, 
+            "licence_expedition": "2017-01-15", 
             "sign": true, 
             "email": "revindep1@hotmail.com",
             "required_review": false
@@ -105,7 +105,7 @@
             "name": "Otros profesionales especialistas", 
             "identification_num": 54338225,
             "professional_licence_num": 112722, 
-            "licence_expedition": 2022-09-09, 
+            "licence_expedition": "2022-09-09", 
             "sign": true, 
             "email": "otrosprof1@hotmail.com",
             "required_review": false

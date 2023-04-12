@@ -413,7 +413,7 @@ class ProfessionalResponsibleAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,{'fields':['profession_name_id',]}),
         ('Details', {'fields':['name', 'identification_num', 'professional_licence_num',
-                               'email', 
+                               'licence_expedition', 'sign', 'email', 'required_review',
                             ]})
         ]
     list_display = ('profession_name_id', 'name', 'identification_num', 'professional_licence_num',

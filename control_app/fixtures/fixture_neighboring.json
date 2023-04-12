@@ -39,7 +39,7 @@
         "model": "control_app.Neighboring",
         "pk": 5,
         "fields": {
-            "neighbor_id": 5,
+            "neighbor_id": 3,
             "length": 25,
             "borders": "Rio"
         }
@@ -48,7 +48,7 @@
         "model": "control_app.Neighboring",
         "pk": 6,
         "fields": {
-            "neighbor_id": 6,
+            "neighbor_id": 2,
             "length": 55,
             "borders": "Avenida principal"
         }
@@ -57,7 +57,7 @@
         "model": "control_app.Neighboring",
         "pk": 7,
         "fields": {
-            "neighbor_id": 7,
+            "neighbor_id": 1,
             "length": 222,
             "borders": "Iglesia"
         }
@@ -66,7 +66,7 @@
         "model": "control_app.Neighboring",
         "pk": 8,
         "fields": {
-            "neighbor_id": 8,
+            "neighbor_id": 4,
             "length": 111,
             "borders": "Colegío"
         }

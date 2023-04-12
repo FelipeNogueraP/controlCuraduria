@@ -354,9 +354,9 @@ class ProfessionalResponsible(models.Model):
     name = models.CharField(max_length=100)
     identification_num = models.IntegerField()
     professional_licence_num = models.IntegerField()
-    licence_expedition = models.DateField
+    licence_expedition = models.DateField()
     email = models.EmailField(max_length=40)
-    required_review = models.BooleanField
+    required_review = models.BooleanField(verbose_name="¿Exige Supervisión Tecnica?")
     sign = models.BooleanField(verbose_name="Firma")
 
     def __str__(self) -> str:
@@ -391,7 +391,7 @@ class PetitionResponsible(models.Model):
 class Document(models.Model):
     """ 6. DOCUMENTOS QUE ACOMPAÑAN LA SOLICITUD. """
     name = models.CharField(max_length=100)
-    mandatory = models.BooleanField
+    mandatory = models.BooleanField(verbose_name="¿Obligatorio?")
     description = models.CharField(max_length=100)
 
     def __str__(self) -> str:

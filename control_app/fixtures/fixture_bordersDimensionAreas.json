@@ -1,0 +1,74 @@
+[
+    {
+        "model": "control_app.BordersDimensionAreas",
+        "pk": 1,
+        "fields": {
+            "borders_n": 1,
+            "borders_s": 1,
+            "borders_e": 1,
+            "borders_w": 1,
+            "area_urbanized": 1,
+            "area_common": 1,
+            "area_parking": 1,
+            "total_area": 1
+
+        }
+    },
+    {
+        "model": "control_app.BordersDimensionAreas",
+        "pk": 2,
+        "fields": {
+            "borders_n": 2,
+            "borders_s": 2,
+            "borders_e": 2,
+            "borders_w": 2,
+            "area_urbanized": 2,
+            "area_common": 2,
+            "area_parking": 2,
+            "total_area": 1
+        }
+    },
+    {
+        "model": "control_app.BordersDimensionAreas",
+        "pk": 3,
+        "fields": {
+            "borders_n": 3,
+            "borders_s": 3,
+            "borders_e": 3,
+            "borders_w": 3,
+            "area_urbanized": 3,
+            "area_common": 3,
+            "area_parking": 3,
+            "total_area": 1
+        }
+    },
+    {
+        "model": "control_app.BordersDimensionAreas",
+        "pk": 4,
+        "fields": {
+            "borders_n": 4,
+            "borders_s": 4,
+            "borders_e": 4,
+            "borders_w": 4,
+            "area_urbanized": 4,
+            "area_common": 4,
+            "area_parking": 4,
+            "total_area": 1
+        }
+    },
+    {
+        "model": "control_app.BordersDimensionAreas",
+        "pk": 5,
+        "fields": {
+            "borders_n": 5,
+            "borders_s": 5,
+            "borders_e": 5,
+            "borders_w": 5,
+            "area_urbanized": 5,
+            "area_common": 5,
+            "area_parking": 5,
+            "total_area": 1
+        }
+    }
+
+]

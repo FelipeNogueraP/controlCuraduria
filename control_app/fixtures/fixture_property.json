@@ -36,7 +36,7 @@
             "current_address": "Calle 258",
             "previous_address": "Calle 257",
             "real_state_reg_num": 654321,
-            "cadastral_id": 4
+            "cadastral_id": 2
         }
     },
     {
@@ -46,7 +46,7 @@
             "current_address": "Avenida 123",
             "previous_address": "Avenida Calle 123",
             "real_state_reg_num": 4446652,
-            "cadastral_id": 5
+            "cadastral_id": 1
         }
     },
     {
@@ -56,7 +56,7 @@
             "current_address": "Carrera 357",
             "previous_address": "Calle 357",
             "real_state_reg_num": 3322885,
-            "cadastral_id": 6
+            "cadastral_id": 3
         }
     }
 

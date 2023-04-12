@@ -46,7 +46,7 @@
             "request_id": 4,
             "property_id": 4,
             "borders_dimension_areas": 4,
-            "licence_holder_responsible": 4,
+            "licence_holder_responsible": 3,
             "professional_responsible": 4,
             "document_id": 4
         }
@@ -56,10 +56,10 @@
         "pk": 5,
         "fields": {
             "general_data_id": 5,
-            "request_id": 5,
+            "request_id": 3,
             "property_id": 5,
             "borders_dimension_areas": 5,
-            "licence_holder_responsible": 5,
+            "licence_holder_responsible": 2,
             "professional_responsible": 5,
             "document_id": 5
         }
