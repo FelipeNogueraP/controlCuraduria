@@ -41,7 +41,10 @@ class GeneralData(models.Model):
     class Meta: 
         verbose_name_plural = "General Data"
 
-
+    def __str__(self) -> str:
+        return self.responsible_office
+    
+    
 ############# 1.12 REGLAMENTACIÓN DE CONSTRUCCIÓN SOSTENIBLE #############
 
 
@@ -54,6 +57,7 @@ class RatioWallCeiling(models.Model):
     ceiling_height = models.CharField(max_length = 5)
     verbose_name = "RELACIÓN MURO VENTANA Y ALTURA PISO A TECHO"
 
+
 class SustainableDeclaration(models.Model):
     """ 1.12 REGLAMENTACIÓN DE CONSTRUCCIÓN SOSTENIBLE """
     """ 1.12.1 DECLARACIÓN SOBRE MEDIDAS DE AHORRO EN ENERGÍA """
@@ -65,10 +69,14 @@ class SustainableDeclaration(models.Model):
     def __str__(self) -> str:
         return self.verbose_name
 
+
 class MeasureType(models.Model):
     """ Complement of the Measure class """
     name = models.CharField(max_length = 100)
 
+    def __str__(self) -> str:
+        return self.name
+    
 
 class Measure(models.Model):
     """ 1.12.1.1 MEDIDAS PASIVAS, 1.12.1.2 MEDIDAS ACTIVAS """
@@ -77,17 +85,23 @@ class Measure(models.Model):
     other_detail_id = models.ForeignKey(
         OtherDetail, on_delete=models.DO_NOTHING)
 
+    def __str__(self) -> str:
+        return self.name
+    
 
 class BrSustainableDeclarationMeasure(models.Model):
     """ BRIDGE - SustainableDeclaration & 1.12.1.1  MEDIDAS PASIVAS - 1.12.1.2 MEDIDAS ACTIVAS """
-    sustainable_declaration_id = models.ManyToManyField(SustainableDeclaration, on_delete=models.DO_NOTHING)
-    measure_id = models.ManyToManyField(Measure, on_delete=models.DO_NOTHING)
+    sustainable_declaration_id = models.ManyToManyField(SustainableDeclaration, related_name="Sustainable Declaration Id+")
+    measure_id = models.ManyToManyField(Measure, related_name="Measure Id+")
 
 
 class MaterialityType(models.Model):
     """ Complement of the Materiality class """
     name = models.CharField(max_length = 100)
 
+    def __str__(self) -> str:
+        return self.name
+    
 
 class Materiality(models.Model):
     """ 1.12.2 MATERIALIDAD MURO EXTERNO 1.12.3 MATERIALIDAD MURO INTERNO """
@@ -99,10 +113,14 @@ class Materiality(models.Model):
     class Meta: 
         verbose_name_plural = "Materialities"
 
+    def __str__(self) -> str:
+        return self.name
+    
+
 class BrSustainableDeclarationMateriality(models.Model):
     """ BRIDGE - SustainableDeclaration & 1.12.2 MATERIALIDAD MURO EXTERNO 1.12.3 MATERIALIDAD MURO INTERNO """
-    sustainable_declaration_id = models.ManyToManyField(SustainableDeclaration, on_delete=models.DO_NOTHING)
-    materiality_id = models.ManyToManyField(Materiality, on_delete=models.DO_NOTHING)
+    sustainable_declaration_id = models.ManyToManyField(SustainableDeclaration, related_name="Sustainable Declaration Id+")
+    materiality_id = models.ManyToManyField(Materiality, related_name="Materiality Id+")
 
 
 ############# 1. IDENTIFICACIÓN DE LA SOLICITUD #############
@@ -117,27 +135,31 @@ class Request(models.Model):
 
 class BrRequestTypeProcedure(models.Model):
     """ BRIDGE - REQUEST & 1.1 TIPO DE TRAMITE """
-    request_id = models.ManyToManyField(Request, on_delete=models.DO_NOTHING)
-    type_procedure_id = models.ManyToManyField(Request, on_delete=models.DO_NOTHING)
+    request_id = models.ManyToManyField(Request, related_name="Request Id+")
+    type_procedure_id = models.ManyToManyField(Request, related_name="Type Procedure Id+")
 
 
 class TypeProcedure(models.Model):
     """ 1.1 TIPO DE TRAMITE """
     name = models.CharField(max_length=50)
-
+    
+    def __str__(self) -> str:
+        return self.name
+    
 
 class BrRequestProcedureObjective(models.Model):
     """ BRIDGE - REQUEST & 1.2 OBJETO DEL TRAMITE """
-    request_id = models.ManyToManyField(Request, on_delete=models.DO_NOTHING)
-    procedure_objective_id = models.ManyToManyField(
-        Request, on_delete=models.DO_NOTHING)
-    other_detail_id = models.ManyToManyField(
-        OtherDetail, on_delete=models.DO_NOTHING)
+    request_id = models.ManyToManyField(Request, related_name="Request Id+")
+    procedure_objective_id = models.ManyToManyField(Request, related_name="Procedure Objective Id+")
+    other_detail_id = models.ManyToManyField(OtherDetail, related_name="Other Detail Id+")
 
 
 class ProcedureObjective(models.Model):
     """ 1.2 OBJETO DEL TRAMITE """
     name = models.CharField(max_length=50)
+
+    def __str__(self) -> str:
+        return self.name
 
 
 class Modality(models.Model):
@@ -147,20 +169,22 @@ class Modality(models.Model):
     class Meta: 
         verbose_name_plural = "Modalities"
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class BrTypeProcedureModality(models.Model):
     """BRIDGE - TYPEPROCEDURE & 1.3 MODALIDAD LICENCIA URBANIZACION, 1.4 MODALIDAD SUBDVISION, 1.5 MODALIDAD LICENCIA DE CONSTRUCCION"""
-    type_procedure_id = models.ManyToManyField(
-        TypeProcedure, on_delete=models.DO_NOTHING)
-    modality_id = models.ManyToManyField(Modality, on_delete=models.DO_NOTHING)
+    type_procedure_id = models.ManyToManyField(TypeProcedure, related_name="Type Procedure Id+")
+    modality_id = models.ManyToManyField(Modality, related_name="Modality Id+")
 
 
 class BrRequestUses(models.Model):
     """ BRIDGE - REQUEST & 1.6 USOS """
-    request_id = models.ManyToManyField(Request, on_delete=models.DO_NOTHING)
-    type_uses_id = models.ManyToManyField(Request, on_delete=models.DO_NOTHING)
+    request_id = models.ManyToManyField(Request, related_name="Request Id+")
+    type_uses_id = models.ManyToManyField(Request, related_name="Type Uses Id+")
     other_detail_id = models.ManyToManyField(
-        OtherDetail, on_delete=models.DO_NOTHING)
+        OtherDetail, related_name="Other detail+")
 
 
 class Uses(models.Model):
@@ -178,48 +202,58 @@ class BuildArea(models.Model):
     """ 1.8 AREAS O UNIDADES CONSTRUIDAS """
     name = models.CharField(max_length = 100)
 
+    def __str__(self) -> str:
+        return self.name
+    
 
 class BrRequestBuildArea(models.Model):
     """ BRIDGE - Request & 1.7 AREAS O UNIDADES CONSTRUIDAS """
-    request_id = models.ManyToManyField(Request, on_delete = models.DO_NOTHING)
-    build_area_id = models.ManyToManyField(BuildArea, on_delete = models.DO_NOTHING)
+    request_id = models.ManyToManyField(Request, related_name="Request Id+")
+    build_area_id = models.ManyToManyField(BuildArea, related_name="Build Area Id+")
 
 
 class BrRequestHousingType(models.Model):
     """ BRIDGE - Request & 1.8 TIPO DE VIVIENDA """
-    request_id = models.ManyToManyField(Request, on_delete = models.DO_NOTHING)
-    housing_type_id = models.ManyToManyField(Request, on_delete = models.DO_NOTHING)
+    request_id = models.ManyToManyField(Request, related_name="Request Id+")
+    housing_type_id = models.ManyToManyField(Request, related_name="Housing Type Id+")
 
 
 class HousingType(models.Model):
     """ 1.8 TIPO DE VIVIENDA """
     name = models.CharField(max_length = 50)
 
+    def __str__(self) -> str:
+        return self.name
+    
 
 class InstitutionalType(models.Model):
     """ 1.10 Tipo Institucional """
     name = models.CharField(max_length = 50)
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class BrRequestInstitutionalType(models.Model):
     """ BRIDGE - Request & 1.10 TIPO INSTITUCIONAL """
-    request_id = models.ManyToManyField(Request, on_delete = models.DO_NOTHING)
-    institutional_type_id = models.ManyToManyField(InstitutionalType, on_delete = models.DO_NOTHING)
-    other_detail_id = models.ManyToManyField(
-        OtherDetail, on_delete=models.DO_NOTHING)
+    request_id = models.ManyToManyField(Request, related_name="Request Id+")
+    institutional_type_id = models.ManyToManyField(InstitutionalType, related_name="Institutional Type Id+")
+    other_detail_id = models.ManyToManyField(OtherDetail, related_name="Other Detail+")
 
 
 class CommercialType(models.Model):
     """ 1.11 TIPO DE COMERCIO Y/O SERVICIOS """
     name = models.CharField(max_length = 50)
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class BrRequestCommercialType(models.Model):
     """ BRIDGE - Request & 1.11 TIPO DE COMERCIO """
-    request_id = models.ManyToManyField(Request, on_delete = models.DO_NOTHING)
-    commercial_type_id = models.ManyToManyField(CommercialType, on_delete = models.DO_NOTHING)
-    other_detail_id = models.ManyToManyField(
-        OtherDetail, on_delete=models.DO_NOTHING)
+    request_id = models.ManyToManyField(Request, related_name="Request Id+")
+    commercial_type_id = models.ManyToManyField(CommercialType, related_name="Commercial Type Id+")
+    other_detail_id = models.ManyToManyField(OtherDetail, related_name="Other Detail Id+")
 
 
 ############# 2.0 INFORMACIÓN SOBRE EL PREDIO #############
@@ -240,6 +274,7 @@ class Cadastral(models.Model):
     def __str__(self) -> str:
         return self.number
 
+
 class Property(models.Model):
     """ 2.1, 2.1, 2.3 DIRECCIÓN O NOMENCLATURA, MATRICULA INMOBILIARIA, No DE IDENTIFICACIÓN CATASTRAL """
     current_address = models.CharField(max_length=100)
@@ -251,14 +286,19 @@ class Property(models.Model):
         verbose_name = "Property"    
         verbose_name_plural = "Properties"    
 
+
 class SoilClasification(models.Model):
     """ 2.4 CLASIFICACIÓN DEL SUELO """
     name = models.CharField(max_length=50)
+    
+    def __str__(self) -> str:
+        return self.name
+    
 
 class BrPropertySoilClasification(models.Model):
     """ BRIDGE - PROPERTY & 2.4 CLASIFICACIÓN DEL SUELO """
-    property_id = models.ManyToManyField(Property, on_delete=models.DO_NOTHING)
-    soil_clasification_id = models.ManyToManyField(SoilClasification, on_delete=models.DO_NOTHING)
+    property_id = models.ManyToManyField(Property, related_name="Property Id+")
+    soil_clasification_id = models.ManyToManyField(SoilClasification, related_name="Soil Clasification Id+")
 
 
 class Planimetry(models.Model):
@@ -274,8 +314,8 @@ class Planimetry(models.Model):
 
 class BrPropertyPlanimetry(models.Model):
     """ BRIDGE - PROPERTY & 2.5 PLANIMETRÍA DEL LOTE """
-    property_id = models.ManyToManyField(Property, on_delete=models.DO_NOTHING)
-    planimetry_id = models.ManyToManyField(Planimetry, on_delete=models.DO_NOTHING)
+    property_id = models.ManyToManyField(Property, related_name="Property Id+")
+    planimetry_id = models.ManyToManyField(Planimetry, related_name="Planimetry Id+")
 
 
 ############# 5. TITULARES Y PROFESIONALES RESPONSABLES #############
@@ -290,6 +330,9 @@ class LicenceHolderResponsible(models.Model):
     electronic_notification = models.BooleanField(verbose_name=("¿Acepta Notificación Electrónica?"))
     sign = models.BooleanField(verbose_name=("Firma"))
 
+    def __str__(self) -> str:
+        return self.name
+    
 
 class ProfessionalResponsible(models.Model):
     """ 5.2 PROFESIONALES RESPONSABLES. """
@@ -302,11 +345,17 @@ class ProfessionalResponsible(models.Model):
     required_review = models.BooleanField
     sign = models.BooleanField(verbose_name=("Firma"))
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class ProfessionName(models.Model):
     """ COMPLEMENT OF THE ProfessionalResponsible CLASS """
     name = models.CharField(max_length=50)
     review_option = models.CharField(max_length=60)
+   
+    def __str__(self) -> str:
+        return self.name
 
 
 class PetitionResponsible(models.Model):
@@ -318,6 +367,9 @@ class PetitionResponsible(models.Model):
     email = models.EmailField(max_length=40)
     sign = models.BooleanField(verbose_name=("Firma"))
 
+    def __str__(self) -> str:
+        return self.name
+    
 
 ############# 6. DOCUMENTOS QUE ACOMPAÑAN LA SOLICITUD. #############
 
@@ -328,12 +380,15 @@ class Document(models.Model):
     mandatory = models.BooleanField
     description = models.CharField(max_length=100)
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class BrDocumentTypeProcedureModality(models.Model):
     """ BRIDGE - Document & 1.1 TIPO DE TRAMITE, MODALITY """
-    document_id = models.ManyToManyField(Document, on_delete=models.DO_NOTHING) 
-    type_procedure_id = models.ManyToManyField(TypeProcedure, on_delete=models.DO_NOTHING) 
-    modality_id =models.ManyToManyField(Modality, on_delete=models.DO_NOTHING) 
+    document_id = models.ManyToManyField(Document, related_name="Document Id+") 
+    type_procedure_id = models.ManyToManyField(TypeProcedure, related_name="TypeProcedure Id+") 
+    modality_id =models.ManyToManyField(Modality, related_name="Modality Id+") 
 
 
 ############# 4. LINDEROS, DIMENSIONES Y ÁREAS #############
@@ -352,6 +407,9 @@ class BordersDimensionAreas(models.Model):
     
     class Meta:
         verbose_name_plural = "Borders Dimension Areas"
+    
+    def __str__(self) -> str:
+        return self.total_area
 
 ############# FORMULARIO ÚNICO NACIONAL #############
 
@@ -381,8 +439,9 @@ class Neighbor(models.Model):
 
 class BrUniqueNationalFormNeighbor(models.Model):
     """ BRIDGE - Unique National Form & 3. INFORMACIÓN DE VECINOS COLINDANTES """
-    unique_national_form_id = models.ManyToManyField(UniqueNationalForm, on_delete=models.DO_NOTHING)
-    neighbor_id = models.ManyToManyField(Neighbor, on_delete=models.DO_NOTHING)
+    unique_national_form_id = models.ManyToManyField(UniqueNationalForm, related_name="Unique National Form Id+")
+    neighbor_id = models.ManyToManyField(Neighbor, related_name="Neighbor Id+")
+
 
 class Neighboring(models.Model):
     """ NEIGHBORING, COMPLEMENT OF THE BorderDimensionAreas CLASS """
