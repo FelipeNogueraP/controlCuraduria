@@ -56,8 +56,11 @@ class RatioWallCeiling(models.Model):
     east = models.CharField(max_length = 3)
     west = models.CharField(max_length = 3)
     ceiling_height = models.CharField(max_length = 5)
-    verbose_name = "RELACIÓN MURO VENTANA Y ALTURA PISO A TECHO"
+    verbose_name = "Rel Muro/Ventana y altura Piso/Techo"
 
+    def __str__(self) -> str:
+        return self.verbose_name
+    
 
 class SustainableDeclaration(models.Model):
     """ 1.12 REGLAMENTACIÓN DE CONSTRUCCIÓN SOSTENIBLE """
