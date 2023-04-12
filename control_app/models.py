@@ -38,7 +38,7 @@ class GeneralData(models.Model):
     geographic_location_id = models.ForeignKey(
         GeographicLocation, on_delete=models.DO_NOTHING)
     
-    class meta: 
+    class Meta: 
         verbose_name_plural = "General Data"
 
 
@@ -96,7 +96,7 @@ class Materiality(models.Model):
     other_detail_id = models.ForeignKey(
         OtherDetail, on_delete=models.DO_NOTHING)
 
-    class meta: 
+    class Meta: 
         verbose_name_plural = "Materialities"
 
 class BrSustainableDeclarationMateriality(models.ManyToManyField):
@@ -144,7 +144,7 @@ class Modality(models.Model):
     """ 1.3 MODALIDAD LICENCIA URBANIZACION, 1.4 MODALIDAD SUBDVISION, 1.5 MODALIDAD LICENCIA DE CONSTRUCCION """
     name = models.CharField(max_length=50)
     
-    class meta: 
+    class Meta: 
         verbose_name_plural = "Modalities"
 
 
@@ -167,12 +167,13 @@ class Uses(models.Model):
     """ 1.6 USOS """
     name = models.CharField(max_length = 50)
 
+    class Meta: 
+        verbose_name_plural = "Uses"  
+    
     def __str__(self) -> str:
         return self.name
     
-    class meta: 
-        verbose_name_plural = "Uses"  
-
+    
 class BuildArea(models.Model):
     """ 1.8 AREAS O UNIDADES CONSTRUIDAS """
     name = models.CharField(max_length = 100)
@@ -236,6 +237,8 @@ class Cadastral(models.Model):
     manzana_number = models.CharField(max_length=30)
     lote_number = models.CharField(max_length=30)
 
+    def __str__(self) -> str:
+        return self.number
 
 class Property(models.Model):
     """ 2.1, 2.1, 2.3 DIRECCIÓN O NOMENCLATURA, MATRICULA INMOBILIARIA, No DE IDENTIFICACIÓN CATASTRAL """
@@ -244,7 +247,7 @@ class Property(models.Model):
     real_state_reg_num = models.CharField(max_length=50)
     cadastral_id = models.ForeignKey(Cadastral, on_delete = models.DO_NOTHING)
    
-    class meta: 
+    class Meta: 
         verbose_name = "Property"    
         verbose_name_plural = "Properties"    
 
@@ -265,7 +268,7 @@ class Planimetry(models.Model):
     def __str__(self):
         return self.name
     
-    class meta: 
+    class Meta: 
         verbose_name_plural = "Planimetries"    
     
 
@@ -347,7 +350,7 @@ class BordersDimensionAreas(models.Model):
     area_parking = models.CharField(max_length=80)
     total_area = models.CharField(max_length=80)
     
-    class meta:
+    class Meta:
         verbose_name_plural = "Borders Dimension Areas"
 
 ############# FORMULARIO ÚNICO NACIONAL #############
