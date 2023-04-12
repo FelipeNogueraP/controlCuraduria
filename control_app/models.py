@@ -450,6 +450,8 @@ class Neighbor(models.Model):
     housing_address = models.CharField(max_length=80)
     mailing_address = models.CharField(max_length=80)
 
+    def __str__(self) -> str:
+        return self.housing_address
 
 class BrUniqueNationalFormNeighbor(models.Model):
     """ BRIDGE - Unique National Form & 3. INFORMACIÓN DE VECINOS COLINDANTES """
