@@ -174,4 +174,4 @@ poetry.toml
 db.sqlite3
 control_app/migrations/\*
 
-.vscode
+.vscode/
