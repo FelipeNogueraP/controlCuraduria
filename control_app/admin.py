@@ -12,8 +12,6 @@ from .models import (
 )
 
 
-# Register your models here.
-
 class ActionAdmin(admin.ModelAdmin):
     "Admin class for Action"
     fieldsets = [
