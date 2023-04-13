@@ -16,8 +16,9 @@
         },
         "vscode":{
             "extensions":[
-            "ms-python.python"
-        ]
+				"ms-python.python",
+				"mhutchie.git-graph"
+			]
         }
     },
     "containerEnv": {
