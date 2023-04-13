@@ -269,7 +269,7 @@ class RatioWallCeilingAdmin(admin.ModelAdmin):
         ('Porcentaje del 0-100', {'fields':['north', 'south', 'east', 'west',
                                ]})
         ]
-    list_display = ('ceiling_height','north', 'south', 'east', 'west',)
+    list_display = ('id', 'ceiling_height','north', 'south', 'east', 'west',)
 
 
 class MeasureAdmin(admin.ModelAdmin):
@@ -317,7 +317,7 @@ class PropertyAdmin(admin.ModelAdmin):
         ('Details', {'fields':['current_address', 'previous_address',
                                 ]})
         ]
-    list_display = ('cadastral_id','real_state_reg_num','current_address', 'previous_address',
+    list_display = ('id', 'cadastral_id','real_state_reg_num','current_address', 'previous_address',
                      )
     list_filter = ('cadastral_id',)
     ordering = ('cadastral_id', 'real_state_reg_num',)
@@ -416,7 +416,7 @@ class ProfessionalResponsibleAdmin(admin.ModelAdmin):
                                'licence_expedition', 'sign', 'email', 'required_review',
                             ]})
         ]
-    list_display = ('profession_name_id', 'name', 'identification_num', 'professional_licence_num',
+    list_display = ('id', 'name', 'profession_name_id', 'identification_num', 'professional_licence_num',
                                'licence_expedition', 'sign', 'email', 'required_review',
                      )
     list_filter = ('profession_name_id',)
@@ -431,7 +431,7 @@ class ProfessionNameAdmin(admin.ModelAdmin):
         ('Details', {'fields':['review_option',
                                ]})
         ]
-    list_display = ('name','review_option',)
+    list_display = ('id', 'name','review_option',)
 
 
 class PetitionResponsibleAdmin(admin.ModelAdmin):

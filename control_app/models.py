@@ -25,7 +25,7 @@ class GeographicLocation(models.Model):
     vereda = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.vereda
+        return str(self.pk)
 
 
 class GeneralData(models.Model):
@@ -43,7 +43,7 @@ class GeneralData(models.Model):
         verbose_name_plural = "General Data"
 
     def __str__(self) -> str:
-        return self.responsible_office
+        return str(self.pk)
 
 
 ############# 1.12 REGLAMENTACIÓN DE CONSTRUCCIÓN SOSTENIBLE #############
@@ -59,7 +59,7 @@ class RatioWallCeiling(models.Model):
     verbose_name = "Rel Muro/Ventana y altura Piso/Techo"
 
     def __str__(self) -> str:
-        return self.verbose_name
+        return str(self.pk)
 
 
 class SustainableDeclaration(models.Model):
@@ -71,7 +71,7 @@ class SustainableDeclaration(models.Model):
     verbose_name = "Declaración de sustentabilidad"
 
     def __str__(self) -> str:
-        return self.verbose_name
+        return str(self.pk)
 
 
 class MeasureType(models.Model):
@@ -140,6 +140,8 @@ class Request(models.Model):
     sustainable_declaration_id = models.ForeignKey(
         SustainableDeclaration, on_delete = models.CASCADE)
 
+    def __str__(self) -> str:
+        return str(self.pk)
 
 class BrRequestTypeProcedure(models.Model):
     """ BRIDGE - REQUEST & 1.1 TIPO DE TRAMITE """
@@ -284,7 +286,7 @@ class Cadastral(models.Model):
     lote_number = models.CharField(max_length=30)
 
     def __str__(self) -> str:
-        return self.number
+        return str(self.pk)
 
 
 class Property(models.Model):
@@ -298,6 +300,9 @@ class Property(models.Model):
     class Meta:
         verbose_name = "Property"
         verbose_name_plural = "Properties"
+
+    def __str__(self) -> str:
+        return str(self.pk)
 
 
 class SoilClasification(models.Model):
@@ -345,7 +350,7 @@ class LicenceHolderResponsible(models.Model):
     sign = models.BooleanField(verbose_name="Firma")
 
     def __str__(self) -> str:
-        return self.name
+        return str(self.pk)
 
 
 class ProfessionalResponsible(models.Model):
@@ -353,14 +358,14 @@ class ProfessionalResponsible(models.Model):
     profession_name_id = models.CharField(max_length=70)
     name = models.CharField(max_length=100)
     identification_num = models.IntegerField()
-    professional_licence_num = models.IntegerField()
+    professional_licence_num = models.IntegerField(verbose_name="Prof Lic Num")
     licence_expedition = models.DateField()
     email = models.EmailField(max_length=40)
     required_review = models.BooleanField(verbose_name="¿Exige Supervisión Tecnica?")
     sign = models.BooleanField(verbose_name="Firma")
 
     def __str__(self) -> str:
-        return self.name
+        return str(self.pk)
 
 
 class ProfessionName(models.Model):
@@ -395,7 +400,7 @@ class Document(models.Model):
     description = models.CharField(max_length=100)
 
     def __str__(self) -> str:
-        return self.name
+        return str(self.pk)
 
 
 class BrDocumentTypeProcedureModality(models.Model):
