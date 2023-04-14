@@ -7,9 +7,15 @@ from .models import (
     InstitutionalType, CommercialType, SustainableDeclaration, RatioWallCeiling, Measure,
     MeasureType, Materiality, MaterialityType, Property, SoilClasification, Planimetry, Cadastral,
     Neighbor, BordersDimensionAreas, Neighboring, LicenceHolderResponsible, ProfessionalResponsible,
-    ProfessionName, PetitionResponsible, Document,
+    ProfessionName, PetitionResponsible, Document, BrSustainableDeclarationMeasure, BrSustainableDeclarationMateriality,
+    BrRequestTypeProcedure, BrRequestProcedureObjective, BrTypeProcedureModality, BrRequestUses, BrRequestBuildArea,
+    BrRequestHousingType, BrRequestInstitutionalType, BrRequestCommercialType, BrPropertySoilClasification,
+    BrPropertyPlanimetry, BrDocumentTypeProcedureModality, BrUniqueNationalFormNeighbor,
+
 
 )
+
+###### MAIN MODELS ######
 
 
 class ActionAdmin(admin.ModelAdmin):
@@ -456,6 +462,58 @@ class DocumentAdmin(admin.ModelAdmin):
     list_display = ('name', 'description', 'mandatory',)
 
 
+###### BRIDGES ######
+
+
+class BrSustainableDeclarationMeasureAdmin(admin.ModelAdmin):
+
+
+
+class BrSustainableDeclarationMaterialityAdmin(admin.ModelAdmin):
+
+
+class BrRequestTypeProcedureAdmin(admin.ModelAdmin):
+
+
+class BrRequestProcedureObjectiveAdmin(admin.ModelAdmin):
+
+
+class BrTypeProcedureModalityAdmin(admin.ModelAdmin):
+
+    
+class BrRequestUsesAdmin(admin.ModelAdmin):
+
+
+class BrRequestBuildAreaAdmin(admin.ModelAdmin):
+
+
+class BrRequestHousingTypeAdmin(admin.ModelAdmin):
+
+
+class BrRequestInstitutionalTypeAdmin(admin.ModelAdmin):
+
+
+class BrRequestCommercialTypeAdmin(admin.ModelAdmin):
+
+
+class BrPropertySoilClasificationAdmin(admin.ModelAdmin):
+
+
+class BrPropertyPlanimetryAdmin(admin.ModelAdmin):
+
+
+class BrDocumentTypeProcedureModalityAdmin(admin.ModelAdmin):
+
+
+class BrUniqueNationalFormNeighborAdmin(admin.ModelAdmin):
+
+
+
+
+
+
+
+
 admin.site.register(BuildArea, BuildAreaAdmin)
 admin.site.register(BordersDimensionAreas, BordersDimensionAreasAdmin)
 admin.site.register(Cadastral, CadastralAdmin)
@@ -487,3 +545,17 @@ admin.site.register(SustainableDeclaration, SustainableDeclarationAdmin)
 admin.site.register(TypeProcedure, TypeProcedureAdmin)
 admin.site.register(UniqueNationalForm, UniqueNationalFormAdmin)
 admin.site.register(Uses, UsesAdmin)
+admin.site.register(BrDocumentTypeProcedureModality,)
+admin.site.register(BrPropertySoilClasification,)
+admin.site.register(BrPropertyPlanimetry,)
+admin.site.register(BrRequestBuildArea,)
+admin.site.register(BrRequestCommercialType,)
+admin.site.register(BrRequestHousingType,)
+admin.site.register(BrRequestInstitutionalType,)
+admin.site.register(BrRequestProcedureObjective,)
+admin.site.register(BrRequestTypeProcedure,)
+admin.site.register(BrRequestUses,)
+admin.site.register(BrSustainableDeclarationMeasure,)
+admin.site.register(BrSustainableDeclarationMateriality,)
+admin.site.register(BrTypeProcedureModality,)
+admin.site.register(BrUniqueNationalFormNeighbor,)
