@@ -15,7 +15,7 @@ from .models import (
 
 )
 
-###### MAIN MODELS ######
+############ MAIN MODELS ############
 
 
 class ActionAdmin(admin.ModelAdmin):
@@ -462,57 +462,122 @@ class DocumentAdmin(admin.ModelAdmin):
     list_display = ('name', 'description', 'mandatory',)
 
 
-###### BRIDGES ######
+############ BRIDGES ############
 
 
 class BrSustainableDeclarationMeasureAdmin(admin.ModelAdmin):
-
+    "Admin class for BrSustainableDeclarationMeasure"
+    fieldsets = [
+        (None,{'fields':['sustainable_declaration_id', 'measure_id',
+                         ]}),]
+    list_display = ('sustainable_declaration_id', 'measure_id',)
 
 
 class BrSustainableDeclarationMaterialityAdmin(admin.ModelAdmin):
+    "Admin class for BrSustainableDeclarationMateriality"
+    fieldsets = [
+        (None,{'fields':['sustainable_declaration_id', 'materiality_id',
+                         ]}),]
+    list_display = ('sustainable_declaration_id', 'materiality_id',)
 
 
 class BrRequestTypeProcedureAdmin(admin.ModelAdmin):
+    "Admin class for BrRequestTypeProcedure"
+    fieldsets = [
+        (None,{'fields':['request_id', 'type_procedure_id',
+                         ]}),]
+    list_display = ('request_id', 'type_procedure_id',)
 
 
 class BrRequestProcedureObjectiveAdmin(admin.ModelAdmin):
+    "Admin class for BrRequestProcedureObjective"
+    fieldsets = [
+        (None,{'fields':['request_id', 'procedure_objective_id','other_detail_id',
+                         ]}),]
+    list_display = ('request_id', 'procedure_objective_id','other_detail_id',)
 
 
 class BrTypeProcedureModalityAdmin(admin.ModelAdmin):
+    "Admin class for BrTypeProcedureModality"
+    fieldsets = [
+        (None,{'fields':['type_procedure_id', 'modality_id',
+                         ]}),]
+    list_display = ('type_procedure_id', 'modality_id',)
 
     
 class BrRequestUsesAdmin(admin.ModelAdmin):
+    "Admin class for BrRequestUses"
+    fieldsets = [
+        (None,{'fields':['request_id', 'type_uses_id','other_detail_id',
+                         ]}),]
+    list_display = ('request_id', 'type_uses_id','other_detail_id',)
 
 
 class BrRequestBuildAreaAdmin(admin.ModelAdmin):
+    "Admin class for BrRequestBuildArea"
+    fieldsets = [
+        (None,{'fields':['request_id', 'build_area_id',
+                         ]}),]
+    list_display = ('request_id', 'build_area_id',)
 
 
 class BrRequestHousingTypeAdmin(admin.ModelAdmin):
+    "Admin class for BrRequestHousingType"
+    fieldsets = [
+        (None,{'fields':['request_id', 'housing_type_id',
+                         ]}),]
+    list_display = ('request_id', 'housing_type_id',)
 
 
 class BrRequestInstitutionalTypeAdmin(admin.ModelAdmin):
+    "Admin class for BrRequestInstitutionalType"
+    fieldsets = [
+        (None,{'fields':['request_id', 'institutional_type_id', 'other_detail_id',
+                         ]}),]
+    list_display = ('request_id', 'institutional_type_id', 'other_detail_id',)
 
 
 class BrRequestCommercialTypeAdmin(admin.ModelAdmin):
+    "Admin class for BrRequestCommercialType"
+    fieldsets = [
+        (None,{'fields':['request_id', 'commercial_type_id', 'other_detail_id',
+                         ]}),]
+    list_display = ('request_id', 'commercial_type_id', 'other_detail_id',)
 
 
 class BrPropertySoilClasificationAdmin(admin.ModelAdmin):
+    "Admin class for BrPropertySoilClasification"
+    fieldsets = [
+        (None,{'fields':['property_id', 'soil_clasification_id',
+                         ]}),]
+    list_display = ('property_id', 'soil_clasification_id',)
 
 
 class BrPropertyPlanimetryAdmin(admin.ModelAdmin):
+    "Admin class for BrPropertyPlanimetry"
+    fieldsets = [
+        (None,{'fields':['property_id', 'planimetry_id',
+                         ]}),]
+    list_display = ('property_id', 'planimetry_id',)
 
 
 class BrDocumentTypeProcedureModalityAdmin(admin.ModelAdmin):
+    "Admin class for BrDocumentTypeProcedureModality"
+    fieldsets = [
+        (None,{'fields':['document_id', 'type_procedure_id', 'modality_id',
+                         ]}),]
+    list_display = ('document_id', 'type_procedure_id', 'modality_id',)
 
 
 class BrUniqueNationalFormNeighborAdmin(admin.ModelAdmin):
+    "Admin class for BrDocumentTypeProcedureModality"
+    fieldsets = [
+        (None,{'fields':['unique_national_form_id', 'neighbor_id',
+                         ]}),]
+    list_display = ('unique_national_form_id', 'neighbor_id',)
 
 
-
-
-
-
-
+############ MODELS REGISTRATION ############
 
 admin.site.register(BuildArea, BuildAreaAdmin)
 admin.site.register(BordersDimensionAreas, BordersDimensionAreasAdmin)
@@ -545,17 +610,17 @@ admin.site.register(SustainableDeclaration, SustainableDeclarationAdmin)
 admin.site.register(TypeProcedure, TypeProcedureAdmin)
 admin.site.register(UniqueNationalForm, UniqueNationalFormAdmin)
 admin.site.register(Uses, UsesAdmin)
-admin.site.register(BrDocumentTypeProcedureModality,)
-admin.site.register(BrPropertySoilClasification,)
-admin.site.register(BrPropertyPlanimetry,)
-admin.site.register(BrRequestBuildArea,)
-admin.site.register(BrRequestCommercialType,)
-admin.site.register(BrRequestHousingType,)
-admin.site.register(BrRequestInstitutionalType,)
-admin.site.register(BrRequestProcedureObjective,)
-admin.site.register(BrRequestTypeProcedure,)
-admin.site.register(BrRequestUses,)
-admin.site.register(BrSustainableDeclarationMeasure,)
-admin.site.register(BrSustainableDeclarationMateriality,)
-admin.site.register(BrTypeProcedureModality,)
-admin.site.register(BrUniqueNationalFormNeighbor,)
+admin.site.register(BrDocumentTypeProcedureModality,BrDocumentTypeProcedureModalityAdmin)
+admin.site.register(BrPropertySoilClasification,BrPropertySoilClasificationAdmin)
+admin.site.register(BrPropertyPlanimetry,BrPropertyPlanimetryAdmin)
+admin.site.register(BrRequestBuildArea,BrRequestBuildAreaAdmin)
+admin.site.register(BrRequestCommercialType,BrRequestCommercialTypeAdmin)
+admin.site.register(BrRequestHousingType,BrRequestHousingTypeAdmin)
+admin.site.register(BrRequestInstitutionalType, BrRequestInstitutionalTypeAdmin)
+admin.site.register(BrRequestProcedureObjective, BrRequestProcedureObjectiveAdmin)
+admin.site.register(BrRequestTypeProcedure,BrRequestTypeProcedureAdmin)
+admin.site.register(BrRequestUses,BrRequestUsesAdmin)
+admin.site.register(BrSustainableDeclarationMeasure,BrSustainableDeclarationMeasureAdmin)
+admin.site.register(BrSustainableDeclarationMateriality,BrSustainableDeclarationMaterialityAdmin)
+admin.site.register(BrTypeProcedureModality, BrTypeProcedureModalityAdmin)
+admin.site.register(BrUniqueNationalFormNeighbor, BrUniqueNationalFormNeighborAdmin)
