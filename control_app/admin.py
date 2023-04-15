@@ -7,9 +7,14 @@ from .models import (
     InstitutionalType, CommercialType, SustainableDeclaration, RatioWallCeiling, Measure,
     MeasureType, Materiality, MaterialityType, Property, SoilClasification, Planimetry, Cadastral,
     Neighbor, BordersDimensionAreas, Neighboring, LicenceHolderResponsible, ProfessionalResponsible,
-    ProfessionName, PetitionResponsible, Document,
-
+    ProfessionName, PetitionResponsible, Document,BrDocumentTypeProcedureModality, BrPropertySoilClasification,
+    BrPropertyPlanimetry, BrRequestBuildArea, BrRequestCommercialType, BrRequestHousingType, BrRequestInstitutionalType, 
+    BrRequestProcedureObjective, BrRequestTypeProcedure, BrRequestUses, BrSustainableDeclarationMeasure, 
+    BrSustainableDeclarationMateriality, BrTypeProcedureModality, BrUniqueNationalFormNeighbor,
 )
+
+
+############ MAIN MODELS ############
 
 
 class ActionAdmin(admin.ModelAdmin):
@@ -456,6 +461,269 @@ class DocumentAdmin(admin.ModelAdmin):
     list_display = ('name', 'description', 'mandatory',)
 
 
+############ BRIDGES ############
+
+
+class BrSustainableDeclarationMeasureAdmin(admin.ModelAdmin):
+    "Admin class for BrSustainableDeclarationMeasure"
+    fieldsets = [
+        (None,{'fields':['sustainable_declaration_id', 'measure_id',
+                         ]}),]
+    
+    def display_sustainable_declaration_id(self, obj):
+        return ", ".join([str(item) for item in obj.sustainable_declaration_id.all()])
+    display_sustainable_declaration_id.short_description = "Sustainable Declaration Id"
+
+    def display_measure_id(self, obj):
+        return ", ".join([str(item) for item in obj.measure_id.all()])
+    display_measure_id.short_description = "Measure Id"
+
+    list_display = ('display_sustainable_declaration_id', 'display_measure_id',)
+
+
+class BrSustainableDeclarationMaterialityAdmin(admin.ModelAdmin):
+    "Admin class for BrSustainableDeclarationMateriality"
+    fieldsets = [
+        (None,{'fields':['sustainable_declaration_id', 'materiality_id',
+                         ]}),]
+    
+    def display_sustainable_declaration_id(self, obj):
+        return ", ".join([str(item) for item in obj.sustainable_declaration_id.all()])
+    display_sustainable_declaration_id.short_description = "Sustainable Declaration Id"
+
+    def display_materiality_id(self, obj):
+        return ", ".join([str(item) for item in obj.materiality_id.all()])
+    display_materiality_id.short_description = "Materiality Id"
+
+    list_display = ('display_sustainable_declaration_id', 'display_materiality_id',)
+
+
+class BrRequestTypeProcedureAdmin(admin.ModelAdmin):
+    "Admin class for BrRequestTypeProcedure"
+    fieldsets = [
+        (None,{'fields':['request_id', 'type_procedure_id',
+                         ]}),]
+
+    def display_request_id(self, obj):
+        return ", ".join([str(item) for item in obj.request_id.all()])
+    display_request_id.short_description = "Request Id"
+
+    def display_type_procedure_id(self, obj):
+        return ", ".join([str(item) for item in obj.type_procedure_id.all()])
+    display_type_procedure_id.short_description = "Type Procedure Id"
+
+    list_display = ('display_request_id', 'display_type_procedure_id',)
+
+
+class BrRequestProcedureObjectiveAdmin(admin.ModelAdmin):
+    "Admin class for BrRequestProcedureObjective"
+    fieldsets = [
+        (None,{'fields':['request_id', 'procedure_objective_id','other_detail_id',
+                         ]}),]
+
+    def display_request_id(self, obj):
+        return ", ".join([str(item) for item in obj.request_id.all()])
+    display_request_id.short_description = "Request Id"
+
+    def display_procedure_objective_id(self, obj):
+        return ", ".join([str(item) for item in obj.procedure_objective_id.all()])
+    display_procedure_objective_id.short_description = "Procedure Objective Id"
+
+    def display_other_detail_id(self, obj):
+        return ", ".join([str(item) for item in obj.other_detail_id.all()])
+    display_other_detail_id.short_description = "Other Detail Id"
+
+    list_display = ('display_request_id', 'display_procedure_objective_id', 'display_other_detail_id',)
+
+
+class BrTypeProcedureModalityAdmin(admin.ModelAdmin):
+    "Admin class for BrTypeProcedureModality"
+    fieldsets = [
+        (None,{'fields':['type_procedure_id', 'modality_id',
+                         ]}),]
+
+    def display_type_procedure_id(self, obj):
+        return ", ".join([str(item) for item in obj.type_procedure_id.all()])
+    display_type_procedure_id.short_description = "Type Procedure Id"
+
+    def display_modality_id(self, obj):
+        return ", ".join([str(item) for item in obj.modality_id.all()])
+    display_modality_id.short_description = "Modality Id"
+
+    list_display = ('display_type_procedure_id', 'display_modality_id',)
+
+
+class BrRequestUsesAdmin(admin.ModelAdmin):
+    "Admin class for BrRequestUses"
+    fieldsets = [
+        (None,{'fields':['request_id', 'type_uses_id','other_detail_id',
+                         ]}),]
+
+    def display_request_id(self, obj):
+        return ", ".join([str(item) for item in obj.request_id.all()])
+    display_request_id.short_description = "Request Id"
+
+    def display_type_uses_id(self, obj):
+        return ", ".join([str(item) for item in obj.type_uses_id.all()])
+    display_type_uses_id.short_description = "Type Uses Id"
+
+    def display_other_detail_id(self, obj):
+        return ", ".join([str(item) for item in obj.other_detail_id.all()])
+    display_other_detail_id.short_description = "Other Detail Id"
+
+    list_display = ('display_request_id', 'display_type_uses_id', 'display_other_detail_id',)
+
+
+class BrRequestBuildAreaAdmin(admin.ModelAdmin):
+    "Admin class for BrRequestBuildArea"
+    fieldsets = [
+        (None,{'fields':['request_id', 'build_area_id',
+                         ]}),]
+    
+    def display_request_id(self, obj):
+        return ", ".join([str(item) for item in obj.request_id.all()])
+    display_request_id.short_description = "Request Id"
+
+    def display_build_area_id(self, obj):
+        return ", ".join([str(item) for item in obj.build_area_id.all()])
+    display_build_area_id.short_description = "Build Area Id"
+
+    list_display = ('display_request_id', 'display_build_area_id',)
+
+
+class BrRequestHousingTypeAdmin(admin.ModelAdmin):
+    "Admin class for BrRequestHousingType"
+    fieldsets = [
+        (None,{'fields':['request_id', 'housing_type_id',
+                         ]}),]
+    
+    def display_request_id(self, obj):
+        return ", ".join([str(item) for item in obj.request_id.all()])
+    display_request_id.short_description = "Request Id"
+
+    def display_housing_type_id(self, obj):
+        return ", ".join([str(item) for item in obj.housing_type_id.all()])
+    display_housing_type_id.short_description = "Housing Type Id"
+
+    list_display = ('display_request_id', 'display_housing_type_id',)
+
+
+class BrRequestInstitutionalTypeAdmin(admin.ModelAdmin):
+    "Admin class for BrRequestInstitutionalType"
+    fieldsets = [
+        (None,{'fields':['request_id', 'institutional_type_id', 'other_detail_id',
+                         ]}),]
+    
+    def display_request_id(self, obj):
+        return ", ".join([str(item) for item in obj.request_id.all()])
+    display_request_id.short_description = "Request Id"
+
+    def display_institutional_type_id(self, obj):
+        return ", ".join([str(item) for item in obj.institutional_type_id.all()])
+    display_institutional_type_id.short_description = "Institutional Type Id"
+
+    def display_other_detail_id(self, obj):
+        return ", ".join([str(item) for item in obj.other_detail_id.all()])
+    display_other_detail_id.short_description = "Other Detail Id"
+
+    list_display = ('display_request_id', 'display_institutional_type_id', 'display_other_detail_id',)
+
+
+class BrRequestCommercialTypeAdmin(admin.ModelAdmin):
+    "Admin class for BrRequestCommercialType"
+    fieldsets = [
+        (None,{'fields':['request_id', 'commercial_type_id', 'other_detail_id',
+                         ]}),]
+
+    def display_request_id(self, obj):
+        return ", ".join([str(item) for item in obj.request_id.all()])
+    display_request_id.short_description = "Request Id"
+
+    def display_commercial_type_id(self, obj):
+        return ", ".join([str(item) for item in obj.commercial_type_id.all()])
+    display_commercial_type_id.short_description = "Commercial Type Id"
+
+    def display_other_detail_id(self, obj):
+        return ", ".join([str(item) for item in obj.other_detail_id.all()])
+    display_other_detail_id.short_description = "Other Detail Id"
+
+    list_display = ('display_request_id', 'display_commercial_type_id', 'display_other_detail_id',)
+
+
+class BrPropertySoilClasificationAdmin(admin.ModelAdmin):
+    "Admin class for BrPropertySoilClasification"
+    fieldsets = [
+        (None,{'fields':['property_id', 'soil_clasification_id',
+                         ]}),]
+
+    def display_property_id(self, obj):
+        return ", ".join([str(item) for item in obj.property_id.all()])
+    display_property_id.short_description = "Property Id"
+
+    def display_soil_clasification_id(self, obj):
+        return ", ".join([str(item) for item in obj.soil_clasification_id.all()])
+    display_soil_clasification_id.short_description = "Soil Clasification Id"
+
+    list_display = ('display_property_id', 'display_soil_clasification_id',)
+
+
+class BrPropertyPlanimetryAdmin(admin.ModelAdmin):
+    "Admin class for BrPropertyPlanimetry"
+    fieldsets = [
+        (None,{'fields':['property_id', 'planimetry_id',
+                         ]}),]
+    
+    def display_property_id(self, obj):
+        return ", ".join([str(item) for item in obj.property_id.all()])
+    display_property_id.short_description = "Property Id"
+
+    def display_planimetry_id(self, obj):
+        return ", ".join([str(item) for item in obj.planimetry_id.all()])
+    display_planimetry_id.short_description = "Planimetry Id"
+
+    list_display = ('display_property_id', 'display_planimetry_id',)
+
+
+class BrDocumentTypeProcedureModalityAdmin(admin.ModelAdmin):
+    "Admin class for BrDocumentTypeProcedureModality"
+    fieldsets = [
+        (None,{'fields':['document_id', 'type_procedure_id', 'modality_id',
+                         ]}),]
+    
+    def display_document_id(self, obj):
+        return ", ".join([str(item) for item in obj.document_id.all()])
+    display_document_id.short_description = "Document Id"
+
+    def display_type_procedure_id(self, obj):
+        return ", ".join([str(item) for item in obj.type_procedure_id.all()])
+    display_type_procedure_id.short_description = "Type Procedure Id"
+
+    def display_modality_id(self, obj):
+        return ", ".join([str(item) for item in obj.modality_id.all()])
+    display_modality_id.short_description = "Modality Id"
+
+    list_display = ('display_document_id', 'display_type_procedure_id', 'display_modality_id',)
+
+
+class BrUniqueNationalFormNeighborAdmin(admin.ModelAdmin):
+    "Admin class for BrDocumentTypeProcedureModality"
+    fieldsets = [
+        (None,{'fields':['unique_national_form_id', 'neighbor_id',
+                         ]}),]
+
+    def display_unique_national_form_id(self, obj):
+        return ", ".join([str(item) for item in obj.unique_national_form_id.all()])
+    display_unique_national_form_id.short_description = "Unique National Form Id"
+
+    def display_neighbor_id(self, obj):
+        return ", ".join([str(item) for item in obj.neighbor_id.all()])
+    display_neighbor_id.short_description = "Neighbor Id"
+
+    list_display = ('display_unique_national_form_id', 'display_neighbor_id',)
+  
+
+############ MODELS REGISTRATION ############
+
 admin.site.register(BuildArea, BuildAreaAdmin)
 admin.site.register(BordersDimensionAreas, BordersDimensionAreasAdmin)
 admin.site.register(Cadastral, CadastralAdmin)
@@ -487,3 +755,17 @@ admin.site.register(SustainableDeclaration, SustainableDeclarationAdmin)
 admin.site.register(TypeProcedure, TypeProcedureAdmin)
 admin.site.register(UniqueNationalForm, UniqueNationalFormAdmin)
 admin.site.register(Uses, UsesAdmin)
+admin.site.register(BrDocumentTypeProcedureModality,BrDocumentTypeProcedureModalityAdmin)
+admin.site.register(BrPropertySoilClasification,BrPropertySoilClasificationAdmin)
+admin.site.register(BrPropertyPlanimetry,BrPropertyPlanimetryAdmin)
+admin.site.register(BrRequestBuildArea,BrRequestBuildAreaAdmin)
+admin.site.register(BrRequestCommercialType,BrRequestCommercialTypeAdmin)
+admin.site.register(BrRequestHousingType,BrRequestHousingTypeAdmin)
+admin.site.register(BrRequestInstitutionalType, BrRequestInstitutionalTypeAdmin)
+admin.site.register(BrRequestProcedureObjective, BrRequestProcedureObjectiveAdmin)
+admin.site.register(BrRequestTypeProcedure,BrRequestTypeProcedureAdmin)
+admin.site.register(BrRequestUses,BrRequestUsesAdmin)
+admin.site.register(BrSustainableDeclarationMeasure,BrSustainableDeclarationMeasureAdmin)
+admin.site.register(BrSustainableDeclarationMateriality,BrSustainableDeclarationMaterialityAdmin)
+admin.site.register(BrTypeProcedureModality, BrTypeProcedureModalityAdmin)
+admin.site.register(BrUniqueNationalFormNeighbor, BrUniqueNationalFormNeighborAdmin)
