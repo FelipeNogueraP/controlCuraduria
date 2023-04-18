@@ -10,7 +10,7 @@
             "area_urbanized": 1,
             "area_common": 1,
             "area_parking": 1,
-            "total_area": 1
+            "total_area": 100
 
         }
     },
@@ -25,7 +25,7 @@
             "area_urbanized": 2,
             "area_common": 2,
             "area_parking": 2,
-            "total_area": 1
+            "total_area": 200
         }
     },
     {
@@ -39,7 +39,7 @@
             "area_urbanized": 3,
             "area_common": 3,
             "area_parking": 3,
-            "total_area": 1
+            "total_area": 250
         }
     },
     {
@@ -53,7 +53,7 @@
             "area_urbanized": 4,
             "area_common": 4,
             "area_parking": 4,
-            "total_area": 1
+            "total_area": 2001
         }
     },
     {
@@ -67,7 +67,7 @@
             "area_urbanized": 5,
             "area_common": 5,
             "area_parking": 5,
-            "total_area": 1
+            "total_area": 2500
         }
     }
 

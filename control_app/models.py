@@ -62,23 +62,11 @@ class RatioWallCeiling(models.Model):
         return str(self.pk)
 
 
-class SustainableDeclaration(models.Model):
-    """ 1.12 REGLAMENTACIÓN DE CONSTRUCCIÓN SOSTENIBLE """
-    """ 1.12.1 DECLARACIÓN SOBRE MEDIDAS DE AHORRO EN ENERGÍA """
-    ratio_wall_ceiling_id = models.ForeignKey(RatioWallCeiling, on_delete=models.DO_NOTHING)
-    water_saving_exp = models.CharField(max_length = 20)
-    energy_saving_exp = models.CharField(max_length = 20)
-    verbose_name = "Declaración de sustentabilidad"
-
-    def __str__(self) -> str:
-        return str(self.pk)
-
-
 class MeasureType(models.Model):
     """ Complement of the Measure class """
     name = models.CharField(max_length = 100)
 
-    def __str__(self) -> str:
+    def __str__(self):
         return self.name
 
 
@@ -93,12 +81,33 @@ class Measure(models.Model):
         return self.name
 
 
+class SustainableDeclaration(models.Model):
+    """ 1.12 REGLAMENTACIÓN DE CONSTRUCCIÓN SOSTENIBLE """
+    """ 1.12.1 DECLARACIÓN SOBRE MEDIDAS DE AHORRO EN ENERGÍA """
+    ratio_wall_ceiling_id = models.ForeignKey(RatioWallCeiling, on_delete=models.DO_NOTHING)
+    water_saving_exp = models.CharField(max_length = 20)
+    energy_saving_exp = models.CharField(max_length = 20)
+    verbose_name = "Declaración de sustentabilidad"
+    measures = models.ManyToManyField(
+        Measure, through='BrSustainableDeclarationMeasure', blank=True)
+
+    def __str__(self):
+        return str(self.pk)
+    
+
 class BrSustainableDeclarationMeasure(models.Model):
     """ BRIDGE - SustainableDeclaration & 1.12.1.1  MEDIDAS PASIVAS - 1.12.1.2 MEDIDAS ACTIVAS """
-    sustainable_declaration_id = models.ManyToManyField(
-        SustainableDeclaration, related_name="Sustainable Declaration Id+")
-    measure_id = models.ManyToManyField(Measure, related_name="Measure Id+")
+    sustainable_declaration_id = models.ForeignKey(
+        SustainableDeclaration, on_delete=models.DO_NOTHING)
+    measure_id = models.ForeignKey(
+        Measure, on_delete=models.DO_NOTHING, related_name= "Medida o mecanismo+")
 
+    class Meta:
+        unique_together = ('sustainable_declaration_id', 'measure_id')
+        
+    def __str__(self):
+            return str(self.measure_id), (self.sustainable_declaration_id)
+    
 
 class MaterialityType(models.Model):
     """ Complement of the Materiality class """

@@ -466,19 +466,20 @@ class DocumentAdmin(admin.ModelAdmin):
 
 class BrSustainableDeclarationMeasureAdmin(admin.ModelAdmin):
     "Admin class for BrSustainableDeclarationMeasure"
+    model = BrSustainableDeclarationMeasure
+    extra = 1
     fieldsets = [
         (None,{'fields':['sustainable_declaration_id', 'measure_id',
                          ]}),]
-    
-    def display_sustainable_declaration_id(self, obj):
-        return ", ".join([str(item) for item in obj.sustainable_declaration_id.all()])
-    display_sustainable_declaration_id.short_description = "Sustainable Declaration Id"
+    list_display = ('measure_id', 'sustainable_declaration_id',)
 
-    def display_measure_id(self, obj):
-        return ", ".join([str(item) for item in obj.measure_id.all()])
-    display_measure_id.short_description = "Measure Id"
+    # def display_sustainable_declaration_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.sustainable_declaration_id.all()])
+    # display_sustainable_declaration_id.short_description = "Sustainable Declaration Id"
 
-    list_display = ('display_sustainable_declaration_id', 'display_measure_id',)
+    # def display_measure_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.measure_id.all()])
+    # display_measure_id.short_description = "Measure Id"
 
 
 class BrSustainableDeclarationMaterialityAdmin(admin.ModelAdmin):
