@@ -7,9 +7,10 @@ from .models import (
     InstitutionalType, CommercialType, SustainableDeclaration, RatioWallCeiling, Measure,
     MeasureType, Materiality, MaterialityType, Property, SoilClasification, Planimetry, Cadastral,
     Neighbor, BordersDimensionAreas, Neighboring, LicenceHolderResponsible, ProfessionalResponsible,
-    ProfessionName, PetitionResponsible, Document,BrDocumentTypeProcedureModality, BrPropertySoilClasification,
-    BrPropertyPlanimetry, BrRequestBuildArea, BrRequestCommercialType, BrRequestHousingType, BrRequestInstitutionalType, 
-    BrRequestProcedureObjective, BrRequestTypeProcedure, BrRequestUses, BrSustainableDeclarationMeasure, 
+    ProfessionName, PetitionResponsible, Document,BrDocumentTypeProcedureModality, 
+    BrPropertySoilClasification, BrPropertyPlanimetry, BrRequestBuildArea, BrRequestCommercialType,
+    BrRequestHousingType, BrRequestInstitutionalType, BrRequestProcedureObjective,
+    BrRequestTypeProcedure, BrRequestUses, BrSustainableDeclarationMeasure, 
     BrSustainableDeclarationMateriality, BrTypeProcedureModality, BrUniqueNationalFormNeighbor,
 )
 
@@ -467,7 +468,6 @@ class DocumentAdmin(admin.ModelAdmin):
 class BrSustainableDeclarationMeasureAdmin(admin.ModelAdmin):
     "Admin class for BrSustainableDeclarationMeasure"
     model = BrSustainableDeclarationMeasure
-    extra = 1
     fieldsets = [
         (None,{'fields':['sustainable_declaration_id', 'measure_id',
                          ]}),]
@@ -484,19 +484,20 @@ class BrSustainableDeclarationMeasureAdmin(admin.ModelAdmin):
 
 class BrSustainableDeclarationMaterialityAdmin(admin.ModelAdmin):
     "Admin class for BrSustainableDeclarationMateriality"
+    model = BrSustainableDeclarationMateriality
     fieldsets = [
         (None,{'fields':['sustainable_declaration_id', 'materiality_id',
-                         ]}),]
+                        ]}),]
     
-    def display_sustainable_declaration_id(self, obj):
-        return ", ".join([str(item) for item in obj.sustainable_declaration_id.all()])
-    display_sustainable_declaration_id.short_description = "Sustainable Declaration Id"
+    # def display_sustainable_declaration_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.sustainable_declaration_id.all()])
+    # display_sustainable_declaration_id.short_description = "Sustainable Declaration Id"
 
-    def display_materiality_id(self, obj):
-        return ", ".join([str(item) for item in obj.materiality_id.all()])
-    display_materiality_id.short_description = "Materiality Id"
+    # def display_materiality_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.materiality_id.all()])
+    # display_materiality_id.short_description = "Materiality Id"
 
-    list_display = ('display_sustainable_declaration_id', 'display_materiality_id',)
+    list_display = ('sustainable_declaration_id', 'materiality_id',)
 
 
 class BrRequestTypeProcedureAdmin(admin.ModelAdmin):
