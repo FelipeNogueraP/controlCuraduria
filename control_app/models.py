@@ -77,7 +77,7 @@ class Measure(models.Model):
     other_detail_id = models.ForeignKey(
         OtherDetail, on_delete=models.DO_NOTHING)
     bridge = models.ManyToManyField(
-        SustainableDeclaration, through='BrSustainableDeclarationMeasure', blank=True)
+        'SustainableDeclaration', through='BrSustainableDeclarationMeasure', blank=True)
     
     def __str__(self) -> str:
         return self.name
@@ -108,7 +108,7 @@ class BrSustainableDeclarationMeasure(models.Model):
         unique_together = ('sustainable_declaration_id', 'measure_id')
         
     def __str__(self):
-            return str(self.measure_id), (self.sustainable_declaration_id)
+        return f'{self.measure_id}, {self.sustainable_declaration_id}'
     
 
 class MaterialityType(models.Model):
@@ -186,7 +186,7 @@ class TypeProcedure(models.Model):
 
 class BrRequestProcedureObjective(models.Model):
     """ BRIDGE - REQUEST & 1.2 OBJETO DEL TRAMITE """
-    request_id = models.ManyToManyField(Request, related_name="Request Id+")
+    request_id = models.ForeignKey(Request, related_name="Request Id+", on_delete=models.DO_NOTHING)
     procedure_objective_id = models.ForeignKey(Request, 
                                                related_name="Procedure Objective Id+", on_delete=models.DO_NOTHING)
     other_detail_id = models.ForeignKey(OtherDetail, 
