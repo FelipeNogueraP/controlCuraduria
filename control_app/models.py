@@ -84,7 +84,7 @@ class Measure(models.Model):
     measure_type_id = models.ForeignKey(MeasureType, on_delete=models.DO_NOTHING)
     other_detail_id = models.ForeignKey(
         OtherDetail, on_delete=models.DO_NOTHING)
-    br_sustainable = models.ManyToManyField(
+    br_sustainable_measure = models.ManyToManyField(
         'SustainableDeclaration', through='BrSustainableDeclarationMeasure', blank=True)
     
     def __str__(self) -> str:
@@ -98,7 +98,7 @@ class SustainableDeclaration(models.Model):
     water_saving_exp = models.CharField(max_length = 20)
     energy_saving_exp = models.CharField(max_length = 20)
     verbose_name = "Declaración de sustentabilidad"
-    br_measures = models.ManyToManyField(
+    br_sustainable_measure = models.ManyToManyField(
         Measure, through='BrSustainableDeclarationMeasure', blank=True)
     br_materiality = models.ManyToManyField(
         'Materiality', through='BrSustainableDeclarationMateriality', blank=True)
@@ -274,13 +274,13 @@ class BrRequestUses(models.Model):
     """ BRIDGE - REQUEST & 1.6 USOS """
     request_id = models.ForeignKey(Request, 
                                    related_name="Request Id+", on_delete=models.DO_NOTHING)
-    uses_id = models.ForeignKey("Uses", 
-                                     related_name="Uses Id+", on_delete=models.DO_NOTHING)
+    type_uses_id = models.ForeignKey("Uses", 
+                                     related_name="Type Uses Id+", on_delete=models.DO_NOTHING)
     other_detail_id = models.ForeignKey(
         OtherDetail, related_name="Other detail+", on_delete=models.DO_NOTHING)
     
     class Meta:
-        unique_together = ('request_id', 'uses_id', 'other_detail_id')
+        unique_together = ('request_id', 'type_uses_id', 'other_detail_id')
 
     def __str__(self):
             return str(self.request_id), (self.type_uses_id), (self.other_detail_id)

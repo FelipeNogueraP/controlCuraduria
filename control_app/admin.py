@@ -502,226 +502,236 @@ class BrSustainableDeclarationMaterialityAdmin(admin.ModelAdmin):
 
 class BrRequestTypeProcedureAdmin(admin.ModelAdmin):
     "Admin class for BrRequestTypeProcedure"
+    model = BrRequestTypeProcedure
     fieldsets = [
         (None,{'fields':['request_id', 'type_procedure_id',
                          ]}),]
 
-    def display_request_id(self, obj):
-        return ", ".join([str(item) for item in obj.request_id.all()])
-    display_request_id.short_description = "Request Id"
+    # def display_request_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.request_id.all()])
+    # display_request_id.short_description = "Request Id"
 
-    def display_type_procedure_id(self, obj):
-        return ", ".join([str(item) for item in obj.type_procedure_id.all()])
-    display_type_procedure_id.short_description = "Type Procedure Id"
+    # def display_type_procedure_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.type_procedure_id.all()])
+    # display_type_procedure_id.short_description = "Type Procedure Id"
 
-    list_display = ('display_request_id', 'display_type_procedure_id',)
+    list_display = ('request_id', 'type_procedure_id',)
 
 
 class BrRequestProcedureObjectiveAdmin(admin.ModelAdmin):
     "Admin class for BrRequestProcedureObjective"
+    model = BrRequestProcedureObjective
     fieldsets = [
         (None,{'fields':['request_id', 'procedure_objective_id','other_detail_id',
                          ]}),]
 
-    def display_request_id(self, obj):
-        return ", ".join([str(item) for item in obj.request_id.all()])
-    display_request_id.short_description = "Request Id"
+    # def display_request_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.request_id.all()])
+    # display_request_id.short_description = "Request Id"
 
-    def display_procedure_objective_id(self, obj):
-        return ", ".join([str(item) for item in obj.procedure_objective_id.all()])
-    display_procedure_objective_id.short_description = "Procedure Objective Id"
+    # def display_procedure_objective_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.procedure_objective_id.all()])
+    # display_procedure_objective_id.short_description = "Procedure Objective Id"
 
-    def display_other_detail_id(self, obj):
-        return ", ".join([str(item) for item in obj.other_detail_id.all()])
-    display_other_detail_id.short_description = "Other Detail Id"
+    # def display_other_detail_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.other_detail_id.all()])
+    # display_other_detail_id.short_description = "Other Detail Id"
 
-    list_display = ('display_request_id', 'display_procedure_objective_id', 'display_other_detail_id',)
+    list_display = ('request_id', 'procedure_objective_id', 'other_detail_id',)
 
 
 class BrTypeProcedureModalityAdmin(admin.ModelAdmin):
     "Admin class for BrTypeProcedureModality"
+    model = BrTypeProcedureModality
     fieldsets = [
         (None,{'fields':['type_procedure_id', 'modality_id',
                          ]}),]
 
-    def display_type_procedure_id(self, obj):
-        return ", ".join([str(item) for item in obj.type_procedure_id.all()])
-    display_type_procedure_id.short_description = "Type Procedure Id"
+    # def display_type_procedure_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.type_procedure_id.all()])
+    # display_type_procedure_id.short_description = "Type Procedure Id"
 
-    def display_modality_id(self, obj):
-        return ", ".join([str(item) for item in obj.modality_id.all()])
-    display_modality_id.short_description = "Modality Id"
+    # def display_modality_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.modality_id.all()])
+    # display_modality_id.short_description = "Modality Id"
 
-    list_display = ('display_type_procedure_id', 'display_modality_id',)
+    list_display = ('type_procedure_id', 'modality_id',)
 
 
 class BrRequestUsesAdmin(admin.ModelAdmin):
     "Admin class for BrRequestUses"
+    model = BrRequestUses
     fieldsets = [
         (None,{'fields':['request_id', 'type_uses_id','other_detail_id',
                          ]}),]
 
-    def display_request_id(self, obj):
-        return ", ".join([str(item) for item in obj.request_id.all()])
-    display_request_id.short_description = "Request Id"
+    # def display_request_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.request_id.all()])
+    # display_request_id.short_description = "Request Id"
 
-    def display_type_uses_id(self, obj):
-        return ", ".join([str(item) for item in obj.type_uses_id.all()])
-    display_type_uses_id.short_description = "Type Uses Id"
+    # def display_type_uses_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.type_uses_id.all()])
+    # display_type_uses_id.short_description = "Type Uses Id"
 
-    def display_other_detail_id(self, obj):
-        return ", ".join([str(item) for item in obj.other_detail_id.all()])
-    display_other_detail_id.short_description = "Other Detail Id"
+    # def display_other_detail_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.other_detail_id.all()])
+    # display_other_detail_id.short_description = "Other Detail Id"
 
-    list_display = ('display_request_id', 'display_type_uses_id', 'display_other_detail_id',)
+    list_display = ('request_id', 'type_uses_id', 'other_detail_id',)
 
 
 class BrRequestBuildAreaAdmin(admin.ModelAdmin):
     "Admin class for BrRequestBuildArea"
+    model = BrRequestBuildArea
     fieldsets = [
         (None,{'fields':['request_id', 'build_area_id',
                          ]}),]
     
-    def display_request_id(self, obj):
-        return ", ".join([str(item) for item in obj.request_id.all()])
-    display_request_id.short_description = "Request Id"
+    # def display_request_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.request_id.all()])
+    # display_request_id.short_description = "Request Id"
 
-    def display_build_area_id(self, obj):
-        return ", ".join([str(item) for item in obj.build_area_id.all()])
-    display_build_area_id.short_description = "Build Area Id"
+    # def display_build_area_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.build_area_id.all()])
+    # display_build_area_id.short_description = "Build Area Id"
 
-    list_display = ('display_request_id', 'display_build_area_id',)
+    list_display = ('request_id', 'build_area_id',)
 
 
 class BrRequestHousingTypeAdmin(admin.ModelAdmin):
     "Admin class for BrRequestHousingType"
+    model = BrRequestHousingType
     fieldsets = [
         (None,{'fields':['request_id', 'housing_type_id',
                          ]}),]
-    
-    def display_request_id(self, obj):
-        return ", ".join([str(item) for item in obj.request_id.all()])
-    display_request_id.short_description = "Request Id"
 
-    def display_housing_type_id(self, obj):
-        return ", ".join([str(item) for item in obj.housing_type_id.all()])
-    display_housing_type_id.short_description = "Housing Type Id"
+    # def display_request_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.request_id.all()])
+    # display_request_id.short_description = "Request Id"
 
-    list_display = ('display_request_id', 'display_housing_type_id',)
+    # def display_housing_type_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.housing_type_id.all()])
+    # display_housing_type_id.short_description = "Housing Type Id"
+
+    list_display = ('request_id', 'housing_type_id',)
 
 
 class BrRequestInstitutionalTypeAdmin(admin.ModelAdmin):
     "Admin class for BrRequestInstitutionalType"
+    model = BrRequestInstitutionalType
     fieldsets = [
-        (None,{'fields':['request_id', 'institutional_type_id', 'other_detail_id',
-                         ]}),]
-    
-    def display_request_id(self, obj):
-        return ", ".join([str(item) for item in obj.request_id.all()])
-    display_request_id.short_description = "Request Id"
+        (None,{'fields':['request_id', 'institutional_type_id', 'other_detail_id',]}),]
 
-    def display_institutional_type_id(self, obj):
-        return ", ".join([str(item) for item in obj.institutional_type_id.all()])
-    display_institutional_type_id.short_description = "Institutional Type Id"
+    # def display_request_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.request_id.all()])
+    # display_request_id.short_description = "Request Id"
 
-    def display_other_detail_id(self, obj):
-        return ", ".join([str(item) for item in obj.other_detail_id.all()])
-    display_other_detail_id.short_description = "Other Detail Id"
+    # def display_institutional_type_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.institutional_type_id.all()])
+    # display_institutional_type_id.short_description = "Institutional Type Id"
 
-    list_display = ('display_request_id', 'display_institutional_type_id', 'display_other_detail_id',)
+    # def display_other_detail_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.other_detail_id.all()])
+    # display_other_detail_id.short_description = "Other Detail Id"
+
+    list_display = ('request_id', 'institutional_type_id', 'other_detail_id',)
 
 
 class BrRequestCommercialTypeAdmin(admin.ModelAdmin):
     "Admin class for BrRequestCommercialType"
+    model = BrRequestCommercialType
     fieldsets = [
         (None,{'fields':['request_id', 'commercial_type_id', 'other_detail_id',
                          ]}),]
 
-    def display_request_id(self, obj):
-        return ", ".join([str(item) for item in obj.request_id.all()])
-    display_request_id.short_description = "Request Id"
+    # def display_request_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.request_id.all()])
+    # display_request_id.short_description = "Request Id"
 
-    def display_commercial_type_id(self, obj):
-        return ", ".join([str(item) for item in obj.commercial_type_id.all()])
-    display_commercial_type_id.short_description = "Commercial Type Id"
+    # def display_commercial_type_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.commercial_type_id.all()])
+    # display_commercial_type_id.short_description = "Commercial Type Id"
 
-    def display_other_detail_id(self, obj):
-        return ", ".join([str(item) for item in obj.other_detail_id.all()])
-    display_other_detail_id.short_description = "Other Detail Id"
+    # def display_other_detail_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.other_detail_id.all()])
+    # display_other_detail_id.short_description = "Other Detail Id"
 
-    list_display = ('display_request_id', 'display_commercial_type_id', 'display_other_detail_id',)
+    list_display = ('request_id', 'commercial_type_id', 'other_detail_id',)
 
 
 class BrPropertySoilClasificationAdmin(admin.ModelAdmin):
     "Admin class for BrPropertySoilClasification"
+    model = BrPropertySoilClasification
     fieldsets = [
-        (None,{'fields':['property_id', 'soil_clasification_id',
-                         ]}),]
+        (None,{'fields':['property_id', 'soil_clasification_id',]}),]
 
-    def display_property_id(self, obj):
-        return ", ".join([str(item) for item in obj.property_id.all()])
-    display_property_id.short_description = "Property Id"
+    # def display_property_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.property_id.all()])
+    # display_property_id.short_description = "Property Id"
 
-    def display_soil_clasification_id(self, obj):
-        return ", ".join([str(item) for item in obj.soil_clasification_id.all()])
-    display_soil_clasification_id.short_description = "Soil Clasification Id"
+    # def display_soil_clasification_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.soil_clasification_id.all()])
+    # display_soil_clasification_id.short_description = "Soil Clasification Id"
 
-    list_display = ('display_property_id', 'display_soil_clasification_id',)
+    list_display = ('property_id', 'soil_clasification_id',)
 
 
 class BrPropertyPlanimetryAdmin(admin.ModelAdmin):
     "Admin class for BrPropertyPlanimetry"
+    model = BrPropertyPlanimetry
     fieldsets = [
         (None,{'fields':['property_id', 'planimetry_id',
                          ]}),]
     
-    def display_property_id(self, obj):
-        return ", ".join([str(item) for item in obj.property_id.all()])
-    display_property_id.short_description = "Property Id"
+    # def display_property_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.property_id.all()])
+    # display_property_id.short_description = "Property Id"
 
-    def display_planimetry_id(self, obj):
-        return ", ".join([str(item) for item in obj.planimetry_id.all()])
-    display_planimetry_id.short_description = "Planimetry Id"
+    # def display_planimetry_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.planimetry_id.all()])
+    # display_planimetry_id.short_description = "Planimetry Id"
 
-    list_display = ('display_property_id', 'display_planimetry_id',)
+    list_display = ('property_id', 'planimetry_id',)
 
 
 class BrDocumentTypeProcedureModalityAdmin(admin.ModelAdmin):
     "Admin class for BrDocumentTypeProcedureModality"
+    model = BrDocumentTypeProcedureModality
     fieldsets = [
         (None,{'fields':['document_id', 'type_procedure_id', 'modality_id',
                          ]}),]
     
-    def display_document_id(self, obj):
-        return ", ".join([str(item) for item in obj.document_id.all()])
-    display_document_id.short_description = "Document Id"
+    # def display_document_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.document_id.all()])
+    # display_document_id.short_description = "Document Id"
 
-    def display_type_procedure_id(self, obj):
-        return ", ".join([str(item) for item in obj.type_procedure_id.all()])
-    display_type_procedure_id.short_description = "Type Procedure Id"
+    # def display_type_procedure_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.type_procedure_id.all()])
+    # display_type_procedure_id.short_description = "Type Procedure Id"
 
-    def display_modality_id(self, obj):
-        return ", ".join([str(item) for item in obj.modality_id.all()])
-    display_modality_id.short_description = "Modality Id"
+    # def display_modality_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.modality_id.all()])
+    # display_modality_id.short_description = "Modality Id"
 
-    list_display = ('display_document_id', 'display_type_procedure_id', 'display_modality_id',)
+    list_display = ('document_id', 'type_procedure_id', 'modality_id',)
 
 
 class BrUniqueNationalFormNeighborAdmin(admin.ModelAdmin):
     "Admin class for BrDocumentTypeProcedureModality"
+    model = BrUniqueNationalFormNeighbor
     fieldsets = [
         (None,{'fields':['unique_national_form_id', 'neighbor_id',
                          ]}),]
 
-    def display_unique_national_form_id(self, obj):
-        return ", ".join([str(item) for item in obj.unique_national_form_id.all()])
-    display_unique_national_form_id.short_description = "Unique National Form Id"
+    # def display_unique_national_form_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.unique_national_form_id.all()])
+    # display_unique_national_form_id.short_description = "Unique National Form Id"
 
-    def display_neighbor_id(self, obj):
-        return ", ".join([str(item) for item in obj.neighbor_id.all()])
-    display_neighbor_id.short_description = "Neighbor Id"
+    # def display_neighbor_id(self, obj):
+    #     return ", ".join([str(item) for item in obj.neighbor_id.all()])
+    # display_neighbor_id.short_description = "Neighbor Id"
 
-    list_display = ('display_unique_national_form_id', 'display_neighbor_id',)
+    list_display = ('unique_national_form_id', 'neighbor_id',)
   
 
 ############ MODELS REGISTRATION ############
