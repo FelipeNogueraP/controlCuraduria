@@ -7,10 +7,10 @@ from .models import (
     InstitutionalType, CommercialType, SustainableDeclaration, RatioWallCeiling, Measure,
     MeasureType, Materiality, MaterialityType, Property, SoilClasification, Planimetry, Cadastral,
     Neighbor, BordersDimensionAreas, Neighboring, LicenceHolderResponsible, ProfessionalResponsible,
-    ProfessionName, PetitionResponsible, Document,BrDocumentTypeProcedureModality, 
+    ProfessionName, PetitionResponsible, Document,BrDocumentTypeProcedureModality,
     BrPropertySoilClasification, BrPropertyPlanimetry, BrRequestBuildArea, BrRequestCommercialType,
     BrRequestHousingType, BrRequestInstitutionalType, BrRequestProcedureObjective,
-    BrRequestTypeProcedure, BrRequestUses, BrSustainableDeclarationMeasure, 
+    BrRequestTypeProcedure, BrRequestUses, BrSustainableDeclarationMeasure,
     BrSustainableDeclarationMateriality, BrTypeProcedureModality, BrUniqueNationalFormNeighbor,
 )
 

@@ -18,7 +18,7 @@ class OtherDetail(models.Model):
         'InstitutionalType', through='BrRequestInstitutionalType', blank=True)
     br_request_commercialType = models.ManyToManyField(
         'CommercialType', through='BrRequestCommercialType', blank=True)
-    
+
     def __str__(self):
         return self.description
 
@@ -33,7 +33,7 @@ class GeographicLocation(models.Model):
     vereda = models.CharField(max_length=50)
 
     def __str__(self):
-        return str(self.pk)
+        return f'{self.pk}'
 
 
 class GeneralData(models.Model):
@@ -51,7 +51,7 @@ class GeneralData(models.Model):
         verbose_name_plural = "General Data"
 
     def __str__(self) -> str:
-        return str(self.pk)
+        return f'{self.pk}'
 
 
 ############# 1.12 REGLAMENTACIÓN DE CONSTRUCCIÓN SOSTENIBLE #############
@@ -67,7 +67,7 @@ class RatioWallCeiling(models.Model):
     verbose_name = "Rel Muro/Ventana y altura Piso/Techo"
 
     def __str__(self) -> str:
-        return str(self.pk)
+        return f'{self.pk}'
 
 
 class MeasureType(models.Model):
@@ -86,7 +86,7 @@ class Measure(models.Model):
         OtherDetail, on_delete=models.DO_NOTHING)
     br_sustainable_measure = models.ManyToManyField(
         'SustainableDeclaration', through='BrSustainableDeclarationMeasure', blank=True)
-    
+
     def __str__(self) -> str:
         return self.name
 
@@ -104,8 +104,8 @@ class SustainableDeclaration(models.Model):
         'Materiality', through='BrSustainableDeclarationMateriality', blank=True)
 
     def __str__(self):
-        return str(self.pk)
-    
+        return f'{self.pk}'
+
 
 class BrSustainableDeclarationMeasure(models.Model):
     """ BRIDGE - SustainableDeclaration & 1.12.1.1  MEDIDAS PASIVAS - 1.12.1.2 MEDIDAS ACTIVAS """
@@ -116,10 +116,10 @@ class BrSustainableDeclarationMeasure(models.Model):
 
     class Meta:
         unique_together = ('sustainable_declaration_id', 'measure_id')
-        
+
     def __str__(self):
         return f'{self.measure_id}, {self.sustainable_declaration_id}'
-    
+
 
 class MaterialityType(models.Model):
     """ Complement of the Materiality class """
@@ -158,8 +158,8 @@ class BrSustainableDeclarationMateriality(models.Model):
         unique_together = ('sustainable_declaration_id', 'materiality_id')
 
     def __str__(self):
-            return f'{self.materiality_id}, {self.sustainable_declaration_id}'
-    
+        return f'{self.materiality_id}, {self.sustainable_declaration_id}'
+
 
 ############# 1. IDENTIFICACIÓN DE LA SOLICITUD #############
 
@@ -195,7 +195,7 @@ class TypeProcedure(models.Model):
         'Modality', through='BrTypeProcedureModality', blank=True)    
     br_document_typeProcedure_modality = models.ManyToManyField(
         'Document', through='BrDocumentTypeProcedureModality', blank=True)
-       
+
     def __str__(self) -> str:
         return self.name
 
@@ -204,39 +204,39 @@ class BrRequestTypeProcedure(models.Model):
     """ BRIDGE - REQUEST & 1.1 TIPO DE TRAMITE """
     request_id = models.ForeignKey(Request,
                                    related_name="Request Id+", on_delete=models.DO_NOTHING)
-    type_procedure_id = models.ForeignKey(TypeProcedure, 
+    type_procedure_id = models.ForeignKey(TypeProcedure,
                                           related_name="Type Procedure Id+", on_delete=models.DO_NOTHING)
-   
+
     class Meta:
         unique_together = ('request_id', 'type_procedure_id')
 
     def __str__(self):
-            return str(self.request_id), (self.type_procedure_id)
-    
+        return f'{self.request_id}, {self.type_procedure_id}'
+
 
 class ProcedureObjective(models.Model):
     """ 1.2 OBJETO DEL TRAMITE """
     name = models.CharField(max_length=50)
     br_request_procedure_obj = models.ManyToManyField(
         'Request', through='BrRequestProcedureObjective', blank=True)
-    
+
     def __str__(self) -> str:
         return self.name
-    
+
 
 class BrRequestProcedureObjective(models.Model):
     """ BRIDGE - REQUEST & 1.2 OBJETO DEL TRAMITE """
     request_id = models.ForeignKey(Request, related_name="Request Id+", on_delete=models.DO_NOTHING)
     procedure_objective_id = models.ForeignKey(ProcedureObjective,
                                                related_name="Procedure Objective Id+", on_delete=models.DO_NOTHING)
-    other_detail_id = models.ForeignKey(OtherDetail, 
+    other_detail_id = models.ForeignKey(OtherDetail,
                                         related_name="Other Detail Id+", on_delete=models.DO_NOTHING)
-    
+
     class Meta:
         unique_together = ('request_id', 'procedure_objective_id', 'other_detail_id')
 
     def __str__(self):
-            return f'{self.request_id}, {self.procedure_objective_id}, {self.other_detail_id}'
+        return f'{self.request_id}, {self.procedure_objective_id}, {self.other_detail_id}'
 
 
 class Modality(models.Model):
@@ -247,7 +247,7 @@ class Modality(models.Model):
         'TypeProcedure', through='BrTypeProcedureModality', blank=True)
     br_document_typeProcedure_modality = models.ManyToManyField(
         'Document', through='BrDocumentTypeProcedureModality', blank=True)
-    
+
     class Meta:
         verbose_name_plural = "Modalities"
 
@@ -260,30 +260,30 @@ class BrTypeProcedureModality(models.Model):
       1.4 MODALIDAD SUBDVISION, 1.5 MODALIDAD LICENCIA DE CONSTRUCCION"""
     type_procedure_id = models.ForeignKey(TypeProcedure,
                                                related_name="Type Procedure Id+", on_delete=models.DO_NOTHING)
-    modality_id = models.ForeignKey(Modality, 
+    modality_id = models.ForeignKey(Modality,
                                     related_name="Modality Id+", on_delete=models.DO_NOTHING)
-    
+
     class Meta:
         unique_together = ('type_procedure_id', 'modality_id')
 
     def __str__(self):
-            return str(self.type_procedure_id), (self.modality_id)
+        return f'{self.type_procedure_id}, {self.modality_id}'
 
 
 class BrRequestUses(models.Model):
     """ BRIDGE - REQUEST & 1.6 USOS """
-    request_id = models.ForeignKey(Request, 
+    request_id = models.ForeignKey(Request,
                                    related_name="Request Id+", on_delete=models.DO_NOTHING)
-    type_uses_id = models.ForeignKey("Uses", 
+    type_uses_id = models.ForeignKey("Uses",
                                      related_name="Type Uses Id+", on_delete=models.DO_NOTHING)
     other_detail_id = models.ForeignKey(
         OtherDetail, related_name="Other detail+", on_delete=models.DO_NOTHING)
-    
+
     class Meta:
         unique_together = ('request_id', 'type_uses_id', 'other_detail_id')
 
     def __str__(self):
-            return str(self.request_id), (self.type_uses_id), (self.other_detail_id)
+        return f'{self.request_id}, {self.type_uses_id}, {self.other_detail_id}'
 
 
 class Uses(models.Model):
@@ -291,7 +291,7 @@ class Uses(models.Model):
     name = models.CharField(max_length = 50)
     br_request_uses = models.ManyToManyField(
         'Request', through='BrRequestUses', blank=True)
-    
+
     class Meta:
         verbose_name_plural = "Uses"
 
@@ -308,6 +308,7 @@ class BuildArea(models.Model):
     def __str__(self) -> str:
         return self.name
 
+
 class BrRequestBuildArea(models.Model):
     """ BRIDGE - Request & 1.7 AREAS O UNIDADES CONSTRUIDAS """
     request_id = models.ForeignKey(Request,
@@ -319,7 +320,7 @@ class BrRequestBuildArea(models.Model):
         unique_together = ('request_id', 'build_area_id',)
 
     def __str__(self):
-            return str(self.request_id), (self.build_area_id)
+        return f'{self.request_id}, {self.build_area_id}'
 
 
 class HousingType(models.Model):
@@ -327,7 +328,7 @@ class HousingType(models.Model):
     name = models.CharField(max_length = 50)
     br_request_housingType = models.ManyToManyField(
         'Request', through='BrRequestHousingType', blank=True)
-    
+
     def __str__(self) -> str:
         return self.name
 
@@ -343,7 +344,7 @@ class BrRequestHousingType(models.Model):
         unique_together = ('request_id', 'housing_type_id',)
 
     def __str__(self):
-        return str(self.request_id), (self.housing_type_id)
+        return f'{self.request_id}, {self.housing_type_id}'
 
 
 class InstitutionalType(models.Model):
@@ -351,7 +352,7 @@ class InstitutionalType(models.Model):
     name = models.CharField(max_length = 50)
     br_request_housingType = models.ManyToManyField(
         'Request', through='BrRequestInstitutionalType', blank=True)
-    
+
     def __str__(self) -> str:
         return self.name
 
@@ -365,12 +366,12 @@ class BrRequestInstitutionalType(models.Model):
                                                     on_delete=models.DO_NOTHING)
     other_detail_id = models.ForeignKey(OtherDetail, related_name="Other Detail+",
                                         on_delete=models.DO_NOTHING)
-    
+
     class Meta:
         unique_together = ('request_id', 'institutional_type_id', 'other_detail_id')
 
     def __str__(self):
-            return str(self.request_id), (self.institutional_type_id), (self.other_detail_id)
+        return f'{self.request_id}, {self.institutional_type_id}, {self.other_detail_id}'
 
 
 class CommercialType(models.Model):
@@ -378,7 +379,7 @@ class CommercialType(models.Model):
     name = models.CharField(max_length = 50)
     br_request_commercialType = models.ManyToManyField(
         'Request', through='BrRequestCommercialType', blank=True)
-    
+
     def __str__(self) -> str:
         return self.name
 
@@ -391,12 +392,12 @@ class BrRequestCommercialType(models.Model):
                                            related_name="Commercial Type Id+", on_delete=models.DO_NOTHING)
     other_detail_id = models.ForeignKey(OtherDetail,
                                         related_name="Other Detail Id+", on_delete=models.DO_NOTHING)
-    
+
     class Meta:
         unique_together = ('request_id', 'commercial_type_id', 'other_detail_id')
 
     def __str__(self):
-            return str(self.request_id), (self.commercial_type_id), (self.other_detail_id)
+        return f'{self.request_id}, {self.commercial_type_id}, {self.other_detail_id}'
 
 
 ############# 2.0 INFORMACIÓN SOBRE EL PREDIO #############
@@ -415,7 +416,7 @@ class Cadastral(models.Model):
     lote_number = models.CharField(max_length=30)
 
     def __str__(self) -> str:
-        return str(self.pk)
+        return f'{self.pk}'
 
 
 class Property(models.Model):
@@ -429,13 +430,13 @@ class Property(models.Model):
         'SoilClasification', through='BrPropertySoilClasification', blank=True)
     br_property_planimetry = models.ManyToManyField(
         'Planimetry', through='BrPropertyPlanimetry', blank=True)
-    
+
     class Meta:
         verbose_name = "Property"
         verbose_name_plural = "Properties"
 
     def __str__(self) -> str:
-        return str(self.pk)
+        return f'{self.pk}'
 
 
 class SoilClasification(models.Model):
@@ -450,7 +451,7 @@ class SoilClasification(models.Model):
 
 class BrPropertySoilClasification(models.Model):
     """ BRIDGE - PROPERTY & 2.4 CLASIFICACIÓN DEL SUELO """
-    property_id = models.ForeignKey(Property, 
+    property_id = models.ForeignKey(Property,
                                          related_name="Property Id+", on_delete=models.DO_NOTHING)
     soil_clasification_id = models.ForeignKey(SoilClasification,
                                             related_name="Soil Clasification Id+",
@@ -460,7 +461,7 @@ class BrPropertySoilClasification(models.Model):
         unique_together = ('property_id', 'soil_clasification_id',)
 
     def __str__(self):
-            return str(self.property_id), (self.soil_clasification_id)
+        return f'{self.property_id}, {self.soil_clasification_id}'
 
 
 class Planimetry(models.Model):
@@ -468,7 +469,7 @@ class Planimetry(models.Model):
     name = models.CharField(max_length=50)
     br_property_planimetry = models.ManyToManyField(
         'Property', through='BrPropertyPlanimetry', blank=True)
-    
+
     def __str__(self):
         return self.name
 
@@ -487,7 +488,7 @@ class BrPropertyPlanimetry(models.Model):
         unique_together = ('property_id', 'planimetry_id',)
 
     def __str__(self):
-            return str(self.property_id), (self.planimetry_id)
+        return f'{self.property_id}, {self.planimetry_id}'
 
 
 ############# 5. TITULARES Y PROFESIONALES RESPONSABLES #############
@@ -503,12 +504,12 @@ class LicenceHolderResponsible(models.Model):
     sign = models.BooleanField(verbose_name="Firma")
 
     def __str__(self) -> str:
-        return str(self.pk)
+        return f'{self.pk}'
 
 
 class ProfessionalResponsible(models.Model):
     """ 5.2 PROFESIONALES RESPONSABLES. """
-    profession_name_id = models.CharField(max_length=70)
+    profession_name_id = models.ForeignKey("ProfessionName", related_name="Profession Name+", on_delete=models.DO_NOTHING)
     name = models.CharField(max_length=100)
     identification_num = models.IntegerField()
     professional_licence_num = models.IntegerField(verbose_name="Prof Lic Num")
@@ -518,7 +519,7 @@ class ProfessionalResponsible(models.Model):
     sign = models.BooleanField(verbose_name="Firma")
 
     def __str__(self) -> str:
-        return str(self.pk)
+        return f'{self.pk}'
 
 
 class ProfessionName(models.Model):
@@ -553,9 +554,9 @@ class Document(models.Model):
     description = models.CharField(max_length=100)
     br_document_typeProcedure_modality = models.ManyToManyField(
         'TypeProcedure', through='BrDocumentTypeProcedureModality', blank=True)
-    
+
     def __str__(self) -> str:
-        return str(self.pk)
+        return f'{self.pk}'
 
 
 class BrDocumentTypeProcedureModality(models.Model):
@@ -563,7 +564,7 @@ class BrDocumentTypeProcedureModality(models.Model):
     document_id = models.ForeignKey(Document,
                                         related_name="Document Id+", on_delete=models.DO_NOTHING)
     type_procedure_id = models.ForeignKey(TypeProcedure,
-                                               related_name="TypeProcedure Id+", on_delete=models.DO_NOTHING)
+                                    related_name="TypeProcedure Id+", on_delete=models.DO_NOTHING)
     modality_id =models.ForeignKey(Modality,
                                         related_name="Modality Id+", on_delete=models.DO_NOTHING)
 
@@ -571,7 +572,7 @@ class BrDocumentTypeProcedureModality(models.Model):
         unique_together = ('document_id', 'type_procedure_id', 'modality_id')
 
     def __str__(self):
-            return str(self.document_id), (self.type_procedure_id), (self.modality_id)
+        return f'{self.document_id}, {self.type_procedure_id}, {self.modality_id}'
 
 
 ############# 4. LINDEROS, DIMENSIONES Y ÁREAS #############
@@ -609,9 +610,14 @@ class UniqueNationalForm(models.Model):
         LicenceHolderResponsible, on_delete=models.CASCADE)
     professional_responsible = models.ForeignKey(
         ProfessionalResponsible, on_delete=models.CASCADE)
+    petition_responsible = models.ForeignKey(
+        PetitionResponsible, on_delete=models.CASCADE)
     document_id = models.ForeignKey(Document, on_delete=models.CASCADE)
     br_uniqueNatForm_Neighbor = models.ManyToManyField(
         'Neighbor', through='BrUniqueNationalFormNeighbor', blank=True)
+
+    def __str__(self) -> str:
+        return f'{self.pk}'
 
 
 ############# 3. INFORMACIÓN DE VECINOS COLINDANTES #############
@@ -623,24 +629,25 @@ class Neighbor(models.Model):
     mailing_address = models.CharField(max_length=80)
     br_uniqueNatForm_Neighbor = models.ManyToManyField(
         'UniqueNationalForm', through='BrUniqueNationalFormNeighbor', blank=True)
-    
+
     def __str__(self) -> str:
         return self.housing_address
+
 
 class BrUniqueNationalFormNeighbor(models.Model):
     """ BRIDGE - Unique National Form & 3. INFORMACIÓN DE VECINOS COLINDANTES """
     unique_national_form_id = models.ForeignKey(UniqueNationalForm,
                                                      related_name="Unique National Form Id+",
                                                      on_delete=models.DO_NOTHING)
-    neighbor_id = models.ForeignKey(Neighbor, 
+    neighbor_id = models.ForeignKey(Neighbor,
                                 related_name="Neighbor Id+", on_delete=models.DO_NOTHING)
 
     class Meta:
         unique_together = ('unique_national_form_id', 'neighbor_id',)
 
     def __str__(self):
-            return str(self.unique_national_form_id), (self.neighbor_id)
-    
+        return f'{self.unique_national_form_id}, {self.neighbor_id}'
+
 
 class Neighboring(models.Model):
     """ NEIGHBORING, COMPLEMENT OF THE BorderDimensionAreas CLASS """
