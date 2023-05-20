@@ -7,11 +7,6 @@ from .models import GeographicLocation
 
 from .serializers import GeographicLocationSerializer
 
-
-@method_decorator(csrf_exempt, name="dispatch")
-class ExemptCSRFSessionAuthentication(auth_views.LoginView):
-    pass
-
 class GeographicLocationViewSet(viewsets.ModelViewSet):
     queryset = GeographicLocation.objects.all()
     serializer_class = GeographicLocationSerializer
