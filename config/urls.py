@@ -25,7 +25,9 @@ admin.site.site_title = "Curaduría"
 # The site index, which it's visualized in the main menu.
 admin.site.index_title = "Control de flujo de procesos"
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('control_app.urls'))
+    
 ]

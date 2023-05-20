@@ -27,6 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8000",  # or whatever your React server's origin is
+]
+
 
 # Application definition
 
@@ -123,9 +128,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework.authentication.TokenAuthentication",
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+
     ],
     "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.IsAuthenticated",
+        'rest_framework.permissions.IsAuthenticated',
     ],
 }
