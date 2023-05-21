@@ -1,19 +1,21 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/postgres
 {
-    "image" : "mcr.microsoft.com/devcontainers/universal:2",
-    "hostRequirements": {
+	"name": "Python 3 & PostgreSQL",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/backend",
+	"hostRequirements": {
         "cpus": 4
     },
-    "waitFor": "onCreateCommand",
-    "updateContentCommand": "python -m pip install --upgrade pip && pip install -r requirements.txt && python manage.py migrate",
-    "postCreateCommand": "",
+	"waitFor": "onCreateCommand",
+	"updateContentCommand": "python -m pip install --upgrade pip && pip install -r requirements.txt && python manage.py migrate",
+	"postCreateCommand": "",
     "postAttachCommand": {
         "server": "python manage.py runserver"
     },
-    "customizations": {
-        "codespaces": {
-            "openFiles": [""
-        ]
-        },
+
+	"customizations": {
         "vscode":{
             "extensions":[
 				"ms-python.python",
@@ -21,10 +23,10 @@
 			]
         }
     },
-    "containerEnv": {
-        "DJANGO_SETTINGS_MODULE": "config.settings_development"
+	"containerEnv": {
+        "DJANGO_SETTINGS_MODULE": "backend.settings_development"
     },
-    "portsAttributes": {
+	"portsAttributes": {
         "8000": {
             "label": "Application",
             "onAutoForward": "openPreview"
