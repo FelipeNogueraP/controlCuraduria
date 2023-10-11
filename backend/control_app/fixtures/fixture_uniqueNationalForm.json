@@ -9,6 +9,7 @@
             "borders_dimension_areas": 1,
             "licence_holder_responsible": 1,
             "professional_responsible": 1,
+            "petition_responsible": 1,
             "document_id": 1
         }
     },
@@ -22,6 +23,7 @@
             "borders_dimension_areas": 2,
             "licence_holder_responsible": 2,
             "professional_responsible": 2,
+            "petition_responsible": 1,
             "document_id": 2
         }
     },
@@ -35,6 +37,7 @@
             "borders_dimension_areas": 3,
             "licence_holder_responsible": 3,
             "professional_responsible": 3,
+            "petition_responsible": 2,
             "document_id": 3
         }
     },
@@ -48,6 +51,7 @@
             "borders_dimension_areas": 4,
             "licence_holder_responsible": 3,
             "professional_responsible": 4,
+            "petition_responsible": 2,
             "document_id": 4
         }
     },
@@ -61,6 +65,7 @@
             "borders_dimension_areas": 5,
             "licence_holder_responsible": 2,
             "professional_responsible": 5,
+            "petition_responsible": 3,
             "document_id": 5
         }
     }
