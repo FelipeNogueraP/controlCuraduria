@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Path to the .env file
-ENV_FILE="./.env.development"
+ENV_FILE="./.env"
 
 # Check if the .env file exists
 if [ ! -f "$ENV_FILE" ]; then
-    echo "Error: .env.development file not found!"
+    echo "Error: .env file not found!"
     echo "Please create a .env.development file with the next values to build correctly"
     echo "POSTGRES_USER=youruser"
     echo "POSTGRES_DB=youdatabase"
