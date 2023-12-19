@@ -21,13 +21,10 @@ RUN mkdir /app && chown myappuser:myappgroup /app
 # Set the working directory to /app
 WORKDIR /app
 
-# Copy the application code to /app (assuming your code is in the current directory)
-COPY --chown=myappuser:myappgroup . /app
-
 # [Optional] Install dependencies, OS packages, etc.
 
 # Switch to the non-root user
 USER myappuser
 
 # Your command to start the application, e.g., python, flask, django
-CMD ["python", "your-app.py"]
+CMD ["python", "manage.py runserver -p 8080"]
