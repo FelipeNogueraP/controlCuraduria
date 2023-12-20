@@ -175,3 +175,5 @@ db.sqlite3
 control_app/migrations/\*
 
 .vscode/
+
+.DS_Store
