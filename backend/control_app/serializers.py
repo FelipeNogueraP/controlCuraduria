@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import GeographicLocation
+from .models import LicenceHolderResponsible
 
 
-class GeographicLocationSerializer(serializers.ModelSerializer):
+class LicenceHolderResponsibleSerializer(serializers.ModelSerializer):
     class Meta:
-        model = GeographicLocation
-    fields = "__all__"
+        model = LicenceHolderResponsible
+        fields = "__all__"

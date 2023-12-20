@@ -1,10 +1,10 @@
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from rest_framework.routers import DefaultRouter
-from .views import GeographicLocationViewSet
+from .views import LicenceHolderResponsibleViewSet
 
 router = DefaultRouter()
-router.register(r'geographiclocation', GeographicLocationViewSet)
+router.register(r'licenceholderresponsible', LicenceHolderResponsibleViewSet)
 
 urlpatterns = [
     path('auth/login', auth_views.LoginView.as_view(), name='login'),

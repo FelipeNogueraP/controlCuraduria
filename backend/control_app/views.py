@@ -3,10 +3,10 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import GeographicLocation
+from .models import LicenceHolderResponsible
 
-from .serializers import GeographicLocationSerializer
+from .serializers import LicenceHolderResponsibleSerializer
 
-class GeographicLocationViewSet(viewsets.ModelViewSet):
-    queryset = GeographicLocation.objects.all()
-    serializer_class = GeographicLocationSerializer
+class LicenceHolderResponsibleViewSet(viewsets.ModelViewSet):
+    queryset = LicenceHolderResponsible.objects.all()
+    serializer_class = LicenceHolderResponsibleSerializer
