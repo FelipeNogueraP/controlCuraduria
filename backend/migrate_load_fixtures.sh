@@ -6,6 +6,7 @@ cd /app
 # Apply database migrations
 python manage.py makemigrations
 python manage.py migrate
+python manage.py createadmin
 
 # Load all fixtures from the fixtures directory
 # Adjust the path to your fixtures directory as needed
