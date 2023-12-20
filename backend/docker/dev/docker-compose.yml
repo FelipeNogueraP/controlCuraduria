@@ -25,7 +25,7 @@ services:
       - DJANGO_SETTINGS_MODULE=config.settings_dev
     volumes:
       - project-volume:/app
-    command: python manage.py migrate
+    command: /app/migrate_load_fixtures.sh
     networks:
       - app-network
     depends_on:
