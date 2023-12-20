@@ -497,8 +497,8 @@ class BrPropertyPlanimetry(models.Model):
 class LicenceHolderResponsible(models.Model):
     """ 5.1 TITULAR (ES) DE LA LICENCIA. """
     name = models.CharField(max_length=70)
-    identification_num = models.IntegerField()
-    phone_number = models.IntegerField()
+    identification_num = models.CharField(max_length=30)
+    phone_number = models.CharField(max_length=30)
     email = models.EmailField(max_length=40)
     electronic_notification = models.BooleanField(verbose_name="¿Acepta Notificación Electrónica?")
     sign = models.BooleanField(verbose_name="Firma")
@@ -511,7 +511,7 @@ class ProfessionalResponsible(models.Model):
     """ 5.2 PROFESIONALES RESPONSABLES. """
     profession_name_id = models.ForeignKey("ProfessionName", related_name="Profession Name+", on_delete=models.DO_NOTHING)
     name = models.CharField(max_length=100)
-    identification_num = models.IntegerField()
+    identification_num = models.CharField(max_length=30)
     professional_licence_num = models.IntegerField(verbose_name="Prof Lic Num")
     licence_expedition = models.DateField()
     email = models.EmailField(max_length=40)
@@ -534,8 +534,8 @@ class ProfessionName(models.Model):
 class PetitionResponsible(models.Model):
     """ 5.3 RESPONSABLE DE LA SOLICITUD. """
     name = models.CharField(max_length=100)
-    identification_num = models.IntegerField()
-    phone_num = models.IntegerField()
+    identification_num = models.CharField(max_length=30)
+    phone_number = models.CharField(max_length=30)
     mailing_address = models.CharField(max_length=100)
     email = models.EmailField(max_length=40)
     sign = models.BooleanField(verbose_name="Firma")

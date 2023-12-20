@@ -442,11 +442,11 @@ class PetitionResponsibleAdmin(admin.ModelAdmin):
     "Admin class for PetitionResponsible"
     fieldsets = [
         (None,{'fields':['name',]}),
-        ('Details', {'fields':['identification_num', 'phone_num',
+        ('Details', {'fields':['identification_num', 'phone_number',
                                'mailing_address', 'sign', 'email', 
                             ]})
         ]
-    list_display = ('name', 'identification_num', 'phone_num',
+    list_display = ('name', 'identification_num', 'phone_number',
                                'mailing_address', 'sign', 'email', 
                      )
     list_filter = ('name',)

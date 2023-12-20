@@ -4,9 +4,9 @@
         "pk": 1,
         "fields": {
             "name": "Juan Perez",
-            "identification_num": 123456, 
+            "identification_num": "123456", 
             "sign": true,
-            "phone_number": 3103698745, 
+            "phone_number": "3103698745", 
             "email": "juanperez@gmail.com", 
             "electronic_notification": true
         }
@@ -28,9 +28,9 @@
         "pk": 3,
         "fields": {
             "name": "Alfonso Oyola",
-            "identification_num": 5462587, 
+            "identification_num": "5462587", 
             "sign": true,
-            "phone_number": 301954723, 
+            "phone_number": "301954723", 
             "email": "alfonso.oyola@gmail.com", 
             "electronic_notification": false
         }
