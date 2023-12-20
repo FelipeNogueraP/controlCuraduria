@@ -16,7 +16,7 @@
         "pk": 2,
         "fields": {
             "name": "Magda Prieto",
-            "identification_num": 9875315, 
+            "identification_num": "9875315", 
             "sign": true,
             "phone_number": 601357951, 
             "email": "prietomagda@gmail.com", 

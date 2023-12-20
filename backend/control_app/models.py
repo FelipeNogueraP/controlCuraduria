@@ -188,7 +188,7 @@ class Request(models.Model):
 
 class TypeProcedure(models.Model):
     """ 1.1 TIPO DE TRAMITE """
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=100)
     br_request = models.ManyToManyField(
         'Request', through='BrRequestTypeProcedure', blank=True)
     br_typeProcedure_modality = models.ManyToManyField(
@@ -512,7 +512,7 @@ class ProfessionalResponsible(models.Model):
     profession_name_id = models.ForeignKey("ProfessionName", related_name="Profession Name+", on_delete=models.DO_NOTHING)
     name = models.CharField(max_length=100)
     identification_num = models.CharField(max_length=30)
-    professional_licence_num = models.IntegerField(verbose_name="Prof Lic Num")
+    professional_licence_num = models.CharField(max_length=30,verbose_name="Prof Lic Num")
     licence_expedition = models.DateField()
     email = models.EmailField(max_length=40)
     required_review = models.BooleanField(verbose_name="¿Exige Supervisión Tecnica?")
@@ -549,9 +549,9 @@ class PetitionResponsible(models.Model):
 
 class Document(models.Model):
     """ 6. DOCUMENTOS QUE ACOMPAÑAN LA SOLICITUD. """
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=300)
     mandatory = models.BooleanField(verbose_name="¿Obligatorio?")
-    description = models.CharField(max_length=100)
+    description = models.CharField(max_length=600)
     br_document_typeProcedure_modality = models.ManyToManyField(
         'TypeProcedure', through='BrDocumentTypeProcedureModality', blank=True)
 
