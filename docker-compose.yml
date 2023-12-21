@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  app:
+  backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -9,7 +9,7 @@ services:
     environment:
       - DJANGO_SETTINGS_MODULE=config.settings_dev
     volumes:
-      - project-volume:/app:cached
+      - backend-volume:/app:cached
     command: python manage.py runserver 0.0.0.0:8000
     networks:
       - app-network
@@ -27,7 +27,7 @@ services:
     environment:
       - DJANGO_SETTINGS_MODULE=config.settings_dev
     volumes:
-      - project-volume:/app
+      - backend-volume:/app
     command: /app/migrate_load_fixtures.sh
     networks:
       - app-network
@@ -46,13 +46,33 @@ services:
     networks:
       - app-network
 
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - frontend-volume:/app:cached
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
 
 volumes:
-  project-volume:
+  backend-volume:
     driver: local
     driver_opts:
       type: none
       device: ./backend
+      o: bind
+  frontend-volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./frontend
       o: bind
   postgres-data:
 
