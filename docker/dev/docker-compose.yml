@@ -3,8 +3,8 @@ version: '3.8'
 services:
   app:
     build:
-      context: ../..
-      dockerfile: docker/dev/Dockerfile
+      context: ../../backend
+      dockerfile: Dockerfile
     env_file: .env
     environment:
       - DJANGO_SETTINGS_MODULE=config.settings_dev
@@ -21,8 +21,8 @@ services:
   
   migrator:
     build:
-      context: ../..
-      dockerfile: docker/dev/Dockerfile
+      context: ../../backend
+      dockerfile: Dockerfile
     env_file: .env
     environment:
       - DJANGO_SETTINGS_MODULE=config.settings_dev
@@ -52,7 +52,7 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: ${PWD}/../../
+      device: backend
       o: bind
   postgres-data:
 
