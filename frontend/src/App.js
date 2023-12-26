@@ -1,13 +1,14 @@
-// src/App.js
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import SignIn from './components/SignIn';
 
 function App() {
   return (
-    <div className="App">
-      <SignIn />
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/signin" component={SignIn} />
+        {/* Other routes */}
+      </Switch>
+    </Router>
   );
 }
 
