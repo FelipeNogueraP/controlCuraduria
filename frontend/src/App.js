@@ -1,11 +1,12 @@
 // src/App.js
 import React from 'react';
-import UserProfile from './components/UserProfile';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import SignIn from './components/SignIn';
 
 function App() {
   return (
     <div className="App">
-      <UserProfile userId="1" /> {/* Example user ID */}
+      <SignIn />
     </div>
   );
 }
