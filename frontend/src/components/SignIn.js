@@ -1,21 +1,26 @@
 // src/components/SignIn.js
 import React, { useState } from 'react';
 import { Form, Button, Container, Card } from 'react-bootstrap';
+import { signIn } from 'aws-amplify/auth';
+
 
 function SignIn() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        // Handle sign-in logic here
         try {
-            const user = await Auth.signIn(username, password);
-            console.log('Sign in successful!', user);
-            // Handle the successful sign-in (e.g., redirect to a dashboard)
+            const signInResponse = await signIn({ 
+                username, // Use the state directly
+                password  // Use the state directly
+            });
+    
+            console.log('Sign in successful!', signInResponse);
+            // Handle the successful sign-in
         } catch (error) {
             console.error('Error signing in:', error);
-            // Handle sign-in errors (e.g., show an error message)
+            // Handle sign-in errors
         }
     };
 

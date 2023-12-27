@@ -1,13 +1,26 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React from 'react';
+import { Amplify } from 'aws-amplify';
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 import SignIn from './components/SignIn';
+import awsExports from './aws-exports';
+
+
+Amplify.configure(awsExports);
+
+// You can get the current config object
+const currentConfig = Amplify.getConfig();
+
+console.log(currentConfig)
 
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route path="/signin" component={SignIn} />
+      <Routes>
+        <Route path="/signin" element={<SignIn />} />
         {/* Other routes */}
-      </Switch>
+      </Routes>
     </Router>
   );
 }
