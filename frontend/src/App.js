@@ -1,5 +1,6 @@
 import React from 'react';
 import { Amplify } from 'aws-amplify';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
