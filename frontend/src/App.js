@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Amplify } from 'aws-amplify';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import SignIn from './components/SignIn';
+import awsExports from './aws-exports';
+
+
+Amplify.configure(awsExports);
+
+// You can get the current config object
+const currentConfig = Amplify.getConfig();
+
+console.log(currentConfig)
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/signin" element={<SignIn />} />
+        {/* Other routes */}
+      </Routes>
+    </Router>
   );
 }
 

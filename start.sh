@@ -15,4 +15,4 @@ if [ ! -f "$ENV_FILE" ]; then
 fi
 
 # Run Docker Compose
-docker-compose up
+docker-compose up -d
